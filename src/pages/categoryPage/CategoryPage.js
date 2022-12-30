@@ -9,16 +9,31 @@ export const CategoryPage = () => {
     const {category} = useParams();
     const { data , isFetching} = useGetGamesByCategoryQuery(category);
     if (isFetching) return <Loading/>
-    console.log(data)
+
     var games = data
 
+    var gameCategory
+     if (category === "card") {gameCategory = "Card Game"}
+     else if (category === "MMO"  ) {gameCategory = ["MMO","MMORPG","MMOFPS","MMORTS"]}
+     else if (category === "Strategy") {gameCategory = ["Strategy","MMORTS"]}
+     else if (category === "Sports") {gameCategory = ["Sports","Racing"]}
+    else {  gameCategory = category}
     
   return (
     <div>CategoryPage
-                {games.map((game) => (
+
+            <div className="popular-games">
+            {games.map((game) => (
+                gameCategory.includes(game.genre) ?
+                 <div className='home-game-card'> <GameCard game={game} key={game.id}/> </div>: ''
+            ))}
+            </div>
+
+
+                {/* {games.map((game) => (
 
                 <GameCard game={game} key={game.id}/>
-))}
+))} */}
     </div>
   )
 }

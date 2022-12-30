@@ -1,17 +1,30 @@
-import React from 'react'
-import { useGetGamesQuery } from '../../services/gamesApi'
-import GameCard from '../gameCard/GameCard'
-export const GamesDirectory = () => {
-    const { data , isFetching} = useGetGamesQuery();
-    if (isFetching) return 'Loading...'
+import {useState} from 'react'
 
-    var games = data
+import GameCard from '../gameCard/GameCard'
+
+export const GamesDirectory = ({games}) => {
+const [gamesList , setGamesList] = useState(games)
+const [query , setQuery ] = useState('')
+
+const search = (game) => {
+    return game.filter((item) => item.title.toLowerCase().includes(query))
+
+}
+
+const searchedGames = search(gamesList)
+console.log(searchedGames)
+    
 
 
   return (
     <div>
+        <input 
+        type = "text"
+        placeholder='search'
+        onChange={(e) => setQuery(e.target.value.toLowerCase())}
+        />
         <h1>Free to play games</h1>
-        {games.map((game) => (
+        {searchedGames?.map((game) => (
 
             <GameCard game={game} key={game.id}/>
         ))}

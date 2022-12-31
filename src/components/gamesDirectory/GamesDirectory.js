@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import GameCard from '../gameCard/GameCard'
+import './GamesDirectory.scss'
 
 export const GamesDirectory = ({games}) => {
 // const [gamesList , setGamesList] = useState(games)
@@ -24,10 +25,12 @@ const searchedGames = search(games)
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
         />
         <h1>Free to play games</h1>
+        <div className="games-directory">
         {searchedGames?.map((game) => (
 
             <GameCard game={game} key={game.id}/>
         ))}
+        </div>
     </div>
 
     )

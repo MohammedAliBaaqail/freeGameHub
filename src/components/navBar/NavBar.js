@@ -15,6 +15,7 @@ export const NavBar = () => {
             
             <Link to="/games">All F2P Games</Link>
             <Link to="/giveaways">All Giveaways </Link>
+            <div className='nav-flex-grow'></div>
             <Link to="games/Shooter">Shooter</Link>
             <Link to="games/MMO">MMO</Link>
             <Link to="games/MOBA">MOBA</Link>

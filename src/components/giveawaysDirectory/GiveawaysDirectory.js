@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import { GiveawayCard } from '../giveawayCard/GiveawayCard';
+import './GiveawaysDirectory.scss'
 
 
 export const GiveawaysDirectory = ({giveaways}) => {
@@ -15,7 +16,7 @@ export const GiveawaysDirectory = ({giveaways}) => {
 const searchedGames = search(giveaways)
 
   return (
-    <div>GiveawaysGames
+    <div >
 
 
 
@@ -26,10 +27,12 @@ const searchedGames = search(giveaways)
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
         />
         <h1>Free games</h1>
+        <div className="giveaways-directory">
         {searchedGames?.map((giveaway) => (
 
             <GiveawayCard giveaway={giveaway} key={giveaway.id}/>
         ))}
+        </div>
 
     </div>
   )

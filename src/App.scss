@@ -37,3 +37,27 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #292929 #696969;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #696969;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #292929;
+    border-radius: 9px;
+    border: px outset #919191;
+  }

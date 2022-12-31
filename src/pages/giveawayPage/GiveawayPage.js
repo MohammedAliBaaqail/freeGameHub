@@ -1,6 +1,7 @@
 import { Loading } from '../../components/loading/Loading';
 import { useGetGiveawayByIdQuery } from '../../services/giveawaysApi'
 import { useParams } from 'react-router';
+import { Button } from '../../components/button/Button';
 
 
 export const GiveawayPage = () => {
@@ -28,7 +29,8 @@ export const GiveawayPage = () => {
         <h3>{platforms}</h3>
         <h2>End Date</h2>
         <h3>{end_date}</h3>
-        <a target="_blank" href={open_giveaway_url}>Open Giveaway</a>
+        <Button text="Open Giveaway" url ={open_giveaway_url}/>
+        
         
     </div>
   )

@@ -15,7 +15,7 @@ export const AllGames = () => {
 
 
   return (
-    <div>AllGames
+    <div>
       
         <GamesDirectory games={gamesList}/>
     </div>

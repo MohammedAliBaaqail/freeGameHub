@@ -25,6 +25,7 @@
     }
     .nav-bar__links{
         display: flex;
+        flex-grow: 1;
         align-items: center;
         margin-right: 25px;
        
@@ -41,4 +42,8 @@
             }
         }
     }
+}
+
+.nav-flex-grow{
+    flex-grow: 1;
 }

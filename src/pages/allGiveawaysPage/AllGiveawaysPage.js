@@ -12,7 +12,7 @@ const AllGiveawaysPage = () => {
     
 
   return (
-    <div>AllGiveawaysPage
+    <div>
 
         <GiveawaysDirectory giveaways={giveaways}/>
     </div>

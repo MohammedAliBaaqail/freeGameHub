@@ -10,8 +10,8 @@ const baseUrl = 'https://free-to-play-games-database.p.rapidapi.com'
 const createRequest = (url) => ({ url, headers: gamesApiHeaders })
 
 
-export const gamesApi = createApi({
-    reducerPath: 'gamesApi',
+export const F2PGamesApi = createApi({
+    reducerPath: 'F2PGamesApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getGames: builder.query({
@@ -26,4 +26,7 @@ export const gamesApi = createApi({
     })
 })
 
-export const { useGetGamesQuery , useGetGameQuery , useGetGamesByCategoryQuery } = gamesApi
+
+
+
+export const { useGetGamesQuery , useGetGameQuery , useGetGamesByCategoryQuery } = F2PGamesApi

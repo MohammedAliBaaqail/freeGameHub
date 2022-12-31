@@ -1,12 +1,12 @@
 
-import { useGetGamesQuery } from '../../services/gamesApi'
+import { useGetGamesQuery } from '../../services/F2PgamesApi'
 
 import { Loading } from '../../components/loading/Loading';
 import GameCard from '../../components/gameCard/GameCard';
 
 import './Home.scss'
 
-export const Home = () => {
+export const HomePage = () => {
     const { data , isFetching} = useGetGamesQuery();
     if (isFetching) return <Loading/>
     
@@ -20,7 +20,9 @@ export const Home = () => {
     
     return (
     <div>
+            <div className="hero-section">
             <h1>hero section here </h1>
+            </div>
 
             <h1 >Populer </h1>
             <div className="popular-games">
@@ -37,4 +39,4 @@ export const Home = () => {
 }
 
 
-export default Home
+export default HomePage

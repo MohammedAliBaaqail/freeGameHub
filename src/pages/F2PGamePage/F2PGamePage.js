@@ -1,14 +1,14 @@
 import React from 'react'
-import { useGetGameQuery } from '../../services/gamesApi'
+import { useGetGameQuery } from '../../services/F2PgamesApi'
 import { useParams } from 'react-router-dom'
 import { Loading } from '../../components/loading/Loading'
 
-export const GamePage = () => {
+export const F2PGamePage = () => {
 
     const {gameId} = useParams();
     const { data , isFetching} = useGetGameQuery(gameId);
     if (isFetching) return <Loading/>
-    var game = data
+    const game = data
     const {title, thumbnail, description, game_url ,genre ,platform ,publisher, developer, release_date ,minimum_system_requirements ,screenshots } = game
     
 
@@ -44,4 +44,4 @@ export const GamePage = () => {
 }
 
 
-export default GamePage
+export default F2PGamePage

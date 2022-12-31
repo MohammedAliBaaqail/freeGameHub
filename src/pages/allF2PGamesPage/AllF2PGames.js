@@ -1,14 +1,18 @@
-import { useState } from 'react'
+
 import GamesDirectory from '../../components/gamesDirectory/GamesDirectory'
 import { Loading } from '../../components/loading/Loading';
-import { useGetGamesQuery } from '../../services/gamesApi'
+import { useGetGamesQuery } from '../../services/F2PgamesApi'
+
 
 
 export const AllGames = () => {
-  const { data: gamesList , isFetching} = useGetGamesQuery();
+  const { data: gamesList , isFetching} = useGetGamesQuery();  
 
 
   if (isFetching) return <Loading/>
+
+
+
 
   return (
     <div>AllGames

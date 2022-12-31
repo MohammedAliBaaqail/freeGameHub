@@ -3,7 +3,7 @@ import {useState} from 'react'
 import GameCard from '../gameCard/GameCard'
 
 export const GamesDirectory = ({games}) => {
-const [gamesList , setGamesList] = useState(games)
+// const [gamesList , setGamesList] = useState(games)
 const [query , setQuery ] = useState('')
 
 const search = (game) => {
@@ -11,8 +11,8 @@ const search = (game) => {
 
 }
 
-const searchedGames = search(gamesList)
-console.log(searchedGames)
+const searchedGames = search(games)
+
     
 
 

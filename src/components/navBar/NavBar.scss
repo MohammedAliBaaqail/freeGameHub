@@ -5,7 +5,8 @@
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: #fff;
+    background-color: var(--color-secondry-dark);
+    
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     z-index: 100;
     display: flex;
@@ -26,16 +27,17 @@
         display: flex;
         align-items: center;
         margin-right: 25px;
+       
         
         a{
             font-size: 1.2rem;
             font-weight: 500;
-            color: #000;
+            color: #fcfcfcd6;
             text-decoration: none;
             margin: 0 10px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             &:hover{
-                color: #f00;
+                color: var(--color-orange);
             }
         }
     }

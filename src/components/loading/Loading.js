@@ -1,9 +1,10 @@
 import React from 'react'
-
+import './Loading.scss'
 export const Loading = () => {
   return (
-    <div >
-        Loading...
+    <div className='loading'>
+      Loading...
+      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
   )
 }

@@ -1,15 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { gamesApi } from '../services/gamesApi'
+import { F2PGamesApi   } from '../services/F2PgamesApi'
+import { giveawaysApi } from '../services/giveawaysApi'
 
 export default configureStore({
   reducer: {
-    [gamesApi.reducerPath]: gamesApi.reducer,
+    [F2PGamesApi.reducerPath]: F2PGamesApi.reducer,
+    [giveawaysApi.reducerPath]: giveawaysApi.reducer,
 
   },
 
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(gamesApi.middleware),
+  getDefaultMiddleware().concat(giveawaysApi.middleware,F2PGamesApi.middleware),
+
 
 
 

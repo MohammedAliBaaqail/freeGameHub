@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetGamesByCategoryQuery } from '../../services/gamesApi'
+import { useGetGamesByCategoryQuery } from '../../services/F2PgamesApi'
 import { useParams } from 'react-router-dom'
 import { Loading } from '../../components/loading/Loading';
 import GameCard from '../../components/gameCard/GameCard';

@@ -3,6 +3,7 @@ import { useGetGamesByCategoryQuery } from "../../services/F2PgamesApi";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
+import './CategoryPage.scss'
 
 export const CategoryPage = () => {
   const { category } = useParams();
@@ -25,9 +26,9 @@ export const CategoryPage = () => {
   }
 
   return (
-    <div>
+    <div className="category-page">
       
-      <div className="popular-games">
+     
         {games.map((game) =>
           gameCategory.includes(game.genre) ? (
             <GameCard {...game} key={game.id} noGenre={true} />
@@ -35,7 +36,7 @@ export const CategoryPage = () => {
             ""
           )
         )}
-      </div>
+     
       {/* {games.map((game) => (
 
                 <GameCard game={game} key={game.id}/>

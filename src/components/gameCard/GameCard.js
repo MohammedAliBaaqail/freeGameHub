@@ -3,21 +3,25 @@ import { Link } from "react-router-dom";
 import { Button } from "../button/Button";
 import "./GameCard.scss";
 
-export const GameCard = ({ game , noGenre }) => {
-  const { title, thumbnail, short_description, game_url, genre, id } = game;
+export const GameCard = ({ title, thumbnail, short_description, game_url, genre, id , noGenre }) => {
+
+
+
+
+
 
   return (
     <>
-      <div className="game-card">
+      <div className="game-card  ">
         <div className="card-img">
           <img src={thumbnail} alt={title} />
         </div>
 
-        <div class="info">
-          <h1 class="title">{title}</h1>
-          <p class="description">{short_description}</p>
+        <div className="info">
+          <h1 className="title">{title}</h1>
+          <p className="description">{short_description}</p>
 
-          <p>{noGenre ? '' :genre }</p>
+          <p className="game-genre">{noGenre ? '' :genre.toUpperCase() }</p>
 
           <div className="flex-game-buttons">
             <Button text="Play" url={game_url} />

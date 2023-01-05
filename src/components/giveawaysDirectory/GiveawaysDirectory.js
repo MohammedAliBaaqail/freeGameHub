@@ -1,41 +1,32 @@
-import {useState} from 'react'
+import { useState } from "react";
 
-import { GiveawayCard } from '../giveawayCard/GiveawayCard';
-import './GiveawaysDirectory.scss'
+import { GiveawayCard } from "../giveawayCard/GiveawayCard";
+import { Search } from "../search/Search";
+import "./GiveawaysDirectory.scss";
 
-
-export const GiveawaysDirectory = ({giveaways}) => {
-
+export const GiveawaysDirectory = ({ giveaways }) => {
   // const [gamesList, setGamesList] = useState(giveaways)
-  const [query , setQuery ] = useState('')
+  const [query, setQuery] = useState("");
 
   const search = (game) => {
-    return game.filter((item) => item.title.toLowerCase().includes(query))
-
-}
-const searchedGames = search(giveaways)
-
+    return game.filter((item) => item.title.toLowerCase().includes(query));
+  };
+  const searchedGames = search(giveaways);
+  const handleSearch = (e) => {
+    setQuery(e.target.value.toLowerCase());
+  };
   return (
-    <div >
+    <div>
+      <Search handleSearch={handleSearch} />
 
-
-
-
-<input 
-        type = "text"
-        placeholder='search'
-        onChange={(e) => setQuery(e.target.value.toLowerCase())}
-        />
-        <h1>Free games</h1>
-        <div className="giveaways-directory">
+      <h1>Free Giveaway Games</h1>
+      <div className="giveaways-directory">
         {searchedGames?.map((giveaway) => (
-
-            <GiveawayCard giveaway={giveaway} key={giveaway.id}/>
+          <GiveawayCard {...giveaway} key={giveaway.id} />
         ))}
-        </div>
-
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default GiveawaysDirectory
+export default GiveawaysDirectory;

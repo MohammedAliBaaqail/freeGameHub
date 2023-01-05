@@ -13,10 +13,13 @@ export const HomePage = () => {
     var games = data
 
     
-    const populerGames = [540,516,475,466,452,21,23,57] 
+    const populerGames = [540,516,475,466,452,21,23,57,523,517] 
     const populerShooters = [540,466,452,23]
     const popularMMOS= []
     
+
+
+
     
     return (
     <div>
@@ -28,7 +31,7 @@ export const HomePage = () => {
             <div className="popular-games">
             {games.map((game) => (
                 populerGames.includes(game.id) ?
-                 <div className='home-game-card'> <GameCard game={game} key={game.id}/> </div>: ''
+                 <div key={game.id} className='home-game-card'> <GameCard {...game} /> </div>: ''
             ))}
             </div>
             

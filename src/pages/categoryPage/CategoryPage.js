@@ -26,11 +26,11 @@ export const CategoryPage = () => {
 
   return (
     <div>
-      CategoryPage
+      
       <div className="popular-games">
         {games.map((game) =>
           gameCategory.includes(game.genre) ? (
-            <GameCard game={game} key={game.id} noGenre={true} />
+            <GameCard {...game} key={game.id} noGenre={true} />
           ) : (
             ""
           )

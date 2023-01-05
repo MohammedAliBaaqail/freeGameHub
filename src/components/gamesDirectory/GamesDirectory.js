@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import GameCard from '../gameCard/GameCard'
+import { Search } from '../search/Search'
 import './GamesDirectory.scss'
 
 export const GamesDirectory = ({games}) => {
@@ -15,25 +16,30 @@ const search = (game) => {
 const searchedGames = search(games)
 
     
+const handleSearch = (e) => {
+    setQuery(e.target.value.toLowerCase());
+  };
+
 
 
   return (
     <div>
-        <input 
-        type = "text"
-        placeholder='search'
-        onChange={(e) => setQuery(e.target.value.toLowerCase())}
-        />
-        <h1>Free to play games</h1>
+        <Search handleSearch={handleSearch} />
+
+        <h1>Free To Play Games</h1>
         <div className="games-directory">
         {searchedGames?.map((game) => (
 
-            <GameCard game={game} key={game.id}/>
+            <GameCard {...game} key={game.id}/>
         ))}
         </div>
+
+        
     </div>
 
     )
 }
 
 export default GamesDirectory
+
+

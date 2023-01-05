@@ -9,7 +9,13 @@ import CategoryPage from "./pages/categoryPage/CategoryPage";
 import { GiveawayPage } from "./pages/giveawayPage/GiveawayPage";
 import AllGiveawaysPage from "./pages/allGiveawaysPage/AllGiveawaysPage";
 
+
+
 function App() {
+
+
+
+
   return (
     <div className="App">
       <NavBar/>

@@ -7,13 +7,15 @@
     height: 60px;
     background-color: var(--color-secondry-dark);
     
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: rgb(0 0 0 / 64%) 0px 5px 15px;
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    border-bottom: solid 3px var(--color-orange);
    
+    font-size: calc(10px + 2vmin);
     .nav-bar__logo{
         width: 100px;
         height: 100%;

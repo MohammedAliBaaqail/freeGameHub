@@ -2,7 +2,7 @@ import { Loading } from '../../components/loading/Loading';
 import { useGetGiveawayByIdQuery } from '../../services/giveawaysApi'
 import { useParams } from 'react-router';
 import { Button } from '../../components/button/Button';
-
+import './GiveawayPage.scss'
 
 export const GiveawayPage = () => {
     const {id} = useParams();
@@ -22,14 +22,14 @@ export const GiveawayPage = () => {
         alt={title}
         />
         <h2>Description</h2>
-        <p>{description}</p>
+        <p className='giveaway-desc'>{description}</p>
         <h2>Instructions</h2>
-        <h3>{instructions}</h3>
+        <p>{instructions}</p>
         <h2>Platforms</h2>
         <h3>{platforms}</h3>
         <h2>End Date</h2>
         <h3>{end_date}</h3>
-        <Button text="Open Giveaway" url ={open_giveaway_url}/>
+        <Button text="Open " url ={open_giveaway_url}/>
         
         
     </div>

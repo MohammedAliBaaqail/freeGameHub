@@ -14,20 +14,21 @@ export const GiveawayPage = () => {
 
   return (
     <div>
-        <h1>{title}</h1>
-        <h2>worth</h2>
-        <h2>{worth}</h2>
+        <h1 className='giveaway-page-title'>{title}</h1>
         <img
         src={image}
         alt={title}
         />
-        <h2>Description</h2>
         <p className='giveaway-desc'>{description}</p>
-        <h2>Instructions</h2>
+        <h2 className='color-orange'>worth</h2>
+        <h2>{worth}</h2>
+      
+        
+        <h2 className='color-orange'>Instructions</h2>
         <p>{instructions}</p>
-        <h2>Platforms</h2>
+        <h2 className='color-orange'>Platforms</h2>
         <h3>{platforms}</h3>
-        <h2>End Date</h2>
+        <h2 className='color-orange'>End Date</h2>
         <h3>{end_date}</h3>
         <Button text="Open " url ={open_giveaway_url}/>
         

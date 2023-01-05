@@ -24,7 +24,7 @@ export const HomePage = () => {
     return (
     <div>
             <div className="hero-section">
-            <h1>hero section here </h1>
+            <h1>Free Game Hub </h1>
             </div>
 
             <h1 >Populer </h1>

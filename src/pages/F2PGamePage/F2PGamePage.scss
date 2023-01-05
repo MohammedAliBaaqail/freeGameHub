@@ -1,14 +1,43 @@
-.F2P-Game-Page-container{
-    display: flex;
-
-}
 .F2P-Game-Page{
     margin: 100px 0 50px 0;
+    .line{
+        border-bottom: 1px solid rgba(255,255,255,.25);
+        margin:50px auto;
+        width: 80%;
+      }
 
 }
+.F2P-Game-Page-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    .F2P-game-info{
+        width: 500px;
+        margin:  auto;
+        margin-bottom: 40px;
+
+    }
+    .F2P-game-requirements{
+        width:  500px;
+        margin: 0 auto;
+
+    }
+
+}
+.F2P-game-desc{
+    width: 75%;
+       margin: 0 auto;
+   }
 .F2P-game-info{
     width : 25%;
-    margin:  auto
+    margin:  auto;
+    .F2P-game-info-flex{
+        display: flex;
+        justify-content: space-between;
+    }
+    
 }
 .slider{
     width: 1280px;

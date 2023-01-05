@@ -54,29 +54,53 @@ export const F2PGamePage = () => {
   return (
     <div className="F2P-Game-Page">
      <h1>{title}</h1>
-   
+        <img src={thumbnail ? thumbnail : ""} alt={title} />
+        
+        <div className="F2P-game-desc">
+        <p>{description}</p>
+            </div>
+            <Button text={"Play"} url={game_url} />
+            <div className="line"></div>
     <div className="F2P-Game-Page-container">
-     
-
       <div className="F2P-game-info">
-      {/* <img src={thumbnail ? thumbnail : ""} alt={title} /> */}
-      <p>{description}</p>
-      <h2>Genre:{genre}</h2>
-      <h2>Platform:{platform}</h2>
-      <Button text={"Play"} url={game_url} />
 
-      <h2>Publisher:{publisher}</h2>
-      <h2>Developer:{developer}</h2>
-      <h2>Release_date:{release_date}</h2>
+      <div className="F2P-game-info-flex">
+      <h3 className="color-orange ">Genre</h3>
+      <h3 className=" right-text">{genre}</h3>
+      </div>
 
-      {minimum_system_requirements ? <h2>Minimum System Requirements:</h2> : ""}
-      <h4>{minimum_system_requirements?.os}</h4>
-      <h4>{minimum_system_requirements?.processor}</h4>
-      <h4>{minimum_system_requirements?.memory}</h4>
-      <h4>{minimum_system_requirements?.graphics}</h4>
-      <h4>{minimum_system_requirements?.storage}</h4>
-      {!screenshots.length === 0 ? <h2>Screenshots:</h2> : ""}
+        <div className="F2P-game-info-flex">   
+      <h3 className="color-orange">Platform</h3>
+   
+      <h3 className=" right-text">{platform}</h3>
+      </div>
 
+      <div className="F2P-game-info-flex"> 
+      <h3 className="color-orange">Publisher</h3>
+      <h3 className=" right-text">{publisher}</h3>
+      </div>
+
+      <div className="F2P-game-info-flex"> 
+      <h3 className="color-orange">Developer</h3>
+      <h3 className=" right-text">{developer}</h3>
+      </div>
+
+      <div className="F2P-game-info-flex"> 
+      <h3 className="color-orange">Release_date</h3>
+      <h3 className=" right-text">{release_date}</h3>
+      </div>
+      
+
+
+      </div>
+
+      <div className="F2P-game-requirements">
+      {minimum_system_requirements ? <h2 className="color-orange">Minimum System Requirements</h2> : ""}
+      <h4><span className="color-orange">▣</span> {minimum_system_requirements?.os} Operating System</h4>
+      <h4><span className="color-orange">▣</span> {minimum_system_requirements?.processor} CPU</h4>
+      <h4><span className="color-orange">▣</span> {minimum_system_requirements?.memory} RAM</h4>
+      <h4><span className="color-orange">▣</span> {minimum_system_requirements?.graphics} Graphics Card</h4>
+      <h4><span className="color-orange">▣</span> {minimum_system_requirements?.storage} Storage Size</h4>
       </div>
     </div>
     <Slider {...sliderSettings}>

@@ -65,3 +65,10 @@ p{
     color: var(--color-primary-light);
     background: var(--color-orange-dark);
   }
+
+  @media screen and (max-width: 1100px) {
+    body{
+     
+      background: var(--color-primary-dark);
+    }
+  }

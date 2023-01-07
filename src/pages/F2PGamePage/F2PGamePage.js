@@ -104,7 +104,7 @@ export const F2PGamePage = () => {
       </div>
     </div>
     <Slider {...sliderSettings}>
-    {screenshots.map((screenshot, i) => (
+    {screenshots?.map((screenshot, i) => (
         <div>
             <img src={screenshot.image} alt={screenshot.image} />
         </div>

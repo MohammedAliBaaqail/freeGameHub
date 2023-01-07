@@ -1,3 +1,7 @@
+.nav{
+    width: 0px;
+    height: 0px;
+}
 .nav-bar{
 
     position: fixed;
@@ -41,6 +45,7 @@
             transition: all 0.4s ease;
             &:hover{
                 color: var(--color-orange);
+                
             }
         }
     }
@@ -49,3 +54,104 @@
 .nav-flex-grow{
     flex-grow: 1;
 }
+
+#menu__toggle {
+    opacity: 0;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+
+@media screen and (max-width: 1100px) {
+    .nav-bar{
+        padding: 0 10px;
+        .nav-bar__logo{
+            width: 80px;
+        }
+        .nav-bar__links{
+            display: none;
+        }
+    }
+    .hamburger-menu {
+        display: block;
+      }
+      #menu__toggle:checked + .menu__btn > span {
+        transform: rotate(45deg);
+      }
+      #menu__toggle:checked + .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0deg);
+      }
+      #menu__toggle:checked + .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+      #menu__toggle:checked ~ .menu__box {
+        right: -1px !important;
+      }
+      .menu__btn {
+    
+        position: fixed;
+        top: 29px;
+        right: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 999;
+        
+    
+      }
+      .menu__btn > span,
+      .menu__btn > span::before,
+      .menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-orange);
+        transition-duration: .25s;
+      }
+      .menu__btn > span::before {
+        content: '';
+        top: -8px;
+      }
+      .menu__btn > span::after {
+        content: '';
+        top: 8px;
+      }
+      .menu__box {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        background-color: var(--color-primary-dark);
+        box-shadow: rgb(0 0 0 / 64%) 0px 5px 15px;
+        transition-duration: .25s;
+        z-index: 998;
+        border-left: solid 3px var(--color-orange);
+ 
+      }
+      .menu__item {
+        display: block;
+        padding: 12px 24px;
+        color: var(--color-white);
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        transition-duration: .25s;
+      }
+      .menu__item:hover {
+        background-color: var(--color-secondry-dark);
+        color: var(--color-orange);
+      }
+
+}
+
+
+ 

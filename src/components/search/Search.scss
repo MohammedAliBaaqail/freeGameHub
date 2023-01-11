@@ -13,13 +13,16 @@
     -webkit-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
     -moz-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
     box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-    margin: 100px auto 20px;
+
     overflow: hidden;
-    padding: 8px;
-    width: 273px;
+    padding: 2px;
+    width: 199px;
+    
+  
   }
   
   .form-wrapper #search {
+
 
 
 
@@ -28,8 +31,9 @@
     font: 22px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
     height: 15px;
     padding: 10px;
-    width: 250px;
+    width: 175px;
     background-color: var(--color-secondry-dark);
+
   }
   
   .form-wrapper #search:focus {

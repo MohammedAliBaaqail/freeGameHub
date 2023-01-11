@@ -23,8 +23,10 @@ const handleSearch = (e) => {
 
 
   return (
-    <div>
+    <div className='games-directory-container'>
+        <div className="games-directory-search">
         <Search handleSearch={handleSearch} />
+        </div>
 
         <h1>Free To Play Games</h1>
         <div className="games-directory">
@@ -35,6 +37,7 @@ const handleSearch = (e) => {
         </div>
 
         
+    
     </div>
 
     )

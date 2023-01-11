@@ -3,12 +3,15 @@ import { useGetGiveawayByIdQuery } from '../../services/giveawaysApi'
 import { useParams } from 'react-router';
 import { Button } from '../../components/button/Button';
 import './GiveawayPage.scss'
+import { Error } from '../../components/error/Error';
 
 export const GiveawayPage = () => {
     const {id} = useParams();
     const { data , isFetching} = useGetGiveawayByIdQuery(id);
     if (isFetching) return <Loading/>
     const giveaway = data
+    
+    if (!giveaway) return <Error/>
     const {title, worth, image ,description ,instructions , open_giveaway_url,platforms,end_date} = giveaway
     
 

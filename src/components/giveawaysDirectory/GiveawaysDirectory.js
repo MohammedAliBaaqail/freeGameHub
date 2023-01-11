@@ -16,8 +16,11 @@ export const GiveawaysDirectory = ({ giveaways }) => {
     setQuery(e.target.value.toLowerCase());
   };
   return (
-    <div>
-      <Search handleSearch={handleSearch} />
+    <div className="giveaways-directory-container">
+   <div className="giveaways-directory-search">
+        <Search handleSearch={handleSearch} />
+        </div>
+     
 
       <h1>Free Giveaway Games</h1>
       <div className="giveaways-directory">

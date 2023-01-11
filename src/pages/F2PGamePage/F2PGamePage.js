@@ -6,6 +6,9 @@ import { Button } from "../../components/button/Button";
 import "./F2PGamePage.scss";
 import Slider from "react-slick";
 
+import { motion } from "framer-motion";
+import animations from "../../animations/Animations"
+import { Error } from "../../components/error/Error";
 
 export const F2PGamePage = () => {
     const sliderSettings = {
@@ -16,12 +19,16 @@ export const F2PGamePage = () => {
         slidesToScroll: 1,
         adaptiveHeight: true,
         autoplay: true,
+        
        
       };
   const { gameId } = useParams();
   const { data, isFetching } = useGetGameQuery(gameId);
   if (isFetching) return <Loading />;
   const game = data;
+  if (!game) return <Error/>
+
+
   const {
     title,
     thumbnail,
@@ -50,9 +57,11 @@ export const F2PGamePage = () => {
 
 //  }
   
-  console.log("gg");
+
   return (
-    <div className="F2P-Game-Page">
+    <motion.div
+    {...animations}
+     className="F2P-Game-Page">
      <h1>{title}</h1>
         <img src={thumbnail ? thumbnail : ""} alt={title} />
         
@@ -103,16 +112,18 @@ export const F2PGamePage = () => {
       <h4><span className="color-orange">▣</span> {minimum_system_requirements?.storage} Storage Size</h4>
       </div>
     </div>
+    <div className="F2P-img-slider">
     <Slider {...sliderSettings}>
     {screenshots?.map((screenshot, i) => (
         <div>
-            <img src={screenshot.image} alt={screenshot.image} />
+            <img className="F2P-img" src={screenshot.image} alt={screenshot.image} />
         </div>
             
           ))}
 
     </Slider>
     </div>
+    </motion.div>
   );
 };
 

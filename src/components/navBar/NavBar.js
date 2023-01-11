@@ -1,15 +1,86 @@
-import React from "react";
+import { useState , useEffect } from "react";
 import "./NavBar.scss";
 import Logo from "../../assets//images/logo.svg";
 
 import { Link } from "react-router-dom";
 
-
-
 export const NavBar = () => {
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+  const [isHidden, setIsHidden] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const isHidden = prevScrollpos > currentScrollPos;
+
+      setPrevScrollpos(currentScrollPos);
+      setIsHidden(isHidden);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollpos]);
+
   return (
-    <div className="nav">
-      <div className="nav-bar">
+  
+      <div className= {`nav-bar${isHidden? '' : ' hidden'}`}>
+              <div className="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label className="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+
+        <ul className="menu__box">
+          <li>
+            <Link className="menu__item" to="/games">
+              F2P GAMES
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="/giveaways">
+              GIVEAWAYS
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/Shooter">
+              SHOOTER
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/MMO">
+              MMO
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/MOBA">
+              MOBA
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/Strategy">
+              STRATEGY
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/Fighting">
+              FIGHTING
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/Sports">
+              SPORTS
+            </Link>
+          </li>
+          <li>
+            <Link className="menu__item" to="games/card">
+              CARDS
+            </Link>
+          </li>
+        </ul>
+      </div>
         <div className="nav-bar__logo">
           <Link to="/">
             <img src={Logo} alt="logo" />
@@ -30,27 +101,7 @@ export const NavBar = () => {
       </div>
 
 
-   
-      <div className="hamburger-menu">
-    <input id="menu__toggle" type="checkbox" />
-    <label className="menu__btn" for="menu__toggle">
-      <span></span>
-    </label>
-
-    <ul className="menu__box">
-      <li><Link className="menu__item" to="/games">F2P GAMES</Link></li>
-      <li><Link className="menu__item" to="/giveaways">GIVEAWAYS</Link></li>
-      <li><Link className="menu__item" to="games/Shooter">SHOOTER</Link></li>
-      <li><Link className="menu__item" to="games/MMO">MMO</Link></li>
-      <li><Link className="menu__item" to="games/MOBA">MOBA</Link></li>
-      <li><Link className="menu__item" to="games/Strategy">STRATEGY</Link></li>
-      <li><Link className="menu__item" to="games/Fighting">FIGHTING</Link></li>
-      <li><Link className="menu__item" to="games/Sports">SPORTS</Link></li>
-      <li><Link className="menu__item" to="games/card">CARDS</Link></li>
-    </ul>
-  </div>
-      
-    </div>
+ 
   );
 };
 

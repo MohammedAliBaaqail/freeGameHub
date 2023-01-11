@@ -5,6 +5,11 @@ import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
 import './CategoryPage.scss'
 
+import { motion } from "framer-motion";
+import animations from "../../animations/Animations"
+
+
+
 export const CategoryPage = () => {
   const { category } = useParams();
   const { data, isFetching } = useGetGamesByCategoryQuery(category);
@@ -26,7 +31,9 @@ export const CategoryPage = () => {
   }
 
   return (
-    <div className="category-page">
+    <motion.div
+    {...animations}
+     className="category-page">
       
      
         {games.map((game) =>
@@ -41,7 +48,7 @@ export const CategoryPage = () => {
 
                 <GameCard game={game} key={game.id}/>
 ))} */}
-    </div>
+    </motion.div>
   );
 };
 

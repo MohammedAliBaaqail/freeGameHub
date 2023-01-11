@@ -1,4 +1,4 @@
-import {  Routes, Route } from "react-router-dom";
+import {  Routes, Route , useLocation} from "react-router-dom";
 import './App.scss';
 
 import AllGames from "./pages/allF2PGamesPage/AllF2PGames";
@@ -9,17 +9,19 @@ import CategoryPage from "./pages/categoryPage/CategoryPage";
 import { GiveawayPage } from "./pages/giveawayPage/GiveawayPage";
 import AllGiveawaysPage from "./pages/allGiveawaysPage/AllGiveawaysPage";
 
+import { AnimatePresence } from "framer-motion"
 
 
 function App() {
 
 
-
+const location = useLocation();
 
   return (
     <div className="App">
       <NavBar/>
-      <Routes>
+      <AnimatePresence>
+      <Routes location={location } key={location.pathname}>
         <Route path='/' element={<HomePage />} />
         <Route path='/games' element={<AllGames />} />
         <Route path="game/:gameId" element={< F2PGamePage/>}/>
@@ -28,7 +30,7 @@ function App() {
         <Route path="giveaway/:id" element={< GiveawayPage/>}/>
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
-     
+      </AnimatePresence>
     </div>
   );
 }

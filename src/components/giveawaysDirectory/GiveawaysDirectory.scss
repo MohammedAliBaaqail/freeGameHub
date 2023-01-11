@@ -1,7 +1,20 @@
+.giveaways-directory-container{
+    
+        margin-top: 100px;
+}
+
 .giveaways-directory{
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+.giveaways-directory-search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }

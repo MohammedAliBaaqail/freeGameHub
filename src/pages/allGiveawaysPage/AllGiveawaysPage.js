@@ -5,12 +5,14 @@ import { Loading } from '../../components/loading/Loading';
 
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
+import { Error } from '../../components/error/Error';
 
 const AllGiveawaysPage = () => {
     const { data , isFetching} = useGetGiveawaysQuery();
     if (isFetching) return <Loading/>
 
     const giveaways = data
+    if (!giveaways) return <Error/>
     
 
   return (

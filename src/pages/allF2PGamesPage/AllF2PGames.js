@@ -3,6 +3,7 @@ import GamesDirectory from '../../components/gamesDirectory/GamesDirectory'
 import { Loading } from '../../components/loading/Loading';
 import { useGetGamesQuery } from '../../services/F2PgamesApi'
 import './AllF2PGames.scss'
+import { Error } from '../../components/error/Error';
 
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
@@ -11,6 +12,8 @@ export const AllGames = () => {
 
 
   if (isFetching) return <Loading/>
+  if (!gamesList) return <Error/>
+
 
 
 

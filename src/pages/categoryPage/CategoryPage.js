@@ -35,6 +35,7 @@ export const CategoryPage = () => {
     {...animations}
      className="category-page">
       
+      
      
         {games.map((game) =>
           gameCategory.includes(game.genre) ? (

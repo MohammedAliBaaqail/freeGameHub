@@ -33,7 +33,7 @@ export const GameCard = ({
           <div className="flex-game-buttons">
             <Button text="Play" url={game_url} />
 
-            <Link to={`/game/${id}`}>
+            <Link to={`/game/${id}`} >
               <Button text="More Info" />
             </Link>
           </div>

@@ -24,7 +24,7 @@ const location = useLocation();
       <Routes location={location } key={location.pathname}>
         <Route path='/' element={<HomePage />} />
         <Route path='/games' element={<AllGames />} />
-        <Route path="game/:gameId" element={< F2PGamePage/>}/>
+        <Route path="game/:gameId" element={< F2PGamePage />}/>
         <Route path="games/:category" element={< CategoryPage/>}/>
         <Route path="giveaways" element={< AllGiveawaysPage/>}/>
         <Route path="giveaway/:id" element={< GiveawayPage/>}/>

@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
 import { Error } from "../../components/error/Error";
+import { F2PGameComments } from "../../components/F2PGameComments/F2PGameComments";
 
 export const F2PGamePage = () => {
     const sliderSettings = {
@@ -112,6 +113,7 @@ export const F2PGamePage = () => {
       <h4><span className="color-orange">▣</span> {minimum_system_requirements?.storage} Storage Size</h4>
       </div>
     </div>
+    <div className="line"></div>
     <div className="F2P-img-slider">
     <Slider {...sliderSettings}>
     {screenshots?.map((screenshot, i) => (
@@ -123,6 +125,7 @@ export const F2PGamePage = () => {
 
     </Slider>
     </div>
+    <F2PGameComments gameId={gameId}/>
     </motion.div>
   );
 };

@@ -1,4 +1,10 @@
-.rating-starts{
+.rating-stars{
     margin: auto;
     width: 170px;
+}
+
+input{
+    .input-error{
+        border: 2px solid red;
+    }
 }

@@ -59,13 +59,13 @@ export const HomePage = () => {
   var games = data;
 
   const populerGames = [540, 466, 452, 21, 23, 57, 517, 475, 529, 13, 523];
-  const populerShooters = [540, 466, 452, 23];
-  const popularMMOS = [517];
-  const popularRPGs = [475];
-  const popularMOBAs = [529, 13];
-  const popularRacing = [540, 466, 452, 23];
-  const popularSports = [540, 466, 452, 23];
-  const popularStrategy = [540, 466, 452, 23];
+  // const populerShooters = [540, 466, 452, 23];
+  // const popularMMOS = [517];
+  // const popularRPGs = [475];
+  // const popularMOBAs = [529, 13];
+  // const popularRacing = [540, 466, 452, 23];
+  // const popularSports = [540, 466, 452, 23];
+  // const popularStrategy = [540, 466, 452, 23];
 
 
 

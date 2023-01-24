@@ -31,12 +31,19 @@
             height: 100%;
             object-fit: contain;
         }
+        &:hover{
+            
+            transform: rotateY(360deg);
+            transition: all 0.5s ease-in-out;
+        }
     }
     .nav-bar__links{
         display: flex;
         flex-grow: 1;
         align-items: center;
         margin-right: 25px;
+        height: 100%;
+        overflow: hidden;
        
         
         a{
@@ -44,11 +51,14 @@
             font-weight: 500;
             color: #fcfcfcd6;
             text-decoration: none;
-            margin: 0 10px;
-            transition: all 0.4s ease;
+            margin: 0 ;
+            height: 100%;
+            padding: 35px 10px 0px 10px;
+            transition: all 0.2s ease;
             &:hover{
                 color: var(--color-orange);
-                scale: 1.1;
+                
+                background-color: rgba(255, 255, 255, 0.053);
                 
                 
             }

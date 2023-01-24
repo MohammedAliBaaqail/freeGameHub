@@ -42,7 +42,7 @@ export const F2PGamePage = () => {
     release_date,
     minimum_system_requirements,
     screenshots,
-    id
+    
   } = game;
   
 //   while (id === gameId) {

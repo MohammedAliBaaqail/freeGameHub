@@ -1,8 +1,45 @@
-.giveaway-desc{
-
+.giveaway-page{
+   margin: 0 30px;
+    .giveaway-Page-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+        .giveaway-instructions{
+            
+            margin: 0 auto;
+            
+            padding: 0 20px;
     
-}
+        }
+        .giveaway-Page-info{
+            // width:  500px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: left;
+    
+        }
+    
+    }
 
-.giveaway-page-title{
-    margin-top: 120px;
+    .giveaway-desc{
+   
+    
+    }
+    
+    .giveaway-page-title{
+        margin-top: 120px;
+    }
+    
+    .giveaway-instructions{
+        white-space: pre-line;
+        text-align: left;
+        
+    }
+
+    img{
+        max-width: 100%;
+    }
+
 }

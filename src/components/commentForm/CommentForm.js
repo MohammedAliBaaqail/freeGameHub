@@ -1,30 +1,33 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { addComments } from "../../app/commentsSlice";
 
 import ReactStars from "react-rating-stars-component";
 
-export const CommentForm = ({ gameId }) => {
+export const CommentForm = ({ gameId , authUser}) => {
   const [text, setText] = useState();
   const [rating, setRating] = useState();
 
-  const [user, setUser] = useState();
+
   const [error, setError] = useState();
   const [emptyFields, setEmptyFields] = useState([])
 
 
   const dispatch = useDispatch();
+  const  {username}  = useSelector((state) => state.user.user);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const game = gameId;
 
-    const comment = { text, game, user, rating };
+    const comment = { text, game,username,  rating };
   
     const res = await fetch("/game/comments", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        "Authorization": `Bearer ${authUser.token}`
       },
       body: JSON.stringify(comment),
    
@@ -36,7 +39,7 @@ export const CommentForm = ({ gameId }) => {
     }
     if (res.ok) {
       setText("");
-      setUser("");
+
       setError("");
       setRating(0);
       setEmptyFields([])
@@ -64,12 +67,7 @@ export const CommentForm = ({ gameId }) => {
           onChange={(e) => setText(e.target.value)}
         />
 
-        <label>User</label>
-        <input
-          type="text"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-        />
+  
         <button type="submit">Submit</button>
         {error && <p>{error + emptyFields }</p>}
         <div className={emptyFields.includes('rating') ? 'input-error rating-stars' : 'rating-stars'} >

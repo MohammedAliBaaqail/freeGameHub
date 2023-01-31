@@ -4,6 +4,7 @@ import { F2PGamesApi } from "../services/F2PgamesApi";
 import { giveawaysApi } from "../services/giveawaysApi";
 import commentsReducer from "./commentsSlice";
 import gamesReducer from "./gamesSlice";
+import userReducer from "./userSlice";
 
 
 export default configureStore({
@@ -12,6 +13,7 @@ export default configureStore({
     [giveawaysApi.reducerPath]: giveawaysApi.reducer,
     comments: commentsReducer,
     games: gamesReducer,
+    user: userReducer,
 
   },
 

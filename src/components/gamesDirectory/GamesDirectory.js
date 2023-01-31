@@ -20,6 +20,9 @@ export const GamesDirectory = ({ games }) => {
   const handleSearch = (e) => {
     setQuery(e.target.value.toLowerCase());
     setItems(games.slice(0, games.length));
+    if (searchedGames.length == 0) {
+      setHasMore(false);
+    }
   };
 
   const nextItems = () => {
@@ -28,8 +31,10 @@ export const GamesDirectory = ({ games }) => {
       if (items.length >= games.length) {
         setHasMore(false);
       }
+     
     }, 500);
   };
+
 
   return (
     <div className="games-directory-container">
@@ -42,15 +47,15 @@ export const GamesDirectory = ({ games }) => {
         <InfiniteScroll
           dataLength={searchedGames.length}
           next={nextItems}
-          hasMore={true}
+          hasMore={hasMore}
           loader={
             hasMore ? <div class="lds-ring"><div></div><div></div><div></div><div></div></div> :''
           }
 
         >
-          {searchedGames.map((game) => (
+          {searchedGames.length != 0 ? searchedGames.map((game) => (
             <GameCard {...game} key={game.id} />
-          ))}
+          )) : `No games found` }
         </InfiniteScroll>
 
         {/* {searchedGames?.map((game) => (

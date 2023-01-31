@@ -20,7 +20,7 @@ export const GiveawayPage = () => {
 
   return (
     <div className='giveaway-page'>
-        <div className="giveaway-main">
+        <div className="giveaway-main bg-container">
         <h1 className='giveaway-page-title'>{title}</h1>
         <img
         src={image}
@@ -31,7 +31,7 @@ export const GiveawayPage = () => {
          </div>
 
          <div className="line"></div>
-        <div className='giveaway-Page-container'>
+        <div className='giveaway-Page-container bg-container'>
         <div className='giveaway-instructions'><h2 className='color-orange'>Instructions</h2>
         <h3>{instructions}</h3>
         </div>

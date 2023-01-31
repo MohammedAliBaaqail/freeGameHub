@@ -1,21 +1,21 @@
 .giveaway-page{
-   margin: 0 30px;
+   margin: 100px 30px;
     .giveaway-Page-container{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         .giveaway-instructions{
             
-            margin: 0 auto;
+            // margin: 0 auto;
             
             padding: 0 20px;
     
         }
         .giveaway-Page-info{
             // width:  500px;
-            margin: 0 auto;
+            // margin: 0 auto;
             padding: 0 20px;
             text-align: left;
     
@@ -28,9 +28,7 @@
     
     }
     
-    .giveaway-page-title{
-        margin-top: 120px;
-    }
+   
     
     .giveaway-instructions{
         white-space: pre-line;
@@ -41,5 +39,23 @@
     img{
         max-width: 100%;
     }
-
+    .bg-container{
+        background: var(--container-background);
+        border-radius: 10px;
+        padding: 30px;
+        width: 70%;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
+    }
 }
+
+
+@media screen and (max-width: 1100px) {
+    .giveaway-page{
+      margin: 100px 0;
+      .bg-container{
+        width: 85%
+      }
+    }
+
+  }

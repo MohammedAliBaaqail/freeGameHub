@@ -63,6 +63,7 @@ export const F2PGamePage = () => {
     <motion.div
     {...animations}
      className="F2P-Game-Page">
+      <div className="bg-container">
      <h1>{title}</h1>
         <img src={thumbnail ? thumbnail : ""} alt={title} />
         
@@ -70,8 +71,9 @@ export const F2PGamePage = () => {
         <p>{description}</p>
             </div>
             <Button text={"Play"} url={game_url} />
+            </div>
             <div className="line"></div>
-    <div className="F2P-Game-Page-container">
+    <div className="F2P-Game-Page-container bg-container">
       <div className="F2P-game-info">
 
       <div className="F2P-game-info-flex">

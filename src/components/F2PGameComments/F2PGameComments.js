@@ -1,9 +1,12 @@
 import { useState, useEffect, React } from "react";
+import { Link } from "react-router-dom";
+
+import { Button } from "../button/Button";
 import CommentForm from "../commentForm/CommentForm";
 import { useDispatch, useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
-import formatRelative  from 'date-fns/formatRelative';
-import addDays from 'date-fns/addDays'
+import formatRelative from "date-fns/formatRelative";
+import addDays from "date-fns/addDays";
 import "./F2PGameComments.scss";
 import {
   setComments,
@@ -11,10 +14,10 @@ import {
   deleteComment,
 } from "../../app/commentsSlice";
 
-
 export const F2PGameComments = ({ gameId }) => {
   const [editedComment, setEditedComment] = useState();
   const { cmnt } = useSelector((state) => state.comments);
+  const { user } = useSelector((state) => state.user);
   // const { games } = useSelector((state) => state.games);
   // const [avrageRating, setAvrageRating] = useState();
   // const [updateError, setUpdateError] = useState();
@@ -23,19 +26,17 @@ export const F2PGameComments = ({ gameId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchComments = async () => {
-      const res = await fetch("/game/comments");
+      const res = await fetch(`/game/comments/${gameId}`);
       const data = await res.json();
       if (res.ok) {
-        
         dispatch(setComments(data));
       }
     };
 
     fetchComments();
   }, [dispatch]);
-  
-// eslint-disable-next-line
-  const filteredComments = cmnt.filter((comment) => comment.game == gameId);
+
+  // eslint-disable-next-line
 
   const handleEdit = async (_id, editedComment) => {
     const res = await fetch(`/game/comments/${_id}`, {
@@ -63,8 +64,7 @@ export const F2PGameComments = ({ gameId }) => {
     });
     const json = await res.json();
     if (!res.ok) {
-      
-      console.log(json.error)
+      console.log(json.error);
     }
     if (res.ok) {
       dispatch(deleteComment(json));
@@ -77,46 +77,89 @@ export const F2PGameComments = ({ gameId }) => {
     edit: false,
     activeColor: "#ed8a27",
   };
-
+  // calculate average rating
   var allRating = 0;
-  filteredComments.map((comment) => (allRating += comment.rating));
-  var averageRating = allRating / filteredComments.length;
-  console.log(averageRating)
+  cmnt.map((comment) => (allRating += comment.rating));
+  var averageRating = allRating / cmnt.length;
+
+  // check if current user is the one who posted the comment and if so show delete and edit button
+  let ownedCommentsUser = cmnt.map((c) => c.username);
+  ownedCommentsUser = user
+    ? ownedCommentsUser.filter((e) => e.includes(user.username))
+    : "";
+
   return (
-    <div>
-      <h1>Game Rating: {Math.round(averageRating * 10) / 10}</h1>
-      <div className="rating-stars">
-        {averageRating? <ReactStars value={averageRating} {...reactStarsPrompt}  /> : '' }
-      
+    <div className="comments-component">
+      <div className="comments-form">
+        {averageRating ? (
+          <h1>Game Rating: {Math.round(averageRating * 10) / 10}</h1>
+        ) : (
+          <h1>No Game Rating Yet</h1>
+        )}
+        {/* <h1>Game Rating: {Math.round(averageRating * 10) / 10}</h1> */}
+        <div className="rating-stars">
+          {averageRating ? (
+            <ReactStars value={averageRating} {...reactStarsPrompt} />
+          ) : (
+            ""
+          )}
+        </div>
+        {user ? (
+          <CommentForm gameId={gameId} authUser={user} />
+        ) : (
+          <div>
+           
+            <Link className=" auth" to="/login">
+              <Button text="login" not_blank={true} />
+            </Link>
+            <span>  OR  </span>
+            <Link className=" auth" to="/signup">
+              <Button text="signup" not_blank={true} />
+            </Link>
+            <span>   to leave a comment </span>
+          </div>
+        )}
       </div>
-      <CommentForm gameId={gameId} allRating={allRating} />
-      
-      {filteredComments?.map((comment) => (
-        <div key={comment._id}>
+      <div className="line"> </div>
+      {cmnt?.map((comment) => (
+        <div className="bg-container" key={comment._id}>
           <h3>Comment : {comment.text}</h3>
 
-          <button onClick={() => handleDelete(comment._id)}>Delete</button>
+          {comment.username == ownedCommentsUser ? (
+            <button onClick={() => handleDelete(comment._id)}>Delete</button>
+          ) : (
+            ""
+          )}
 
-          <input
-            type="text"
-            onChange={(e) => {
-              setEditedComment(e.target.value);
-            }}
-          />
-          <button onClick={() => handleEdit(comment._id, editedComment)}>
-            Edit
-          </button>
+          {comment.username == ownedCommentsUser ? (
+            <>
+              <input
+                type="text"
+                onChange={(e) => {
+                  setEditedComment(e.target.value);
+                }}
+              />
+              <button onClick={() => handleEdit(comment._id, editedComment)}>
+                Edit
+              </button>
+            </>
+          ) : (
+            ""
+          )}
 
-          <h3>username: {comment.user}</h3>
-          <h4>{formatRelative(addDays(new Date(comment.createdAt), -6), new Date())}</h4>
+          <h3>
+            comment by: <span className="color-orange">{comment.username}</span>
+          </h3>
+          <h4>
+            {formatRelative(
+              addDays(new Date(comment.createdAt), -6),
+              new Date()
+            )}
+          </h4>
           <div className="rating-stars">
             Rate: {comment.rating}
             <ReactStars value={comment.rating} {...reactStarsPrompt} />
           </div>
-
-          <p>
-            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          </p>
         </div>
       ))}
     </div>

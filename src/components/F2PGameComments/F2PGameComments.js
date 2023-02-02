@@ -26,7 +26,7 @@ export const F2PGameComments = ({ gameId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchComments = async () => {
-      const res = await fetch(`/game/comments/${gameId}`);
+      const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${gameId}`);
       const data = await res.json();
       if (res.ok) {
         dispatch(setComments(data));
@@ -39,7 +39,7 @@ export const F2PGameComments = ({ gameId }) => {
   // eslint-disable-next-line
 
   const handleEdit = async (_id, editedComment) => {
-    const res = await fetch(`/game/comments/${_id}`, {
+    const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
@@ -56,7 +56,7 @@ export const F2PGameComments = ({ gameId }) => {
   };
 
   const handleDelete = async (_id) => {
-    const res = await fetch(`/game/comments/${_id}`, {
+    const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

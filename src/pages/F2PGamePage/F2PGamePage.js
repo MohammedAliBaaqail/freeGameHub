@@ -45,18 +45,7 @@ export const F2PGamePage = () => {
     
   } = game;
   
-//   while (id === gameId) {
-//     let counter = 1;
-//   setInterval(function () {
-//     document.getElementById("radio" + counter).checked = true;
-//     counter++;
-//     if (counter > screenshots.length) {
-//       counter = 1;
-//     }
-//     console.log(counter);
-//   }, 5000);
 
-//  }
   
 
   return (

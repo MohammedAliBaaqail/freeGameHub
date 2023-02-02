@@ -228,9 +228,15 @@
 
   @media screen and (max-width: 1100px) {
     .F2P-Game-Page{
+      img{
+        width: 100%;
+      }
+      button{
+        width:70px;
+      }
       margin: 100px 0;
       .bg-container{
-        width: 85%
+        width: 75%
       }
     }
 

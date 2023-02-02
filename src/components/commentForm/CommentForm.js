@@ -23,7 +23,7 @@ export const CommentForm = ({ gameId , authUser}) => {
 
     const comment = { text, game,username,  rating };
   
-    const res = await fetch("/game/comments", {
+    const res = await fetch("https://freegamehub-backend.onrender.com/game/comments", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

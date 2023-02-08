@@ -87,7 +87,7 @@ export const F2PGameComments = ({ gameId }) => {
   };
 
   const handleDelete = async (_id) => {
-    const res = await fetch(`http://localhost:4000/game/comments/${_id}`, {
+    const res = await fetch(`https://freegamehub-backend.onrender.com/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

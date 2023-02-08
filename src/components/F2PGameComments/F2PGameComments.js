@@ -1,6 +1,11 @@
 import { useState, useEffect, React } from "react";
 import { Link } from "react-router-dom";
+import {
+  useGetCommentsQuery,
+  useUpdateCommentMutation,
+  useDeleteCommentMutation,
 
+} from "../../services/commentsApi";
 import { Button } from "../button/Button";
 import CommentForm from "../commentForm/CommentForm";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +20,7 @@ import {
 } from "../../app/commentsSlice";
 
 export const F2PGameComments = ({ gameId }) => {
+  const { data: commentsList ,isLoading } = useGetCommentsQuery(gameId);
   const [editedComment, setEditedComment] = useState();
   const { cmnt } = useSelector((state) => state.comments);
   const { user } = useSelector((state) => state.user);
@@ -26,16 +32,17 @@ export const F2PGameComments = ({ gameId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchComments = async () => {
-      const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${gameId}`);
-      const data = await res.json();
-      if (res.ok) {
-        dispatch(setComments(data));
+      // const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${gameId}`);
+      // const data = await res.json();
+      if (isLoading) return<div className="loading-comments">Loading Comments...<div className="lds-ring"><div></div><div></div><div></div><div></div></div>  </div>;
+      if (!isLoading) {
+        dispatch(setComments(commentsList));
       }
     };
 
     fetchComments();
-  }, [dispatch]);
-
+  }, [isLoading]);
+  
   // eslint-disable-next-line
 
   const handleEdit = async (_id, editedComment) => {
@@ -82,12 +89,10 @@ export const F2PGameComments = ({ gameId }) => {
   cmnt.map((comment) => (allRating += comment.rating));
   var averageRating = allRating / cmnt.length;
 
-  // check if current user is the one who posted the comment and if so show delete and edit button
-  let ownedCommentsUser = cmnt.map((c) => c.username);
-  ownedCommentsUser = user
-    ? ownedCommentsUser.filter((e) => e.includes(user.username))
-    : "";
 
+if (!cmnt) {
+    return <div>Loading comments...</div>;
+  }
   return (
     <div className="comments-component">
       <div className="comments-form">
@@ -125,13 +130,13 @@ export const F2PGameComments = ({ gameId }) => {
         <div className="bg-container" key={comment._id}>
           <h3>Comment : {comment.text}</h3>
 
-          {comment.username == ownedCommentsUser ? (
+          {comment.username === user.username ? (
             <button onClick={() => handleDelete(comment._id)}>Delete</button>
           ) : (
             ""
           )}
 
-          {comment.username == ownedCommentsUser ? (
+          {comment.username === user.username ? (
             <>
               <input
                 type="text"

@@ -1,5 +1,5 @@
 .F2P-Game-Page{
-    margin: 100px 200px;
+    margin: 100px 300px;
 
       // position: absolute;
 
@@ -10,7 +10,7 @@
     background: var(--container-background);
     border-radius: 10px;
     padding: 30px;
-    width: 70%;
+   
     margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
   }
@@ -60,6 +60,7 @@
     border-radius: 10px;
     overflow: hidden;
     margin:  auto;
+    
   }
   
   .slides{
@@ -167,9 +168,15 @@
 
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    
   
-    border: 2px solid var(--color-orange-dark);
+    border: 3px solid var(--color-orange-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    
+    cursor: grab;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
     // img{
 
     //     max-width: 100%;
@@ -177,18 +184,19 @@
     //     margin: auto;
 
     // }
-    &:hover{
-      .slick-prev{
-        display: block !important;
-      }
-      .slick-next{
-        display: block !important;
-      }
-    }
+    // &:hover{
+    //   .slick-prev{
+    //     display: block !important;
+    //   }
+    //   .slick-next{
+    //     display: block !important;
+    //   }
+    // }
   }
   .F2P-img{
     max-width: 100%;
     max-height: 100%;
+    
     margin: auto;
   }
   .slick-dots{
@@ -202,7 +210,7 @@
       }
 
       li button:before{
-        font-size: 15px;
+        font-size: 25px;
       }
 
   } 
@@ -212,13 +220,14 @@
   }
   .slick-prev{
     left: -40px;
-    z-index: 1;
-    // display: none !important;
+    z-index: 5;
+    
+    display: none !important;
   }
 
   .slick-next{
     // right: 20px;
-    // display: none !important;
+    display: none !important;
   }
 
   .slick-list{
@@ -228,6 +237,7 @@
 
   @media screen and (max-width: 1100px) {
     .F2P-Game-Page{
+      font-size: small;
       img{
         width: 100%;
       }
@@ -236,8 +246,21 @@
       }
       margin: 100px 0;
       .bg-container{
-        width: 75%
+        width: 85%;
+        padding: 20px;
       }
+     
+       .F2P-game-desc{
+        width: 100%;
+        margin: 0 auto;
+       }
+       .F2P-game-info , .F2P-game-requirements{
+        padding: 0;
+       }
+       .comments-component .comments-form{
+        width: 85%;
+        padding:  20px;
+       }
     }
 
     .slick-slider{
@@ -246,6 +269,12 @@
         border-radius: 0;
         overflow: hidden;
         margin:  auto;
+        .slick-prev{
+          left:-18px;
+        }
+        .slick-next{
+          right: -18px;
+        }
     }
     .F2P-img-slider{
       width: 98%;

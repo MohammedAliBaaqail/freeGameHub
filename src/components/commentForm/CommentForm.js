@@ -3,6 +3,8 @@ import { useDispatch , useSelector } from "react-redux";
 import { addComments } from "../../app/commentsSlice";
 import { useAddCommentMutation } from "../../services/commentsApi";
 import ReactStars from "react-rating-stars-component";
+import { Input } from "../input/Input";
+import { Button } from "../button/Button";
 
 export const CommentForm = ({ gameId , authUser}) => {
   const [text, setText] = useState();
@@ -112,14 +114,16 @@ const reactStarsPrompt = {
       <h1>Comment Form</h1>
       <form onSubmit={handleSubmit}>
         <label>Comment</label>
-        <input className={emptyFields?.includes('text') ? 'input-error' : ''}  
-          type="text"
+        <Input className={emptyFields?.includes('text') ? 'input-error' : ''}
+          type={"text"}
           value={text}
           onChange={(e) => setText(e.target.value)}
+          name={"leave a comment"}
         />
 
+
   
-        <button type="submit">Submit</button>
+        <button className="btn-23" type="submit">Submit</button>
         {error && <p>{error + emptyFields }</p>}
       
       </form>

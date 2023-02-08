@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Button } from "../../components/button/Button"
+import { Input } from "../../components/input/Input"
 import { useLogin } from "../../hooks/useLogin"
 import './Login.scss'
 
@@ -16,25 +18,29 @@ const Login = () => {
   }
 
   return (
-    <form className="login box" onSubmit={handleSubmit}>
+    <div className="login">
+    <form className="bg-container" onSubmit={handleSubmit}>
       <h3>Log In</h3>
       
-      <label>Email address:</label>
-      <input 
+  
+      <Input type={"email"}  onChange={(e) => setEmail(e.target.value)} value={email} name={"Email"}  />
+      {/* <input 
         type="email" 
         onChange={(e) => setEmail(e.target.value)} 
         value={email} 
-      />
-      <label>Password:</label>
-      <input 
+      /> */}
+
+      <Input type={"password"} onChange={(e) => setPassword(e.target.value)} value={password} name={"password"} />
+      {/* <input 
         type="password" 
         onChange={(e) => setPassword(e.target.value)} 
         value={password} 
-      />
+      /> */}
 
-      <button disabled={isLoading}>Log in</button>
+      <Button text={"Login"} disabled={isLoading}></Button>
       {error && <div className="error">{error}</div>}
     </form>
+    </div>
   )
 }
 

@@ -18,6 +18,7 @@ import {
   patchComment,
   deleteComment,
 } from "../../app/commentsSlice";
+import { Input } from "../input/Input";
 
 export const F2PGameComments = ({ gameId }) => {
   const { data: commentsList ,isLoading } = useGetCommentsQuery(gameId);
@@ -100,7 +101,7 @@ export const F2PGameComments = ({ gameId }) => {
     }
     if (res.ok) {
       console.log(json._id)
-      dispatch(deleteComment(json._id));
+      dispatch(deleteComment(json));
     }
 
     // const res = await deleteComment(_id);
@@ -174,20 +175,22 @@ export const F2PGameComments = ({ gameId }) => {
 
           
           {editMode? ( comment.username === user.username ? (
-            <button onClick={() => handleDelete(comment._id)}>Delete</button>
+            <button className="btn-23" onClick={() => handleDelete(comment._id)}>Delete</button>
           ) : (
             ""
           )) : ''}
 
           {editMode?(comment.username === user.username ? (
             <>
-              <input
+              <Input type={"text"} name={"Comment"} onChange={(e) => setEditedComment(e.target.value)} />
+              {/* <input
                 type="text"
                 onChange={(e) => {
                   setEditedComment(e.target.value);
                 }}
-              />
-              <button onClick={() => handleEdit(comment._id, editedComment)}>
+              /> */}
+    
+              <button className="btn-23" onClick={() => handleEdit(comment._id, editedComment)}>
                 Edit
               </button>
             </>

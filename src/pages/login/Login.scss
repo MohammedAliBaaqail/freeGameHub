@@ -1,8 +1,31 @@
-form.login{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-height: 100vh;
-width: 100vw;
-}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100vw;
+    height: 100vh;
+   
+   
+    .bg-container{
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      background: var(--container-background);
+      border-radius: 10px;
+      padding: 30px;
+  
+      margin: 0 auto;
+      box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
+  
+        input{
+            margin: 10px 0;
+            // height: 30px;
+            width: 250px;
+        }
+  }
+    }

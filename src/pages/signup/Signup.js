@@ -4,6 +4,8 @@ import {  useSelector } from "react-redux";
 
 import './Signup.scss';
 import { useSignup } from "../../hooks/useSignup";
+import { Button } from "../../components/button/Button";
+import { Input } from "../../components/input/Input";
 
 const Signup = () => {
   const [email, setEmail] = useState('')
@@ -22,32 +24,37 @@ const {user} = useSelector((state) => state.user);
   };
 console.log(user)
   return (
-    <form className="signup box" onSubmit={handleSubmit}>
+    <div className="signup ">  
+    <form className="bg-container" onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
-      <label>Username</label>
-      <input
+
+      <Input type={"text"} onChange={(e) => setUsername(e.target.value)} value={username} name={"Username"} />
+      {/* <input
         type="text"
         onChange={(e) => setUsername(e.target.value)}
         value={username}
-      />
-      <label>Email </label>
-      <input 
+      /> */}
+
+      <Input type={"email"} onChange={(e) => setEmail(e.target.value)} value={email} name={"Email"} />
+      {/* <input 
         type="email" 
         onChange={(e) => setEmail(e.target.value)} 
         value={email} 
-      />
+      /> */}
  
-      <label>Password</label>
-      <input 
+
+      <Input type={"password"} onChange={(e) => setPassword(e.target.value)} value={password} name={"Password"} />
+      {/* <input 
         type="password" 
         onChange={(e) => setPassword(e.target.value)} 
         value={password} 
-      />
+      /> */}
 
 
-      <button disabled={isLoading} >Sign up</button>
+      <Button text={"Sign up"} disabled={isLoading} ></Button>
       {error && <div className="error">{error}</div>}
     </form>
+    </div>
   )
 }
 

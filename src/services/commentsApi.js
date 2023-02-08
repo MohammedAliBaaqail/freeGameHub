@@ -16,10 +16,14 @@ export const CommentsApi = createApi({
       query: (gameId) => createRequest(`/game/comments/${gameId}`),
     }),
     addComment: builder.mutation({
-      query: ( comment) =>({
+      query: ( newComment) =>({
         url: '/game/comments',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${newComment.token}`
+        },
         method: "POST",
-        body: comment ,
+        body: newComment.comment ,
 
       })
         

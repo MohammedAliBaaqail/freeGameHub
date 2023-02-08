@@ -16,6 +16,7 @@ export const CommentForm = ({ gameId , authUser}) => {
 
 
   const dispatch = useDispatch();
+
   const  {username}  = useSelector((state) => state.user.user);
 
 
@@ -54,7 +55,7 @@ export const CommentForm = ({ gameId , authUser}) => {
 
  
   const game = gameId;
-
+  const token = authUser.token;
   const comment = {
     text,
     game,
@@ -64,8 +65,8 @@ export const CommentForm = ({ gameId , authUser}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const res = await addComment(comment)
+    const newComment = { comment, token }
+    const res = await addComment(newComment)
       if (res.error) {
         console.log("error", res.error.data.error)
         setError(res.error.data.error);

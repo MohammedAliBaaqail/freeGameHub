@@ -21,9 +21,13 @@ import {
 
 export const F2PGameComments = ({ gameId }) => {
   const { data: commentsList ,isLoading } = useGetCommentsQuery(gameId);
+  const [updateComment] = useUpdateCommentMutation();
+  const [deleteComment] = useDeleteCommentMutation();
   const [editedComment, setEditedComment] = useState();
+  const [editMode, setEditMode] = useState(false);
   const { cmnt } = useSelector((state) => state.comments);
   const { user } = useSelector((state) => state.user);
+  const [error, setError] = useState();
   // const { games } = useSelector((state) => state.games);
   // const [avrageRating, setAvrageRating] = useState();
   // const [updateError, setUpdateError] = useState();
@@ -34,48 +38,88 @@ export const F2PGameComments = ({ gameId }) => {
     const fetchComments = async () => {
       // const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${gameId}`);
       // const data = await res.json();
-      if (isLoading) return<div className="loading-comments">Loading Comments...<div className="lds-ring"><div></div><div></div><div></div><div></div></div>  </div>;
+     
       if (!isLoading) {
         dispatch(setComments(commentsList));
+       
+      }
+      if (user) {
+        setEditMode(true);
       }
     };
 
     fetchComments();
-  }, [isLoading]);
+  }, [isLoading,user]);
   
   // eslint-disable-next-line
 
   const handleEdit = async (_id, editedComment) => {
-    const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ text: editedComment }),
-    });
-    const json = await res.json();
-    if (!res.ok) {
-      console.log(json.error);
+    // const res = await fetch(`http://localhost:4000/game/comments/${_id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ text: editedComment }),
+    // });
+    // const json = await res.json();
+    // if (!res.ok) {
+    //   console.log(json.error);
+    // }
+    // if (res.ok) {
+    //   dispatch(patchComment(json));
+    //   console.log(json);
+    // }
+
+    const newComment = JSON.stringify({ text: editedComment });
+    const res = await updateComment({_id, newComment} )
+    console.log(res)
+    if (res.error) {
+      console.log("error", res.error.data.error)
+      setError(res.error.data.error);
+    
     }
-    if (res.ok) {
-      dispatch(patchComment(json));
+    if (!res.error) {
+      console.log("no error", res.data);
+
+      dispatch(patchComment(res.data));
     }
+
   };
 
   const handleDelete = async (_id) => {
-    const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${_id}`, {
+    const res = await fetch(`http://localhost:4000/game/comments/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
       },
     });
+
     const json = await res.json();
     if (!res.ok) {
       console.log(json.error);
     }
     if (res.ok) {
-      dispatch(deleteComment(json));
+      console.log(json._id)
+      dispatch(deleteComment(json._id));
     }
+
+    // const res = await deleteComment(_id);
+  
+    // if (res.error) {
+    //   console.log("error", res.error.data.error)
+    //   setError(res.error.data.error);
+    
+    // }
+    // if (!res.error) {
+    //   console.log("no error", res);
+
+    //   dispatch(deleteComment(res.data));
+    // }
+
+
+
+
+
   };
 
   const reactStarsPrompt = {
@@ -84,15 +128,13 @@ export const F2PGameComments = ({ gameId }) => {
     edit: false,
     activeColor: "#ed8a27",
   };
+  if (isLoading) return<div className="loading-comments">Loading Comments...<div className="lds-ring"><div></div><div></div><div></div><div></div></div>  </div>;
   // calculate average rating
   var allRating = 0;
   cmnt.map((comment) => (allRating += comment.rating));
   var averageRating = allRating / cmnt.length;
 
-
-if (!cmnt) {
-    return <div>Loading comments...</div>;
-  }
+  
   return (
     <div className="comments-component">
       <div className="comments-form">
@@ -130,13 +172,14 @@ if (!cmnt) {
         <div className="bg-container" key={comment._id}>
           <h3>Comment : {comment.text}</h3>
 
-          {comment.username === user.username ? (
+          
+          {editMode? ( comment.username === user.username ? (
             <button onClick={() => handleDelete(comment._id)}>Delete</button>
           ) : (
             ""
-          )}
+          )) : ''}
 
-          {comment.username === user.username ? (
+          {editMode?(comment.username === user.username ? (
             <>
               <input
                 type="text"
@@ -150,7 +193,7 @@ if (!cmnt) {
             </>
           ) : (
             ""
-          )}
+          )) : ''}
 
           <h3>
             comment by: <span className="color-orange">{comment.username}</span>

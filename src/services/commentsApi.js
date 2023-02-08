@@ -4,7 +4,7 @@ const commentsApiHeaders = {
   "Content-Type": "application/json",
 };
 
-const baseUrl = "https://freegamehub-backend.onrender.com";
+const baseUrl = "http://localhost:4000";
 
 const createRequest = (url) => ({ url, headers: commentsApiHeaders });
 
@@ -25,20 +25,28 @@ export const CommentsApi = createApi({
         
     }),
     updateComment: builder.mutation({
-      query: (id, text) =>
-        createRequest(`/game/comments/${id}`, {
+      query: ( payload) =>({
+        url: `/game/comments/${payload._id}`, 
           method: "PATCH",
-          body: JSON.stringify({ text: text }),
+          headers: {
+            "Content-type": "application/json",
+          },
+          body:   payload.newComment ,
           
         }),
     }),
 
     deleteComment: builder.mutation({
-      query: (id) =>
-        createRequest(`/game/comments/${id}`, {
-          method: "DELETE",
-        }),
+      query: (id) => ({
+        url: `/game/comments/${id}`,
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+
+        
     }),
+  }),
   }),
 });
 

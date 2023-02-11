@@ -22,7 +22,8 @@ export const commentsSlice = createSlice({
   
     },
     deleteComment: (state, action) => {
-        state.cmnt = state.cmnt.filter((comment) => comment._id !== action.payload);
+      const { _id } = action.payload;
+        state.cmnt = state.cmnt.filter((comment) => comment._id !== _id);
     },
   }
 });

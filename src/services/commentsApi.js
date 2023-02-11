@@ -34,6 +34,7 @@ export const CommentsApi = createApi({
           method: "PATCH",
           headers: {
             "Content-type": "application/json",
+            'Authorization': `Bearer ${payload.token}`
           },
           body:   payload.newComment ,
           
@@ -41,11 +42,11 @@ export const CommentsApi = createApi({
     }),
 
     deleteComment: builder.mutation({
-      query: (id) => ({
-        url: `/game/comments/${id}`,
+      query: (payload) => ({
+        url: `/game/comments/${payload._id}`,
         method: "DELETE",
         headers: {
-          "Content-type": "application/json",
+          'Authorization': `Bearer ${payload.token}`
         },
 
         

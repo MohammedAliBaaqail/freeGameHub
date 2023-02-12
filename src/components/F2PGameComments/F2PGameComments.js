@@ -15,8 +15,7 @@ import addDays from "date-fns/addDays";
 import "./F2PGameComments.scss";
 import {
   setComments,
-  patchComment,
-  deleteComment,
+
 } from "../../app/commentsSlice";
 import { Input } from "../input/Input";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";

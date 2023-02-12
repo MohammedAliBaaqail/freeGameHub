@@ -10,9 +10,9 @@ import {
   
   } from "../../services/commentsApi";
   import {
-    setComments,
+ 
     patchComment,
-    deleteComment,
+    removeComment,
   } from "../../app/commentsSlice";
 
   import { useDispatch, useSelector } from "react-redux";
@@ -77,9 +77,9 @@ export const EditComment = ({comment , editMode , authUser}) => {
     
     }
     if (!res.error) {
-      console.log("no error", res);
+      console.log("no error", res.data);
 
-      dispatch(deleteComment(res._id));
+      dispatch(removeComment(res.data));
     }
 
 

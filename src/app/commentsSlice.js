@@ -21,13 +21,13 @@ export const commentsSlice = createSlice({
         state.cmnt =  state.cmnt.map((comment) => comment._id === _id ? { ...comment, text } : comment);
   
     },
-    deleteComment: (state, action) => {
+    removeComment: (state, action) => {
       const { _id } = action.payload;
         state.cmnt = state.cmnt.filter((comment) => comment._id !== _id);
     },
   }
 });
 
-export const {  addComments ,setComments ,patchComment ,deleteComment } = commentsSlice.actions;
+export const {  addComments ,setComments ,patchComment ,removeComment } = commentsSlice.actions;
 
 export default commentsSlice.reducer;

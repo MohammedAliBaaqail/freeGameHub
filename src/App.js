@@ -23,14 +23,14 @@ function App() {
       <NavBar />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/games" element={<AllGames />} />
-          <Route path="game/:gameId" element={<F2PGamePage />} />
+          <Route path="/"               element={<HomePage />} />
+          <Route path="/games"          element={<AllGames />} />
+          <Route path="game/:gameId"    element={<F2PGamePage />} />
           <Route path="games/:category" element={<CategoryPage />} />
-          <Route path="giveaways" element={<AllGiveawaysPage />} />
-          <Route path="giveaway/:id" element={<GiveawayPage />} />
-          <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />}/>
-          <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />}
+          <Route path="giveaways"       element={<AllGiveawaysPage />} />
+          <Route path="giveaway/:id"    element={<GiveawayPage />} />
+          <Route path="/signup"         element={!user ? <Signup /> : <Navigate to="/" />}/>
+          <Route path="/login"          element={!user ? <Login /> : <Navigate to="/" />}
           />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>

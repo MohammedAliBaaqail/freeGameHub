@@ -5,6 +5,7 @@ import { useAddCommentMutation } from "../../services/commentsApi";
 import ReactStars from "react-rating-stars-component";
 import { Input } from "../input/Input";
 import { Button } from "../button/Button";
+import "./CommentForm.scss";
 
 export const CommentForm = ({ gameId , authUser}) => {
   const [text, setText] = useState();
@@ -128,7 +129,7 @@ const reactStarsPrompt = {
         {error && <p>{error + emptyFields }</p>}
       
       </form>
-      <div className={emptyFields?.includes('rating') ? 'input-error rating-stars' : 'rating-stars'} >
+      <div className={emptyFields?.includes('rating') ? 'input-error game-rating-stars' : 'game-rating-stars'} >
           Rate: {rating}
           <ReactStars {...reactStarsPrompt} />
         </div>

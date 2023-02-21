@@ -61,6 +61,12 @@ export const F2PGameComments = ({ gameId }) => {
 
 
   const reactStarsPrompt = {
+    size: 25,
+    isHalf: true,
+    edit: false,
+    activeColor: "#ed8a27",
+  };
+  const gameReactStarsPrompt = {
     size: 40,
     isHalf: true,
     edit: false,
@@ -82,9 +88,9 @@ export const F2PGameComments = ({ gameId }) => {
           <h1>No Game Rating Yet</h1>
         )}
         {/* <h1>Game Rating: {Math.round(averageRating * 10) / 10}</h1> */}
-        <div className="rating-stars">
+        <div className="game-rating-stars">
           {averageRating ? (
-            <ReactStars value={averageRating} {...reactStarsPrompt} />
+            <ReactStars value={averageRating} {...gameReactStarsPrompt} />
           ) : (
             ""
           )}
@@ -117,6 +123,10 @@ export const F2PGameComments = ({ gameId }) => {
           
           </h4>
           </div>
+          <div className="rating-stars">
+            {/* Rate: {comment.rating} */}
+            <ReactStars value={comment.rating} {...reactStarsPrompt} />
+          </div>
           {/* <h3>Comment : {comment.text}</h3> */}
 
 
@@ -131,10 +141,7 @@ export const F2PGameComments = ({ gameId }) => {
             
      
 
-          <div className="rating-stars">
-            Rate: {comment.rating}
-            <ReactStars value={comment.rating} {...reactStarsPrompt} />
-          </div>
+        
         </div>
       ))}
     </div>

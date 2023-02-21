@@ -1,6 +1,8 @@
-.rating-stars{
-    margin: auto;
-    width: 170px;
+.game-rating-stars{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 input{

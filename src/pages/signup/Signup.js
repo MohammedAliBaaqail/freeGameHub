@@ -22,7 +22,7 @@ const {user} = useSelector((state) => state.user);
   
     await signup( {email,username, password} );
   };
-console.log(user)
+
   return (
     <div className="signup ">  
     <form className="bg-container" onSubmit={handleSubmit}>

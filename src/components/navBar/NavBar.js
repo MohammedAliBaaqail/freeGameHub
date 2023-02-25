@@ -99,11 +99,24 @@ export const NavBar = () => {
               CARDS
             </Link>
           </li>
+          
+    
+         
+
+     
           {user && (
-            <li>
+            <>
+                  <li>
+            <Link className="menu__item" to="/userfavgames">
+            Your Fav Games
+            </Link>
+          </li>
+          <li>
               <Button text="Log out" handleClick={handleClick} not_blank={true}/>
               {user.username}
             </li>
+          </>
+
           )}
     
         </ul>
@@ -124,8 +137,10 @@ export const NavBar = () => {
         <Link to="games/Fighting">FIGHTING</Link>
         <Link to="games/Sports">SPORTS</Link>
         <Link to="games/card">CARDS</Link>
+
         {!user && (
           <>
+
             <Link className=" auth" to="/signup"><Button text="signup" not_blank={true} /></Link>
             <Link className=" auth" to="/login"><Button text="login" not_blank={true} /></Link>
             {/* <Link className=" auth" to="/login">login</Link> */}
@@ -133,6 +148,9 @@ export const NavBar = () => {
         )}
         {user && (
           <div className="nav-button">
+                       <Link className="auth" to="/userfavgames">
+            Your Fav Games
+            </Link>
             <Button text="Log out" handleClick={handleClick} not_blank={true} />
             {user.username}
           </div>

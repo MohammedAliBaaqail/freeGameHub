@@ -113,14 +113,15 @@ const reactStarsPrompt = {
 
   return (
     <div>
-      <h1>Comment Form</h1>
+      
       <form onSubmit={handleSubmit}>
-        <label>Comment</label>
+       
         <Input className={emptyFields?.includes('text') ? 'input-error' : ''}
           type={"text"}
           value={text}
           onChange={(e) => setText(e.target.value)}
           name={"leave a comment"}
+          
         />
 
 

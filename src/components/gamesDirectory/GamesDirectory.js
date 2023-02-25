@@ -3,10 +3,19 @@ import { useState } from "react";
 import GameCard from "../gameCard/GameCard";
 import { Search } from "../search/Search";
 import "./GamesDirectory.scss";
+import { useGetFavoriteGamesQuery } from "../../services/userFavouriteGamesApi";
+import { useSelector } from "react-redux";
+
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export const GamesDirectory = ({ games }) => {
+  // const {user} = useSelector((state) => state.user);
+
+
+  // const { date: userFavouriteGames, isLoading: isFavouriteLoading, error: favouriteError } = useGetFavoriteGamesQuery(user)
+  
+  // console.log(userFavouriteGames)
   // const [gamesList , setGamesList] = useState(games)
   const [query, setQuery] = useState("");
   const [items, setItems] = useState(games.slice(0, 20));
@@ -17,6 +26,7 @@ export const GamesDirectory = ({ games }) => {
 
   const searchedGames = search(items);
 
+// console.log(userFavouriteGames)
   const handleSearch = (e) => {
     setQuery(e.target.value.toLowerCase());
     setItems(games.slice(0, games.length));
@@ -35,7 +45,7 @@ export const GamesDirectory = ({ games }) => {
     }, 500);
   };
 
-
+  // if (isFavouriteLoading) return 'Loading...'
   return (
     <div className="games-directory-container">
       <div className="games-directory-search">

@@ -12,6 +12,7 @@ import Signup from "./pages/signup/Signup";
 import { AnimatePresence } from "framer-motion";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
+import { UserFavouriteGames } from "./pages/userFavouriteGames/UserFavouriteGames";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="games/:category" element={<CategoryPage />} />
           <Route path="giveaways"       element={<AllGiveawaysPage />} />
           <Route path="giveaway/:id"    element={<GiveawayPage />} />
+          <Route path="userfavgames"    element={user ? <UserFavouriteGames/> : <Navigate to="/login" />}/>
           <Route path="/signup"         element={!user ? <Signup /> : <Navigate to="/" />}/>
           <Route path="/login"          element={!user ? <Login /> : <Navigate to="/" />}
           />

@@ -111,7 +111,7 @@ export const F2PGameComments = ({ gameId }) => {
           </div>
         )}
       </div>
-      <div className="line"> </div>
+    
       {cmnt?.map((comment) => (
         <div className="bg-container comment-info" key={comment._id}>
                     <div className="comment-user">

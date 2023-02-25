@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useGetGameQuery } from "../../services/F2PgamesApi";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../components/loading/Loading";
@@ -10,8 +11,10 @@ import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
 import { Error } from "../../components/error/Error";
 import { F2PGameComments } from "../../components/F2PGameComments/F2PGameComments";
+import { Favourite } from "../../components/favourite/Favourite";
 
 export const F2PGamePage = () => {
+  const {user} = useSelector((state) => state.user);
     const sliderSettings = {
         dots: true,
         infinite: true,
@@ -58,10 +61,14 @@ export const F2PGamePage = () => {
         
         <div className="F2P-game-desc">
         <p>{description}</p>
+   
+        
             </div>
+            {/* {user?
+        <div className="fav-button"><Favourite game={gameId} user={user}/></div> : ""} */}
             <Button text={"Play"} url={game_url} />
             </div>
-            <div className="line"></div>
+     
     <div className="F2P-Game-Page-container bg-container">
       <div className="F2P-game-info">
 
@@ -104,7 +111,7 @@ export const F2PGamePage = () => {
       <h4><span className="color-orange">▣</span> {minimum_system_requirements?.storage} Storage Size</h4>
       </div>
     </div>
-    <div className="line"></div>
+
     <div className="F2P-img-slider">
     <Slider {...sliderSettings}>
     {screenshots?.map((screenshot, i) => (

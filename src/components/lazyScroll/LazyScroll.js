@@ -16,7 +16,7 @@ export const LazyScroll = ({allItems }) => {
           }
         }, 500);
       };
-console.log("items", items)
+
 
   return (
     <div>

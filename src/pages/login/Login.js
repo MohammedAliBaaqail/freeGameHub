@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button } from "../../components/button/Button"
 import { Input } from "../../components/input/Input"
+import { Loading } from "../../components/loading/Loading"
 import { useLogin } from "../../hooks/useLogin"
 import './Login.scss'
 
@@ -13,10 +14,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log("email", email)
+
     await logIn({email, password})
   }
-
+if (isLoading) return <Loading/>
   return (
     <div className="login">
     <form className="bg-container" onSubmit={handleSubmit}>
@@ -24,18 +25,10 @@ const Login = () => {
       
   
       <Input type={"email"}  onChange={(e) => setEmail(e.target.value)} value={email} name={"Email"}  />
-      {/* <input 
-        type="email" 
-        onChange={(e) => setEmail(e.target.value)} 
-        value={email} 
-      /> */}
+
 
       <Input type={"password"} onChange={(e) => setPassword(e.target.value)} value={password} name={"password"} />
-      {/* <input 
-        type="password" 
-        onChange={(e) => setPassword(e.target.value)} 
-        value={password} 
-      /> */}
+
 
       <Button text={"Login"} disabled={isLoading}></Button>
       {error && <div className="error">{error}</div>}

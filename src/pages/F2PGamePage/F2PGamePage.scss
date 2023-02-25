@@ -6,12 +6,16 @@
   .comments-sec{
     margin-top: 50px;
   }
+  .fav-button{
+    width: 20px;
+    margin: auto;
+  }
   .bg-container{
     background: var(--container-background);
     border-radius: 10px;
     padding: 30px;
    
-    margin: 0 auto;
+    margin: 30px auto;
     box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
   }
 }
@@ -247,7 +251,7 @@
       }
       margin: 100px 0;
       .bg-container{
-        width: 85%;
+        margin: 20px 15px;
         padding: 20px;
       }
      

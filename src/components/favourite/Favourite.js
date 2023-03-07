@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import { useAddFavouriteGameMutation ,
     useRemoveFavouriteGameMutation,
   useGetFavoriteGamesQuery } from '../../services/userFavouriteGamesApi'
+import "./Favourite.scss"
 
 
 export const Favourite = ({game , user }) => {
     const [favourite, setFavourite] = useState(false)
-    const [addFavouriteGame, { isLoading, error }] = useAddFavouriteGameMutation()
+    const [addFavouriteGame, { isLoading: addIsLoading, error }] = useAddFavouriteGameMutation()
     const [removeFavouriteGame, { isLoading: removeIsLoading, error: removeError }] = useRemoveFavouriteGameMutation()
+    const { data: userFavouriteGames, isLoading: isFavouriteLoading} = useGetFavoriteGamesQuery(user)
+
+
 
  
     // if (removeIsLoading) return 'Loading...'
@@ -32,6 +36,7 @@ export const Favourite = ({game , user }) => {
     // }, [isFavouriteLoading,userFavouriteGames])
     // console.log(isFavouriteLoading)
     // console.log(userFavouriteGames)
+
     const handleFavouriteGame = async () => {
             //check if game is already in favourite list
             //if it is, remove it
@@ -39,7 +44,7 @@ export const Favourite = ({game , user }) => {
             // console.log(game)
             // console.log(user.username)
             // console.log(userFavouriteGames)
-            const getGames = await fetch(`http://localhost:4000/user/getFavouriteGames/${user.username}`)
+            const getGames = await fetch(`https://freegamehub-backend.onrender.com/user/getFavouriteGames/${user.username}`)
             const games = await getGames.json()
             
 
@@ -74,7 +79,7 @@ export const Favourite = ({game , user }) => {
       //   setIsfavourite(userFavouriteGames.find((game) => game.id === id));
        
       // }
-  
+
       const favouriteGames = await fetch(`http://localhost:4000/user/getFavouriteGames/${user.username}`);
       const games = await favouriteGames.json();
       const fav = games.includes( game);
@@ -86,6 +91,7 @@ export const Favourite = ({game , user }) => {
   
     fetchComments();
   }, [ favourite]);
+  if (isFavouriteLoading) return <div className="loading-favourite"><div className="loading-ring"><div></div><div></div><div></div><div></div></div>  </div>;
   return (
     <div className='favourite-game'>
         {/* add a button to toggle css class based of state */}

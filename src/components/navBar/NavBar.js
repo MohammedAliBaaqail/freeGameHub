@@ -53,6 +53,24 @@ export const NavBar = () => {
               </li>
             </>
           )}
+                    {user && (
+            <>
+            
+
+          <li>
+            <div className="user-info">{user.username}</div>
+              
+              <Button text="Log out" handleClick={handleClick} not_blank={true}/>
+            
+            </li>
+            <li>
+            <Link className="menu__item" to="/userfavgames">
+            Your Fav Games
+            </Link>
+          </li>
+          </>
+
+          )}
           
           <li>
             <Link className="menu__item" to="/games">
@@ -104,20 +122,7 @@ export const NavBar = () => {
          
 
      
-          {user && (
-            <>
-                  <li>
-            <Link className="menu__item" to="/userfavgames">
-            Your Fav Games
-            </Link>
-          </li>
-          <li>
-              <Button text="Log out" handleClick={handleClick} not_blank={true}/>
-              {user.username}
-            </li>
-          </>
 
-          )}
     
         </ul>
       </div>
@@ -127,33 +132,39 @@ export const NavBar = () => {
         </Link>
       </div>
       <div className="nav-bar__links">
-        <Link to="/games">F2P GAMES</Link>
-        <Link to="/giveaways">GIVEAWAYS </Link>
+        
+        <Link className="nav-link left" to="/games">F2P GAMES</Link>
+        <Link className="nav-link left" to="/giveaways">GIVEAWAYS </Link>
         <div className="nav-flex-grow"></div>
-        <Link to="games/Shooter">SHOOTER</Link>
-        <Link to="games/MMO">MMO</Link>
-        <Link to="games/MOBA">MOBA</Link>
-        <Link to="games/Strategy">STRATEGY</Link>
-        <Link to="games/Fighting">FIGHTING</Link>
-        <Link to="games/Sports">SPORTS</Link>
-        <Link to="games/card">CARDS</Link>
+        
+        <Link className="nav-link" to="games/Shooter">SHOOTER</Link>
+        <Link className="nav-link" to="games/MMO">MMO</Link>
+        <Link className="nav-link" to="games/MOBA">MOBA</Link>
+        <Link className="nav-link" to="games/Strategy">STRATEGY</Link>
+        <Link className="nav-link" to="games/Fighting">FIGHTING</Link>
+        <Link className="nav-link" to="games/Sports">SPORTS</Link>
+        <Link className="nav-link" to="games/card">CARDS</Link>
 
         {!user && (
           <>
-
+            
             <Link className=" auth" to="/signup"><Button text="signup" not_blank={true} /></Link>
             <Link className=" auth" to="/login"><Button text="login" not_blank={true} /></Link>
             {/* <Link className=" auth" to="/login">login</Link> */}
           </>
         )}
+
         {user && (
-          <div className="nav-button">
-                       <Link className="auth" to="/userfavgames">
+          <div class="dropdown">
+  <button class="dropbtn"> {user.username}</button>
+  <div class="dropdown-content">
+  <Link className="auth" to="/userfavgames">
             Your Fav Games
             </Link>
             <Button text="Log out" handleClick={handleClick} not_blank={true} />
-            {user.username}
-          </div>
+  
+  </div>
+</div>
         )}
       </div>
     </div>

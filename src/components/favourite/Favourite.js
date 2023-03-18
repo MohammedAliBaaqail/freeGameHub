@@ -80,7 +80,7 @@ export const Favourite = ({game , user }) => {
        
       // }
 
-      const favouriteGames = await fetch(`http://localhost:4000/user/getFavouriteGames/${user.username}`);
+      const favouriteGames = await fetch(`https://freegamehub-backend.onrender.com/user/getFavouriteGames/${user.username}`);
       const games = await favouriteGames.json();
       const fav = games.includes( game);
       setFavourite(fav)

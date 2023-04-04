@@ -10,6 +10,7 @@ export const Button = ({ text, url ,handleClick , not_blank , notAnchor }) => {
       <button className="btn-23" onClick={handleClick} >
         <div className="button-text">{text}</div>
       </button>
+      
     </a>
     }
     </>

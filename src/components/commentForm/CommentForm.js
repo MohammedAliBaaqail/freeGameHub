@@ -129,14 +129,15 @@ const reactStarsPrompt = {
 
 
   
-        <button className="btn-23" type="submit">Submit</button>
-        {error && <p>{error + emptyFields }</p>}
+      
       
       </form>
       <div className={emptyFields?.includes('rating') ? 'input-error game-rating-stars' : 'game-rating-stars'} >
           Rate: {rating}
           <ReactStars {...reactStarsPrompt} />
         </div>
+        <button className="btn-23" type="submit">Submit</button>
+        {error && <p>{error + emptyFields }</p>}
     </div>
   );
 };

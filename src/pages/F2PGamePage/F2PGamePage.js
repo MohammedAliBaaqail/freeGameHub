@@ -125,6 +125,7 @@ export const F2PGamePage = () => {
     </div>
     <F2PGameComments gameId={gameId}/>
     </motion.div>
+    
   );
 };
 

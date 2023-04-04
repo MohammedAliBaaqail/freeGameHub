@@ -13,6 +13,7 @@ import { AnimatePresence } from "framer-motion";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 import { UserFavouriteGames } from "./pages/userFavouriteGames/UserFavouriteGames";
+import NoPage from "./pages/404/404";
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
           <Route path="/signup"         element={!user ? <Signup /> : <Navigate to="/" />}/>
           <Route path="/login"          element={!user ? <Login /> : <Navigate to="/" />}
           />
-          <Route path="*" element={<h1>404 Not Found</h1>} />
+          <Route path="*" element={<NoPage/>} />
         </Routes>
       </AnimatePresence>
     </div>

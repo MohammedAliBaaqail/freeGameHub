@@ -33,6 +33,7 @@ export const GiveawayCard = ({id,title,worth,thumbnail,open_giveaway_url,platfor
           </div>
         </div>
       </div>
+      
     </>
   );
 };

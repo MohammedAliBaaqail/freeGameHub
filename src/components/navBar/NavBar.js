@@ -133,9 +133,11 @@ export const NavBar = () => {
       </div>
       <div className="nav-bar__links">
         
-        <Link className="nav-link left" to="/games">F2P GAMES</Link>
-        <Link className="nav-link left" to="/giveaways">GIVEAWAYS </Link>
-        <div className="nav-flex-grow"></div>
+     
+        <div className=" left">
+        <Link className="nav-link " to="/games">F2P GAMES</Link>
+        <Link className="nav-link " to="/giveaways">GIVEAWAYS </Link>
+        </div>
         
         <Link className="nav-link" to="games/Shooter">SHOOTER</Link>
         <Link className="nav-link" to="games/MMO">MMO</Link>

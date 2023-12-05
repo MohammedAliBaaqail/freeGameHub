@@ -17,7 +17,7 @@ const Login = () => {
 
     await logIn({email, password})
   }
-if (isLoading) return <Loading/>
+
   return (
     <div className="login">
     <form className="bg-container" onSubmit={handleSubmit}>
@@ -29,8 +29,8 @@ if (isLoading) return <Loading/>
 
       <Input type={"password"} onChange={(e) => setPassword(e.target.value)} value={password} name={"password"} />
 
-
-      <Button text={"Login"} disabled={isLoading}></Button>
+      {isLoading? <div className="loading-favourite"><div className="loading-ring"><div></div><div></div><div></div><div></div></div>  </div> : <Button text={"Login"} disabled={isLoading}></Button> }
+      
       {error && <div className="error">{error}</div>}
     </form>
     </div>

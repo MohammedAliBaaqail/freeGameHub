@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {  useSelector } from "react-redux";
 
-
+import { Loading } from "../../components/loading/Loading"
 import './Signup.scss';
 import { useSignup } from "../../hooks/useSignup";
 import { Button } from "../../components/button/Button";
@@ -50,8 +50,8 @@ const {user} = useSelector((state) => state.user);
         value={password} 
       /> */}
 
-
-      <Button text={"Sign up"} disabled={isLoading} ></Button>
+      {isLoading? <div className="loading-favourite"><div className="loading-ring"><div></div><div></div><div></div><div></div></div>  </div> : <Button text={"Sign up"} disabled={isLoading} ></Button>}
+      
       {error && <div className="error">{error}</div>}
     </form>
     </div>

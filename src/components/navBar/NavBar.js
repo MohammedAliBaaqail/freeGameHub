@@ -41,37 +41,43 @@ export const NavBar = () => {
         </label>
 
         <ul className="menu__box">
-        {!user && (
+          {!user && (
             <>
-                
-      
+                            <label className="menu__btn" for="menu__toggle">
+                  <span></span>
+                </label>
               <li className=" auth">
-              <Link  to="/signup"><Button text="signup" not_blank={true} /></Link>
+
+                <Link to="/signup">
+                  <Button text="signup" not_blank={true} />
+                </Link>
               </li>
               <li className=" auth">
-              <Link  to="/login"><Button text="login" not_blank={true} /></Link>
+                <Link to="/login">
+                  <Button text="login" not_blank={true} />
+                </Link>
               </li>
             </>
           )}
-                    {user && (
+          {user && (
             <>
-            
+              <li>
+                <div className="user-info">{user.username}</div>
 
-          <li>
-            <div className="user-info">{user.username}</div>
-              
-              <Button text="Log out" handleClick={handleClick} not_blank={true}/>
-            
-            </li>
-            <li>
-            <Link className="menu__item" to="/userfavgames">
-            Your Fav Games
-            </Link>
-          </li>
-          </>
-
+                <Button
+                  text="Log out"
+                  handleClick={handleClick}
+                  not_blank={true}
+                />
+              </li>
+              <li>
+                <Link className="menu__item" to="/userfavgames">
+                  Your Fav Games
+                </Link>
+              </li>
+            </>
           )}
-          
+
           <li>
             <Link className="menu__item" to="/games">
               F2P GAMES
@@ -117,13 +123,6 @@ export const NavBar = () => {
               CARDS
             </Link>
           </li>
-          
-    
-         
-
-     
-
-    
         </ul>
       </div>
       <div className="nav-bar__logo">
@@ -132,41 +131,63 @@ export const NavBar = () => {
         </Link>
       </div>
       <div className="nav-bar__links">
-        
-     
         <div className=" left">
-        <Link className="nav-link " to="/games">F2P GAMES</Link>
-        <Link className="nav-link " to="/giveaways">GIVEAWAYS </Link>
+          <Link className="nav-link " to="/games">
+            F2P GAMES
+          </Link>
+          <Link className="nav-link " to="/giveaways">
+            GIVEAWAYS{" "}
+          </Link>
         </div>
-        
-        <Link className="nav-link" to="games/Shooter">SHOOTER</Link>
-        <Link className="nav-link" to="games/MMO">MMO</Link>
-        <Link className="nav-link" to="games/MOBA">MOBA</Link>
-        <Link className="nav-link" to="games/Strategy">STRATEGY</Link>
-        <Link className="nav-link" to="games/Fighting">FIGHTING</Link>
-        <Link className="nav-link" to="games/Sports">SPORTS</Link>
-        <Link className="nav-link" to="games/card">CARDS</Link>
+
+        <Link className="nav-link" to="games/Shooter">
+          SHOOTER
+        </Link>
+        <Link className="nav-link" to="games/MMO">
+          MMO
+        </Link>
+        <Link className="nav-link" to="games/MOBA">
+          MOBA
+        </Link>
+        <Link className="nav-link" to="games/Strategy">
+          STRATEGY
+        </Link>
+        <Link className="nav-link" to="games/Fighting">
+          FIGHTING
+        </Link>
+        <Link className="nav-link" to="games/Sports">
+          SPORTS
+        </Link>
+        <Link className="nav-link" to="games/card">
+          CARDS
+        </Link>
 
         {!user && (
           <>
-            
-            <Link className=" auth" to="/signup"><Button text="signup" not_blank={true} /></Link>
-            <Link className=" auth" to="/login"><Button text="login" not_blank={true} /></Link>
+            <Link className=" auth" to="/signup">
+              <Button text="signup" not_blank={true} />
+            </Link>
+            <Link className=" auth" to="/login">
+              <Button text="login" not_blank={true} />
+            </Link>
             {/* <Link className=" auth" to="/login">login</Link> */}
           </>
         )}
 
         {user && (
           <div class="dropdown">
-  <button class="dropbtn"> {user.username}</button>
-  <div class="dropdown-content">
-  <Link className="auth" to="/userfavgames">
-            Your Fav Games
-            </Link>
-            <Button text="Log out" handleClick={handleClick} not_blank={true} />
-  
-  </div>
-</div>
+            <button class="dropbtn"> {user.username}</button>
+            <div class="dropdown-content">
+              <Link className="auth" to="/userfavgames">
+                Your Fav Games
+              </Link>
+              <Button
+                text="Log out"
+                handleClick={handleClick}
+                not_blank={true}
+              />
+            </div>
+          </div>
         )}
       </div>
     </div>

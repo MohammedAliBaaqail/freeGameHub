@@ -21,7 +21,7 @@ export const UserFavouriteGames = () => {
           // }
           if (isFetching) return <Loading/>
 
-          const favouriteGames = await fetch(`https://freegamehub-backend.onrender.com/user/getFavouriteGames/${user.username}`);
+          const favouriteGames = await fetch(`https://freegamehub-backend.adaptable.app/user/getFavouriteGames/${user.username}`);
 
           const favGames = await favouriteGames.json();
    

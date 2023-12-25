@@ -4,7 +4,7 @@ const commentsApiHeaders = {
   "Content-Type": "application/json",
 };
 
-const baseUrl = "https://freegamehub-backend.onrender.com";
+const baseUrl = "https://freegamehub-backend.adaptable.app";
 
 const createRequest = (url) => ({ url, headers: commentsApiHeaders });
 

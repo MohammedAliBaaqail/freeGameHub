@@ -19,7 +19,7 @@ export const useSignup = () => {
       const signup = async ( email,username, password  ) => {
         setIsLoading(true)
         setError(null)
-        const res = await fetch("https://freegamehub-backend.onrender.com/user/signup", {
+        const res = await fetch("https://freegamehub-backend.adaptable.app/user/signup", {
             method: "POST",
             headers: {
               "Content-type": "application/json",

@@ -9,7 +9,7 @@ export const GiveawayCard = ({id,title,worth,thumbnail,open_giveaway_url,platfor
   return (
     <>
       <div
-
+    
        className="giveaway-card">
         <motion.div 
               animate={{y:0}}

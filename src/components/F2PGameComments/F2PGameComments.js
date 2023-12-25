@@ -39,7 +39,7 @@ export const F2PGameComments = ({ gameId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchComments = async () => {
-      // const res = await fetch(`https://freegamehub-backend.onrender.com/game/comments/${gameId}`);
+      // const res = await fetch(`https://freegamehub-backend.adaptable.app/game/comments/${gameId}`);
       // const data = await res.json();
      
       if (!isLoading) {

@@ -44,7 +44,7 @@ export const Favourite = ({game , user }) => {
             // console.log(game)
             // console.log(user.username)
             // console.log(userFavouriteGames)
-            const getGames = await fetch(`https://freegamehub-backend.onrender.com/user/getFavouriteGames/${user.username}`)
+            const getGames = await fetch(`https://freegamehub-backend.adaptable.app/user/getFavouriteGames/${user.username}`)
             const games = await getGames.json()
             
 
@@ -80,7 +80,7 @@ export const Favourite = ({game , user }) => {
        
       // }
 
-      const favouriteGames = await fetch(`https://freegamehub-backend.onrender.com/user/getFavouriteGames/${user.username}`);
+      const favouriteGames = await fetch(`https://freegamehub-backend.adaptable.app/user/getFavouriteGames/${user.username}`);
       const games = await favouriteGames.json();
       const fav = games.includes( game);
       setFavourite(fav)

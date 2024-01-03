@@ -1,0 +1,8 @@
+.user-favourite-games-page {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=UserFavouriteGames.css.map */

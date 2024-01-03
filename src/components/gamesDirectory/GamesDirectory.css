@@ -1,0 +1,33 @@
+.games-directory-container {
+  margin-top: 100px;
+}
+
+.games-directory-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.games-directory {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.infinite-scroll-component {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .button-text {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=GamesDirectory.css.map */

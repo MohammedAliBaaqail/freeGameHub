@@ -1,0 +1,53 @@
+.home-page {
+  margin-bottom: 50px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.home-page .slick-prev {
+  left: 18px;
+  z-index: 1;
+}
+.home-page .slick-next {
+  right: 33px;
+}
+.home-page .game-card {
+  margin: 15px auto;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../assets/images/aa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 80%;
+}
+
+.popular-games {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.home-slider {
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  cursor: -webkit-grab;
+}
+.home-slider:hover .slick-prev {
+  display: block !important;
+}
+.home-slider:hover .slick-next {
+  display: block !important;
+}/*# sourceMappingURL=Home.css.map */

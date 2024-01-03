@@ -1,0 +1,251 @@
+.F2P-Game-Page {
+  margin: 100px 300px;
+}
+.F2P-Game-Page .comments-sec {
+  margin-top: 50px;
+}
+.F2P-Game-Page .fav-button {
+  width: 20px;
+  margin: auto;
+}
+.F2P-Game-Page .bg-container {
+  background: var(--container-background);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px auto;
+  box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
+}
+
+.F2P-Game-Page-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+.F2P-Game-Page-container .F2P-game-info {
+  width: 420px;
+  margin: auto;
+  padding: 0 20px;
+}
+.F2P-Game-Page-container .F2P-game-requirements {
+  width: 420px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.F2P-game-desc {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.F2P-game-info {
+  width: 25%;
+  margin: auto;
+}
+.F2P-game-info .F2P-game-info-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider {
+  width: 1280px;
+  height: 720px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.slides {
+  width: 500%;
+  height: 720px;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img {
+  width: 1280px;
+  height: 720px;
+}
+
+/*css for manual slide navigation*/
+.navigation-manual {
+  position: absolute;
+  width: 1280px;
+  margin-top: 680px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn {
+  border: 2px solid var(--color-primary-light);
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manual-btn:hover {
+  background: var(--color-primary-light);
+}
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -60%;
+}
+
+/*css for automatic navigation*/
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 1280px;
+  justify-content: center;
+  margin-top: 680px;
+}
+
+.navigation-auto div {
+  border: 2px solid var(--color-primary-light);
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: var(--color-orange);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: var(--color-orange);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: var(--color-orange);
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background: var(--color-orange);
+}
+
+.F2P-img-slider {
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid var(--color-orange-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: grab;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
+}
+
+.F2P-img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+
+.slick-dots {
+  bottom: 10px;
+}
+.slick-dots li button:before {
+  color: var(--color-primary-light);
+}
+.slick-dots li.slick-active button:before {
+  color: var(--color-orange);
+}
+.slick-dots li button:before {
+  font-size: 25px;
+}
+
+.slick-next:before, .slick-prev:before {
+  color: var(--color-primary-light);
+  font-size: 35px;
+}
+
+.slick-prev {
+  left: -40px;
+  z-index: 5;
+  display: none !important;
+}
+
+.slick-next {
+  display: none !important;
+}
+
+.slick-list {
+  height: 100% !important;
+  background-color: var(--color-secondry-dark);
+}
+
+@media screen and (max-width: 1100px) {
+  .F2P-Game-Page {
+    font-size: small;
+    margin: 100px 0;
+  }
+  .F2P-Game-Page img {
+    width: 100%;
+  }
+  .F2P-Game-Page button {
+    width: 90px;
+    font-size: 10px;
+  }
+  .F2P-Game-Page .bg-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  .F2P-Game-Page .F2P-game-desc {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .F2P-Game-Page .F2P-game-info, .F2P-Game-Page .F2P-game-requirements {
+    padding: 0;
+  }
+  .F2P-Game-Page .comments-component .comments-form {
+    width: 85%;
+    padding: 20px;
+  }
+  .slick-slider {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    margin: auto;
+  }
+  .slick-slider .slick-prev {
+    left: -18px;
+  }
+  .slick-slider .slick-next {
+    right: -18px;
+  }
+  .F2P-img-slider {
+    width: 98%;
+  }
+}/*# sourceMappingURL=F2PGamePage.css.map */

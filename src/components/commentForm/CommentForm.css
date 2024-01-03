@@ -1,0 +1,10 @@
+.game-rating-stars {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+input .input-error {
+  border: 2px solid red;
+}/*# sourceMappingURL=CommentForm.css.map */

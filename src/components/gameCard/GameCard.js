@@ -12,7 +12,7 @@ export const GameCard = ({ title, thumbnail, short_description, game_url, genre,
   // console.log(userFavouriteGames)
 
 
-console.log(isFavouriteLoading)
+
   return (
     <>
       <div className="game-card  ">
@@ -34,7 +34,7 @@ console.log(isFavouriteLoading)
 
           <div className="flex-game-buttons">
             <Button text="Play" url={game_url} />
-            <Favourite game={id} isFavorite={isFavorite} user={user} isFavouriteLoading={isFavouriteLoading}/>
+            {(user ) ? <Favourite game={id} isFavorite={isFavorite} user={user} isFavouriteLoading={isFavouriteLoading}/> : ""}
             <Link to={`/game/${id}`}>
               <Button text="More Info" />
             </Link>

@@ -6,7 +6,7 @@ import {
 } from "../../services/userFavouriteGamesApi";
 import "./Favourite.scss";
 
-export const Favourite = ({ game, user, isFavorite }) => {
+export const Favourite = ({ game, user, isFavorite , isFavouriteLoading }) => {
   const [favourite, setFavourite] = useState(isFavorite);
   const [addFavouriteGame, { isLoading: addIsLoading, error }] =
     useAddFavouriteGameMutation();
@@ -14,8 +14,8 @@ export const Favourite = ({ game, user, isFavorite }) => {
     removeFavouriteGame,
     { isLoading: removeIsLoading, error: removeError },
   ] = useRemoveFavouriteGameMutation();
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } =
-    useGetFavoriteGamesQuery(user);
+  // const { data: userFavouriteGames, isLoading: isFavouriteLoading } =
+  //   useGetFavoriteGamesQuery(user);
 
   const handleFavouriteGame = async () => {
     if (!favourite) {

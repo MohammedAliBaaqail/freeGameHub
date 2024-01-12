@@ -8,11 +8,11 @@ import { Favourite } from "../favourite/Favourite";
 import { useGetFavoriteGamesQuery } from "../../services/userFavouriteGamesApi";
 import { Loading } from "../loading/Loading";
 
-export const GameCard = ({ title, thumbnail, short_description, game_url, genre, id, noGenre, isFavorite, user }) => {
+export const GameCard = ({ title, thumbnail, short_description, game_url, genre, id, noGenre, isFavorite, user , isFavouriteLoading }) => {
   // console.log(userFavouriteGames)
 
 
-
+console.log(isFavouriteLoading)
   return (
     <>
       <div className="game-card  ">
@@ -34,7 +34,7 @@ export const GameCard = ({ title, thumbnail, short_description, game_url, genre,
 
           <div className="flex-game-buttons">
             <Button text="Play" url={game_url} />
-            {user ? <Favourite game={id} isFavorite={isFavorite} user={user}/> : ""}
+            <Favourite game={id} isFavorite={isFavorite} user={user} isFavouriteLoading={isFavouriteLoading}/>
             <Link to={`/game/${id}`}>
               <Button text="More Info" />
             </Link>

@@ -105,35 +105,42 @@
 .favourite-game{
   .favourite-button {
     top: -4px;
-    // display: inline-block;
     position: relative;
-    font-size: 32px;
+    font-size: 45px;
     cursor: pointer;
-    // border: 1px solid black;
-    &::before {
-      font-size: 32px;
-      color: white;
-      content: '♥';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
+  
+    &::before,
     &::after {
-      font-size: 32px;
-      color: red;
-      content: '♥';
+      width: 30px; // Set the desired width
+      height: 30px; // Set the desired height
+      content: ''; // Clear the content property since we're using an SVG
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(-50%, -40%);
+    }
+  
+    &::before {
+      background-image: url('../../../public/notFavourite.svg');
+      background-size: cover;
+    }
+  
+    &::after {
+      background-image: url('../../../public/favourite.svg');
+      background-size: cover;
+      transform: translate(-50%, -40%) scale(0);
       transition: all 0.3s;
     }
+  
+  
     &.isfavourite::after {
-      transform: translate(-50%, -50%) scale(1.1);
+      transform: translate(-50%, -40%) scale(1.1);
+    }
+    &.isfavourite::before {
+      transform: translate(-50%, -40%) scale(0);
     }
     &:hover {
-      transform: translate(-50%, -50%) scale(1.2);
+      transform: translate(-50%, -40%) scale(1.2);
     }
   }
 }

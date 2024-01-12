@@ -18,7 +18,7 @@ export const CategoryPage = () => {
   const { data, isFetching } = useGetGamesByCategoryQuery(category);
   const user = useSelector(selectUser);
   const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
-  if (isFetching) return <Loading />;
+  if (isFetching || isFavouriteLoading) return <Loading />;
 
   var games = data;
 
@@ -34,6 +34,7 @@ export const CategoryPage = () => {
   } else {
     gameCategory = category;
   }
+
   var categoryGames = games.map((game) =>
     gameCategory.includes(game.genre) ? (
       <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavorite={userFavouriteGames?.includes(game.id)} />

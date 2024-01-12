@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from '../../app/userSlice';
 
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Loading } from "../loading/Loading";
 
 export const GamesDirectory = ({ games }) => {
 
@@ -48,7 +49,7 @@ export const GamesDirectory = ({ games }) => {
     }, 500);
   };
 
-  // if (isFavouriteLoading) return 'Loading...'
+  if (isFavouriteLoading) return <Loading/>
   return (
     <div className="games-directory-container">
       <div className="games-directory-search">

@@ -111,7 +111,7 @@
     cursor: pointer;
     // border: 1px solid black;
     &::before {
-      font-size: 1.5em;
+      font-size: 32px;
       color: white;
       content: '♥';
       position: absolute;
@@ -120,7 +120,7 @@
       transform: translate(-50%, -50%);
     }
     &::after {
-      font-size: 1.5em;
+      font-size: 32px;
       color: red;
       content: '♥';
       position: absolute;
@@ -139,6 +139,15 @@
 }
 
 @media screen and (max-width: 1100px) {
+  .favourite-button{
+    font-size: 20px;
+    &::after {
+      font-size: 20px;
+    }
+    &::before {
+      font-size: 20px;
+    }
+  }
   .flex-game-buttons{
 
     font-size: 12px;

@@ -19,37 +19,7 @@ export const CommentForm = ({ gameId, authUser }) => {
 
   const { username } = useSelector((state) => state.user.user);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const game = gameId;
 
-  //   const comment = { text, game,username,  rating };
-
-  //   const res = await fetch("https://free-game-hub-backend.vercel.app/game/comments", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //       "Authorization": `Bearer ${authUser.token}`
-  //     },
-  //     body: JSON.stringify(comment),
-
-  //   });
-  //   const json = await res.json();
-  //   if (!res.ok) {
-  //     setError(json.error);
-  //     setEmptyFields(json.emptyFields)
-  //   }
-  //   if (res.ok) {
-  //     setText("");
-
-  //     setError("");
-  //     setRating(0);
-  //     setEmptyFields([])
-  //     console.log("ggrgrgr",json)
-  //     dispatch(addComments(json));
-
-  //   }
-  // };
 
   const game = gameId;
   const token = authUser.token;

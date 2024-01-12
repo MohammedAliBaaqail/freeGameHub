@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./NavBar.scss";
-import Logo from "../../assets//images/logo.svg";
+import Logo from "../../assets/images/logo.svg";
 
 import { Link } from "react-router-dom";
 
@@ -11,6 +11,7 @@ import { Button } from "../button/Button";
 export const NavBar = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [isHidden, setIsHidden] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu visibility
   const { user } = useSelector((state) => state.user);
   const { logOut } = useLogout();
 
@@ -21,6 +22,9 @@ export const NavBar = () => {
 
       setPrevScrollpos(currentScrollPos);
       setIsHidden(isHidden);
+
+      // Close the menu when scrolling
+      setIsMenuOpen(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,30 +33,54 @@ export const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollpos]);
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const menuToggle = document.getElementById("menu__toggle");
+
+      if (menuToggle && !menuToggle.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const handleClick = () => {
     logOut();
   };
+
   return (
-    <div className={`nav-bar${isHidden ? "" : " hidden"}`}>
+<div className={`nav-bar${isHidden ? "" : " hidden"}`}>
       <div className="hamburger-menu">
-        <input id="menu__toggle" type="checkbox" />
-        <label className="menu__btn" for="menu__toggle">
+        <input
+          id="menu__toggle"
+          type="checkbox"
+          checked={isMenuOpen}
+          onChange={handleMenuToggle}
+        />
+        <label className="menu__btn" htmlFor="menu__toggle">
           <span></span>
         </label>
 
-        <ul className="menu__box">
+        <ul className={`menu__box${isMenuOpen ? " open" : ""}`}>
           {!user && (
             <>
-                            <label className="menu__btn" for="menu__toggle">
-                  <span></span>
-                </label>
-              <li className=" auth">
-
+              <li className="auth">
                 <Link to="/signup">
                   <Button text="signup" not_blank={true} />
                 </Link>
               </li>
-              <li className=" auth">
+              <li className="auth">
                 <Link to="/login">
                   <Button text="login" not_blank={true} />
                 </Link>
@@ -63,7 +91,6 @@ export const NavBar = () => {
             <>
               <li>
                 <div className="user-info">{user.username}</div>
-
                 <Button
                   text="Log out"
                   handleClick={handleClick}
@@ -77,6 +104,7 @@ export const NavBar = () => {
               </li>
             </>
           )}
+
 
           <li>
             <Link className="menu__item" to="/games">
@@ -125,6 +153,8 @@ export const NavBar = () => {
           </li>
         </ul>
       </div>
+
+      
       <div className="nav-bar__logo">
         <Link to="/">
           <img src={Logo} alt="logo" />

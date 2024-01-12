@@ -1,7 +1,10 @@
-import { useGetGamesQuery } from "../../services/F2PgamesApi";
+import { useGetGamesQuery  } from "../../services/F2PgamesApi";
+import {  useGetFavoriteGamesQuery  } from "../../services/userFavouriteGamesApi";
 
 import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../app/userSlice';
 
 import "./Home.scss";
 import Slider from "react-slick";
@@ -10,6 +13,8 @@ import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
 
 export const HomePage = () => {
+  const user = useSelector(selectUser);
+
   const sliderSettings = {
     arrows: true,
     dots: false,
@@ -54,19 +59,15 @@ export const HomePage = () => {
       },
     ],
   };
-  const { data, isFetching } = useGetGamesQuery();
-  if (isFetching) return <Loading />;
+  
+ 
+  const { data: games, isFetching } = useGetGamesQuery();
 
-  var games = data;
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
+
+  if (isFetching || isFavouriteLoading) return <Loading />;
 
   const populerGames = [540, 466, 452, 21, 23, 57, 517, 475, 529, 13, 523];
-  // const populerShooters = [540, 466, 452, 23];
-  // const popularMMOS = [517];
-  // const popularRPGs = [475];
-  // const popularMOBAs = [529, 13];
-  // const popularRacing = [540, 466, 452, 23];
-  // const popularSports = [540, 466, 452, 23];
-  // const popularStrategy = [540, 466, 452, 23];
 
 
 
@@ -86,11 +87,14 @@ export const HomePage = () => {
       <h1>Populer </h1>
       <div className="home-slider">
         <Slider {...sliderSettings}>
-          {games.map((game, i) =>
+          { games?.map((game) =>
             populerGames.includes(game.id) ? (
               <div key={game.id} className="home-game-card">
-                {" "}
-                <GameCard {...game} />{" "}
+                <GameCard
+               {...game}
+                  isFavorite={userFavouriteGames?.includes(game.id)}
+                  user={user}
+                />
               </div>
             ) : (
               ""

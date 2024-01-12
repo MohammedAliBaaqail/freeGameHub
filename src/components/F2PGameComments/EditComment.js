@@ -53,21 +53,7 @@ export const EditComment = ({comment , editMode , authUser}) => {
     }
   };
   const handleDelete = async (_id) => {
-    // const res = await fetch(`https://free-game-hub-backend.vercel.app/game/comments/${_id}`, {
-    //   method: "DELETE",
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
-
-    // const json = await res.json();
-    // if (!res.ok) {
-    //   console.log(json.error);
-    // }
-    // if (res.ok) {
-    //   console.log(json._id)
-    //   dispatch(deleteComment(_id));
-    // }
+ 
 
     const res = await deleteComment({_id, token});
   

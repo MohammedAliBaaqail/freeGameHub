@@ -6,20 +6,26 @@ import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
 import './UserFavouriteGames.scss'
+import { useGetFavoriteGamesQuery } from "../../services/userFavouriteGamesApi";
 
+
+
+
+import { selectUser } from '../../app/userSlice';
 export const UserFavouriteGames = () => {
+  
+  const user = useSelector(selectUser);
+
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
     const [favouriteGames, setFavouriteGames] = useState();
-    const {user} = useSelector((state) => state.user);
+
     const { data: gamesList , isFetching} = useGetGamesQuery();  
     useEffect(() => {
         const fetchComments = async () => {
       
          
-          // if (!isFavouriteLoading) {
-          //   setIsfavourite(userFavouriteGames.find((game) => game.id === id));
-           
-          // }
-          if (isFetching) return <Loading/>
+ 
+          if (isFetching || isFavouriteLoading) return <Loading/>
 
           const favouriteGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`);
 
@@ -29,15 +35,14 @@ export const UserFavouriteGames = () => {
   
 
           setFavouriteGames(fav)
-        //   console.log("fav",fav)
-        //     console.log("favGames",favGames)
+
     
       
       
         };
       
         fetchComments();
-      }, [  isFetching ]);
+      }, [  isFetching , isFavouriteLoading ]);
       if (isFetching ||!favouriteGames) return <Loading/> 
 
 
@@ -46,7 +51,7 @@ export const UserFavouriteGames = () => {
     {...animations}
      className='user-favourite-games-page'>
        {favouriteGames.map((game) => (
-        <GameCard {...game} key={game.id}/>
+           <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavorite={userFavouriteGames?.includes(game.id)} />
       ))}
     </motion.div>
   )

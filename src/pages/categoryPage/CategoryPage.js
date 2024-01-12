@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetGamesByCategoryQuery } from "../../services/F2PgamesApi";
+import {  useGetFavoriteGamesQuery  } from "../../services/userFavouriteGamesApi";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
@@ -8,10 +9,15 @@ import "./CategoryPage.scss";
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations";
 import { LazyScroll } from "../../components/lazyScroll/LazyScroll";
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../app/userSlice';
+
 
 export const CategoryPage = () => {
   const { category } = useParams();
   const { data, isFetching } = useGetGamesByCategoryQuery(category);
+  const user = useSelector(selectUser);
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
   if (isFetching) return <Loading />;
 
   var games = data;
@@ -30,7 +36,7 @@ export const CategoryPage = () => {
   }
   var categoryGames = games.map((game) =>
     gameCategory.includes(game.genre) ? (
-      <GameCard {...game} key={game.id} noGenre={true} />
+      <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavorite={userFavouriteGames?.includes(game.id)} />
     ) : (
       ""
     )

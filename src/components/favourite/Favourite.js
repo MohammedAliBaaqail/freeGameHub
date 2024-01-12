@@ -25,7 +25,7 @@ export const Favourite = ({game , user }) => {
 
  
     //   if (!isFavouriteLoading) {
-    //         // const getGames = await fetch(`http://localhost:4000/user/getFavouriteGames/${user.username}`)
+    //         // const getGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`)
     //         // const games = await getGames.json()
     //         const gameInFavouriteList = userFavouriteGames.includes(game)
     //         console.log(gameInFavouriteList)
@@ -44,7 +44,7 @@ export const Favourite = ({game , user }) => {
             // console.log(game)
             // console.log(user.username)
             // console.log(userFavouriteGames)
-            const getGames = await fetch(`https://freegamehub-backend.adaptable.app/user/getFavouriteGames/${user.username}`)
+            const getGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`)
             const games = await getGames.json()
             
 
@@ -80,7 +80,7 @@ export const Favourite = ({game , user }) => {
        
       // }
 
-      const favouriteGames = await fetch(`https://freegamehub-backend.adaptable.app/user/getFavouriteGames/${user.username}`);
+      const favouriteGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`);
       const games = await favouriteGames.json();
       const fav = games.includes( game);
       setFavourite(fav)

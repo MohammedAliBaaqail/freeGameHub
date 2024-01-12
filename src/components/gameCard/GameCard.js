@@ -34,7 +34,7 @@ const {user} = useSelector((state) => state.user);
      
 //     // }
 
-//     const favouriteGames = await fetch(`http://localhost:4000/user/getFavouriteGames/${user.username}`);
+//     const favouriteGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`);
 //     const games = await favouriteGames.json();
 //     const fav = games.includes( id);
 //     setIsfavourite(fav)

@@ -4,7 +4,7 @@ const gamesApiHeaders = {
 
 }
 
-const baseUrl = 'https://freegamehub-backend.adaptable.app'
+const baseUrl = 'https://free-game-hub-backend.vercel.app'
 
 const createRequest = (url) => ({ url, headers: gamesApiHeaders })
 

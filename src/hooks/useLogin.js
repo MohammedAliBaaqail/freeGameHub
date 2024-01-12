@@ -19,7 +19,7 @@ export const useLogin = () => {
       const logIn = async ( email, password ) => {
         setIsLoading(true)
         setError(null)
-        const res = await fetch("https://freegamehub-backend.adaptable.app/user/login", {
+        const res = await fetch("https://free-game-hub-backend.vercel.app/user/login", {
             method: "POST",
             headers: {
               "Content-type": "application/json",

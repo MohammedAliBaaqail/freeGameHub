@@ -87,7 +87,7 @@ export const CommentForm = ({ gameId, authUser }) => {
           onChange={(e) => setText(e.target.value)}
           name={"leave a comment"}
         />
-           <button className="btn-23" type="submit">
+           <button className="btn" type="submit">
         Submit
       </button>
       {error && <p>{error + emptyFields}</p>}

@@ -117,37 +117,37 @@ export const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/Shooter">
+            <Link className="menu__item" to="category/Shooter">
               SHOOTER
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/MMO">
+            <Link className="menu__item" to="category/MMO">
               MMO
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/MOBA">
+            <Link className="menu__item" to="category/MOBA">
               MOBA
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/Strategy">
+            <Link className="menu__item" to="category/Strategy">
               STRATEGY
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/Fighting">
+            <Link className="menu__item" to="category/Fighting">
               FIGHTING
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/Sports">
+            <Link className="menu__item" to="category/Sports">
               SPORTS
             </Link>
           </li>
           <li>
-            <Link className="menu__item" to="games/card">
+            <Link className="menu__item" to="category/card">
               CARDS
             </Link>
           </li>
@@ -170,26 +170,29 @@ export const NavBar = () => {
           </Link>
         </div>
 
-        <Link className="nav-link" to="games/Shooter">
+        <Link className="nav-link" to="category/Shooter">
           SHOOTER
         </Link>
-        <Link className="nav-link" to="games/MMO">
+        <Link className="nav-link" to="category/MMO">
           MMO
         </Link>
-        <Link className="nav-link" to="games/MOBA">
+        <Link className="nav-link" to="category/MOBA">
           MOBA
         </Link>
-        <Link className="nav-link" to="games/Strategy">
+        <Link className="nav-link" to="category/Strategy">
           STRATEGY
         </Link>
-        <Link className="nav-link" to="games/Fighting">
+        <Link className="nav-link" to="category/Fighting">
           FIGHTING
         </Link>
-        <Link className="nav-link" to="games/Sports">
+        <Link className="nav-link" to="category/Sports">
           SPORTS
         </Link>
-        <Link className="nav-link" to="games/card">
+        <Link className="nav-link" to="category/card">
           CARDS
+        </Link>
+        <Link className="nav-link" to="categories">
+           Categories
         </Link>
 
         {!user && (

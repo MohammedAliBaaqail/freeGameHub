@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations"
 import './UserFavouriteGames.scss'
-import { useGetFavoriteGamesQuery } from "../../services/userFavouriteGamesApi";
+import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
 
 
 
@@ -16,7 +16,7 @@ export const UserFavouriteGames = () => {
   
   const user = useSelector(selectUser);
 
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
     const [favouriteGames, setFavouriteGames] = useState();
 
     const { data: gamesList , isFetching} = useGetGamesQuery();  
@@ -25,7 +25,7 @@ export const UserFavouriteGames = () => {
       
          
  
-          if (isFetching || isFavouriteLoading) return <Loading/>
+          if (isFetching  ) return <Loading/>
 
           const favouriteGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`);
 
@@ -51,7 +51,7 @@ export const UserFavouriteGames = () => {
     {...animations}
      className='user-favourite-games-page'>
        {favouriteGames.map((game) => (
-           <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavorite={userFavouriteGames?.includes(game.id)} />
+           <GameCard {...game} key={game.id}user={user} noGenre={true} isFavouriteLoading={isFavouriteLoading}  isFavourite={userFavouriteGames?.includes(game.id)} />
       ))}
     </motion.div>
   )

@@ -1,6 +1,6 @@
 
 
-.btn-23 {
+.btn {
   font-family: 'Michroma', sans-serif;
     cursor: pointer;
 
@@ -11,16 +11,16 @@
     width: 125px;
     height: 35px;
     position: relative;
-    border: solid var(--color-orange) 0px;
+    border: solid #964900 2px;
     color: var(--color-grey);
     z-index: 1;
     transition: all 0.5s ease-in-out;
-    // border-radius: 5px;
+    
     overflow: hidden;
     background-color: var(--color-orange-dark)  ;
   }
   
-  .btn-23:before {
+  .btn:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -33,18 +33,18 @@
     z-index: -1;
   }
   
-  .btn-23:hover:before {
+  .btn:hover:before {
     width: 120%;
     left: -10%;
   }
   
-  .btn-23:hover {
+  .btn:hover {
     color: #f1f1f1;
     // border-color: var(--color-orange);
   }
   
 
-  .btn-23:focus {
+  .btn:focus {
     outline: none
   }
 

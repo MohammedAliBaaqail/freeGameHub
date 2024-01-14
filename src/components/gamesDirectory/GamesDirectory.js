@@ -1,40 +1,38 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import GameCard from "../gameCard/GameCard";
 import { Search } from "../search/Search";
 import "./GamesDirectory.scss";
-import { useGetFavoriteGamesQuery } from "../../services/userFavouriteGamesApi";
+import { selectUser } from '../../app/userSlice';
+import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
 
 import { useSelector } from "react-redux";
-
-
-import { selectUser } from '../../app/userSlice';
-
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Loading } from "../loading/Loading";
 
-export const GamesDirectory = ({ games }) => {
-
-
+export const GamesDirectory = ({ games, handleSortingChange , isFetching  , isFetchingSorted}) => {
   const user = useSelector(selectUser);
 
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
-
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
 
   const [query, setQuery] = useState("");
   const [items, setItems] = useState(games.slice(0, 20));
   const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    setItems(games.slice(0, 20));
+    setHasMore(true);
+  }, [games]);
+
   const search = (game) => {
     return game.filter((item) => item.title.toLowerCase().includes(query));
   };
 
   const searchedGames = search(items);
 
-
   const handleSearch = (e) => {
     setQuery(e.target.value.toLowerCase());
     setItems(games.slice(0, games.length));
-    if (searchedGames.length == 0) {
+    if (searchedGames.length === 0) {
       setHasMore(false);
     }
   };
@@ -45,13 +43,27 @@ export const GamesDirectory = ({ games }) => {
       if (items.length >= games.length) {
         setHasMore(false);
       }
-     
     }, 500);
   };
 
-  if (isFavouriteLoading) return <Loading/>
+  if (isFavouriteLoading || isFetching ) return <Loading />;
+
   return (
     <div className="games-directory-container">
+      <nav className="menu" role="navigation">
+        <ol>
+          <li className="menu-item" aria-haspopup="true">
+            <a href="#0">Sort By</a>
+            <ol className="sub-menu" aria-label="submenu">
+             <a className="menu-item" href="#0" onClick={() => handleSortingChange('release-date')}>Release Date</a>
+              <a className="menu-item" href="#0" onClick={() => handleSortingChange('popularity')}>Popularity</a>
+             <a className="menu-item" href="#0" onClick={() => handleSortingChange('alphabetical')}>Alphabetical</a>
+           <a className="menu-item" href="#0" onClick={() => handleSortingChange('relevance')}>Relevance (Def)</a>
+            </ol>
+          </li>
+        </ol>
+      </nav>
+
       <div className="games-directory-search">
         <Search handleSearch={handleSearch} />
       </div>
@@ -62,20 +74,12 @@ export const GamesDirectory = ({ games }) => {
           dataLength={searchedGames.length}
           next={nextItems}
           hasMore={hasMore}
-          loader={
-            hasMore ? <div class="lds-ring"><div></div><div></div><div></div><div></div></div> :''
-          }
-
+          loader={hasMore ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : ''}
         >
-          {searchedGames.length != 0 ? searchedGames.map((game) => (
-            <GameCard {...game} key={game.id} user={user}   isFavorite={userFavouriteGames?.includes(game.id)} />
-          )) : `No games found` }
+          {searchedGames.length !== 0 ? searchedGames.map((game) => (
+            <GameCard {...game} key={game.id} user={user} isFavourite={userFavouriteGames?.includes(game.id)} />
+          )) : `No games found`}
         </InfiniteScroll>
-
-        {/* {searchedGames?.map((game) => (
-
-            <GameCard {...game} key={game.id}/>
-        ))} */}
       </div>
     </div>
   );

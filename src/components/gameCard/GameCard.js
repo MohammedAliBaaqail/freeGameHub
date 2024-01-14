@@ -5,11 +5,11 @@ import "./GameCard.scss";
 import { motion } from "framer-motion";
 import { Favourite } from "../favourite/Favourite";
 
-import { useGetFavoriteGamesQuery } from "../../services/userFavouriteGamesApi";
+import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
 import { Loading } from "../loading/Loading";
 
-export const GameCard = ({ title, thumbnail, short_description, game_url, genre, id, noGenre, isFavorite, user , isFavouriteLoading }) => {
-  // console.log(userFavouriteGames)
+export const GameCard = ({ title, thumbnail, short_description, game_url, genre, id, noGenre, isFavourite, user , isFavouriteLoading }) => {
+
 
 
 
@@ -34,7 +34,7 @@ export const GameCard = ({ title, thumbnail, short_description, game_url, genre,
 
           <div className="flex-game-buttons">
             <Button text="Play" url={game_url} />
-            {(user ) ? <Favourite game={id} isFavorite={isFavorite} user={user} isFavouriteLoading={isFavouriteLoading}/> : ""}
+            {(user ) ? <Favourite game={id} isFavourite={isFavourite} user={user} isFavouriteLoading={isFavouriteLoading}/> : ""}
             <Link to={`/game/${id}`}>
               <Button text="More Info" />
             </Link>

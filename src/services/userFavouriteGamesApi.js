@@ -14,7 +14,7 @@ export const UserFavouriteGamesApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
 
-        getFavoriteGames: builder.query({
+        getFavouriteGames: builder.query({
             query: (user) => createRequest(`/user/getFavouriteGames/${user.username}`),
             
           }),
@@ -51,6 +51,6 @@ export const UserFavouriteGamesApi = createApi({
 export const {
     useAddFavouriteGameMutation,
     useRemoveFavouriteGameMutation,
-    useGetFavoriteGamesQuery
+    useGetFavouriteGamesQuery
 } = UserFavouriteGamesApi
 

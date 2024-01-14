@@ -1,5 +1,5 @@
 import { useGetGamesQuery  } from "../../services/F2PgamesApi";
-import {  useGetFavoriteGamesQuery  } from "../../services/userFavouriteGamesApi";
+import {  useGetFavouriteGamesQuery  } from "../../services/userFavouriteGamesApi";
 
 import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
@@ -63,11 +63,11 @@ export const HomePage = () => {
  
   const { data: games, isFetching } = useGetGamesQuery();
 
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavoriteGamesQuery(user);
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
 
-  if (isFetching || isFavouriteLoading) return <Loading />;
+  if (isFetching ) return <Loading />;
 
-  const populerGames = [540, 466, 452, 21, 23, 57, 517, 475, 529, 13, 523];
+  const populerGames = [540,570, 466, 452, 21, 23, 57, 517, 475, 529, 13, 523];
 
 
 
@@ -91,8 +91,9 @@ export const HomePage = () => {
             populerGames.includes(game.id) ? (
               <div key={game.id} className="home-game-card">
                 <GameCard
+                isFavouriteLoading={isFavouriteLoading}
                {...game}
-                  isFavorite={userFavouriteGames?.includes(game.id)}
+                  isFavourite={userFavouriteGames?.includes(game.id)}
                   user={user}
                 />
               </div>

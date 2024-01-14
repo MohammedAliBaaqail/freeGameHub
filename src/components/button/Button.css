@@ -1,4 +1,4 @@
-.btn-23 {
+.btn {
   font-family: "Michroma", sans-serif;
   cursor: pointer;
   text-transform: uppercase;
@@ -14,7 +14,7 @@
   background-color: var(--color-orange-dark);
 }
 
-.btn-23:before {
+.btn:before {
   content: "";
   position: absolute;
   left: 50%;
@@ -26,15 +26,15 @@
   z-index: -1;
 }
 
-.btn-23:hover:before {
+.btn:hover:before {
   width: 120%;
   left: -10%;
 }
 
-.btn-23:hover {
+.btn:hover {
   color: #f1f1f1;
 }
 
-.btn-23:focus {
+.btn:focus {
   outline: none;
 }/*# sourceMappingURL=Button.css.map */

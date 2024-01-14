@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import {
   useAddFavouriteGameMutation,
   useRemoveFavouriteGameMutation,
-  useGetFavoriteGamesQuery,
+  useGetFavouriteGamesQuery,
 } from "../../services/userFavouriteGamesApi";
 import "./Favourite.scss";
 
-export const Favourite = ({ game, user, isFavorite , isFavouriteLoading }) => {
-  const [favourite, setFavourite] = useState(isFavorite);
+export const Favourite = ({ game, user, isFavourite , isFavouriteLoading }) => {
+  const [favourite, setFavourite] = useState(isFavourite);
   const [addFavouriteGame, { isLoading: addIsLoading, error }] =
     useAddFavouriteGameMutation();
   const [
     removeFavouriteGame,
     { isLoading: removeIsLoading, error: removeError },
   ] = useRemoveFavouriteGameMutation();
-  // const { data: userFavouriteGames, isLoading: isFavouriteLoading } =
-  //   useGetFavoriteGamesQuery(user);
 
+ 
+    useEffect(() => {setFavourite(isFavourite)},[isFavourite,isFavouriteLoading])
   const handleFavouriteGame = async () => {
     if (!favourite) {
       try {

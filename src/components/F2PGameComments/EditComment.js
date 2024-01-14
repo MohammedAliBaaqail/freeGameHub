@@ -87,12 +87,12 @@ export const EditComment = ({comment , editMode , authUser}) => {
         />
         <div className="comment-buttons">
         <button
-          className="btn-23"
+          className="btn"
           onClick={() => handleEdit(comment._id, editedComment)}
         >
           Submit
         </button>
-        <button className="btn-23" onClick={() => handleDelete(comment._id)}>
+        <button className="btn" onClick={() => handleDelete(comment._id)}>
           Delete
         </button>
         </div>

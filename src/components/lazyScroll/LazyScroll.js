@@ -19,7 +19,7 @@ export const LazyScroll = ({allItems }) => {
 
 
   return (
-    <div>
+    <div className="lazy-scroll">
         <InfiniteScroll
           dataLength={items.length}
           next={nextItems}

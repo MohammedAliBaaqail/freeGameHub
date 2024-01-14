@@ -151,6 +151,11 @@ export const NavBar = () => {
               CARDS
             </Link>
           </li>
+          <li>
+            <Link className="menu__item" to="categories">
+            CATEGORIES
+            </Link>
+          </li>
         </ul>
       </div>
 

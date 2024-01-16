@@ -4,7 +4,7 @@ const commentsApiHeaders = {
   "Content-Type": "application/json",
 };
 
-const baseUrl = "free-game-hub.netlify.app";
+const baseUrl = "https://free-game-hub-backend.vercel.app";
 
 const createRequest = (url) => ({ url, headers: commentsApiHeaders });
 

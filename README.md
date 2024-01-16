@@ -2,7 +2,7 @@ A website to track all free to play and giveaway games using 'freetogame' and 'g
 
 
 
-https://free-game-hub.netlify.app
+https://https://free-game-hub-backend.vercel.app
 
 
 ![image](https://user-images.githubusercontent.com/81483016/221384196-6ef0629b-4b30-4784-872b-4656d8401664.png)

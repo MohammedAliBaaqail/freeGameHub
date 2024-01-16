@@ -12,7 +12,7 @@ export const useLogin = () => {
     setError(null);
 
     try {
-      const res = await fetch("free-game-hub.netlify.app/user/login", {
+      const res = await fetch("https://free-game-hub-backend.vercel.app/user/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

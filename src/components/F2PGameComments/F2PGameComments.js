@@ -39,7 +39,7 @@ export const F2PGameComments = ({ gameId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchComments = async () => {
-      // const res = await fetch(`free-game-hub.netlify.app/game/comments/${gameId}`);
+      // const res = await fetch(`https://free-game-hub-backend.vercel.app/game/comments/${gameId}`);
       // const data = await res.json();
      
       if (!isLoading) {

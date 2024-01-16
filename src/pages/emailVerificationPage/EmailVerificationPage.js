@@ -19,7 +19,7 @@ const EmailVerification = () => {
 
       try {
         // Make a GET request to the server to verify the email
-        const response = await axios.get(`free-game-hub.netlify.app/user/verify?token=${token}`);
+        const response = await axios.get(`https://free-game-hub-backend.vercel.app/user/verify?token=${token}`);
 
         // Update the verification status based on the response
         setVerificationStatus(response.data.message);

@@ -15,13 +15,14 @@ export const Favourite = ({ game, user, isFavourite , isFavouriteLoading }) => {
     { isLoading: removeIsLoading, error: removeError },
   ] = useRemoveFavouriteGameMutation();
 
- 
+
     useEffect(() => {setFavourite(isFavourite)},[isFavourite,isFavouriteLoading])
   const handleFavouriteGame = async () => {
     if (!favourite) {
       try {
         const result = await addFavouriteGame({
           username: user.username,
+          token:user.token,
           game,
         });
         setFavourite(true);
@@ -32,6 +33,7 @@ export const Favourite = ({ game, user, isFavourite , isFavouriteLoading }) => {
       try {
         const result = await removeFavouriteGame({
           username: user.username,
+          token:user.token,
           game,
         });
         setFavourite(false);

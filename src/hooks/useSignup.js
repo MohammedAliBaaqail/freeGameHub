@@ -19,7 +19,7 @@ export const useSignup = () => {
       const signup = async ( email,username, password  ) => {
         setIsLoading(true)
         setError(null)
-        const res = await fetch("https://free-game-hub-backend.vercel.app/user/signup", {
+        const res = await fetch("free-game-hub.netlify.app/user/signup", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
@@ -35,7 +35,7 @@ export const useSignup = () => {
           }
           if (res.ok) {
             
-            dispatch(login(json));
+            // dispatch(login(json));
             setIsLoading(false);
           }
 

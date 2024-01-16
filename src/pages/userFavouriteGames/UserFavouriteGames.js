@@ -1,58 +1,50 @@
-import {useState , useEffect} from 'react'
-import GameCard from '../../components/gameCard/GameCard';
-import { Loading } from '../../components/loading/Loading';
-import { useGetGamesQuery } from '../../services/F2PgamesApi'
+import { useState, useEffect } from "react";
+import GameCard from "../../components/gameCard/GameCard";
+import { Loading } from "../../components/loading/Loading";
+import { useGetGamesQuery } from "../../services/F2PgamesApi";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import animations from "../../animations/Animations"
-import './UserFavouriteGames.scss'
+import animations from "../../animations/Animations";
+import "./UserFavouriteGames.scss";
 import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
 
-
-
-
-import { selectUser } from '../../app/userSlice';
+import { selectUser } from "../../app/userSlice";
 export const UserFavouriteGames = () => {
-  
   const user = useSelector(selectUser);
 
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
-    const [favouriteGames, setFavouriteGames] = useState();
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } =
+    useGetFavouriteGamesQuery(user);
+  const [favouriteGames, setFavouriteGames] = useState();
 
-    const { data: gamesList , isFetching} = useGetGamesQuery();  
-    useEffect(() => {
-        const fetchComments = async () => {
-      
-         
+  const { data: gamesList, isFetching } = useGetGamesQuery();
  
-          if (isFetching  ) return <Loading/>
-
-          const favouriteGames = await fetch(`https://free-game-hub-backend.vercel.app/user/getFavouriteGames/${user.username}`);
-
-          const favGames = await favouriteGames.json();
+  useEffect(() => {
+    const fetchComments = async () => {
+      if (isFetching) return <Loading />;
+     
    
-          const fav =  gamesList.filter((game) => favGames.includes(game.id));
-  
 
-          setFavouriteGames(fav)
+      const fav = gamesList.filter((game) => userFavouriteGames?.includes(game.id));
+      
+      setFavouriteGames(fav);
+    };
 
-    
-      
-      
-        };
-      
-        fetchComments();
-      }, [  isFetching , isFavouriteLoading ]);
-      if (isFetching ||!favouriteGames) return <Loading/> 
-
+    fetchComments();
+  }, [isFetching, isFavouriteLoading ,userFavouriteGames ,gamesList]);
+  if (isFetching ) return <Loading />;
 
   return (
-    <motion.div
-    {...animations}
-     className='user-favourite-games-page'>
-       {favouriteGames.map((game) => (
-           <GameCard {...game} key={game.id}user={user} noGenre={true} isFavouriteLoading={isFavouriteLoading}  isFavourite={userFavouriteGames?.includes(game.id)} />
+    <motion.div {...animations} className="user-favourite-games-page">
+      {favouriteGames?.map((game) => (
+        <GameCard
+          {...game}
+          key={game.id}
+          user={user}
+          noGenre={true}
+          isFavouriteLoading={isFavouriteLoading}
+          isFavourite={userFavouriteGames?.includes(game.id)}
+        />
       ))}
     </motion.div>
-  )
-}
+  );
+};

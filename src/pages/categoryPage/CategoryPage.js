@@ -5,19 +5,33 @@ import { useParams } from "react-router-dom";
 import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
 import "./CategoryPage.scss";
-
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations";
 import { LazyScroll } from "../../components/lazyScroll/LazyScroll";
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { selectUser } from '../../app/userSlice';
-
+import { selectFavoriteGames } from "../../app/favoriteGamesSlice";
+import { setFavoriteGames } from "../../app/favoriteGamesSlice";
 
 export const CategoryPage = () => {
   const { category } = useParams();
   const { data, isFetching } = useGetGamesByCategoryQuery(category);
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const favorites  = useSelector(selectFavoriteGames);
   const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
+
+  useEffect(() => {
+ 
+    if (!isFavouriteLoading && (favorites.length === 0) ){
+
+      dispatch(setFavoriteGames(userFavouriteGames));
+   
+    }
+    
+   
+  }, [isFavouriteLoading]);
 
   if (isFetching || isFavouriteLoading) return <Loading />;
 
@@ -38,7 +52,7 @@ export const CategoryPage = () => {
 
   var categoryGames = data.map((game) =>
    
-      <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavourite={userFavouriteGames?.includes(game.id)} />
+      <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavourite={favorites?.includes(game.id)} />
    
   );
 

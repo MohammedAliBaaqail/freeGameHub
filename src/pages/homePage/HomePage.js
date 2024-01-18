@@ -1,18 +1,20 @@
-import { useGetGamesQuery  } from "../../services/F2PgamesApi";
-import {  useGetFavouriteGamesQuery  } from "../../services/userFavouriteGamesApi";
-
+import { useGetGamesQuery } from "../../services/F2PgamesApi";
+import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
+import { useEffect, useState } from "react";
 import { Loading } from "../../components/loading/Loading";
 import GameCard from "../../components/gameCard/GameCard";
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../app/userSlice';
-
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser } from "../../app/userSlice";
+import { selectFavoriteGames } from "../../app/favoriteGamesSlice";
+import { setFavoriteGames } from "../../app/favoriteGamesSlice";
 import "./Home.scss";
 import Slider from "react-slick";
 
 import { motion } from "framer-motion";
-import animations from "../../animations/Animations"
+import animations from "../../animations/Animations";
 
 export const HomePage = () => {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
   const sliderSettings = {
@@ -59,27 +61,32 @@ export const HomePage = () => {
       },
     ],
   };
-  
+  const favorites  = useSelector(selectFavoriteGames);
+  const { data: games, isFetching } = useGetGamesQuery()
+  const [favouriteGames, setFavouriteGames] = useState(favorites);
+
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } =
+    useGetFavouriteGamesQuery(user);
+
+    useEffect(() => {
  
-  const { data: games, isFetching } = useGetGamesQuery();
+      if (!isFavouriteLoading && (favorites.length === 0) ){
 
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
-
-  if (isFetching ) return <Loading />;
-
-  const populerGames = [540,570, 466, 452, 21, 23, 57, 517, 475, 529, 13, 523];
-
-
-
+        dispatch(setFavoriteGames(userFavouriteGames));
+     
+      }
+      
+     
+    }, [isFavouriteLoading]);
 
 
+   
+  if (isFetching) return <Loading />;
+
+  const populerGames = [540, 570, 466, 452, 21, 23, 57, 517, 475, 529, 13, 523];
 
   return (
- 
-    <motion.div className="home-page"
-      {...animations}
-     
-    >
+    <motion.div className="home-page" {...animations}>
       <div className="hero-section">
         <h1>Free Game Hub </h1>
       </div>
@@ -87,13 +94,13 @@ export const HomePage = () => {
       <h1>Populer </h1>
       <div className="home-slider">
         <Slider {...sliderSettings}>
-          { games?.map((game) =>
+          {games?.map((game) =>
             populerGames.includes(game.id) ? (
               <div key={game.id} className="home-game-card">
                 <GameCard
-                isFavouriteLoading={isFavouriteLoading}
-               {...game}
-                  isFavourite={userFavouriteGames?.includes(game.id)}
+                  isFavouriteLoading={isFavouriteLoading}
+                  {...game}
+                  isFavourite={favorites?.includes(game.id)}
                   user={user}
                 />
               </div>
@@ -104,7 +111,6 @@ export const HomePage = () => {
         </Slider>
       </div>
     </motion.div>
-
   );
 };
 

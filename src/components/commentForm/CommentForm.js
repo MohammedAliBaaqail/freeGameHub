@@ -49,22 +49,7 @@ export const CommentForm = ({ gameId, authUser }) => {
       dispatch(addComments(res.data));
     }
 
-    //   if (res.error ) {
-    //     setError(res.error.data.error);
-    //     setEmptyFields(res.error.data.emptyFields)
 
-    //   }
-
-    //   if (!res.error ) {
-    //     console.log("ggrgrgr",res.data)
-    //     setText("");
-
-    //     setError("");
-    //     setRating(0);
-    //     setEmptyFields([])
-    //     dispatch(addComments(res.data));
-
-    // };
   };
 
   const reactStarsPrompt = {

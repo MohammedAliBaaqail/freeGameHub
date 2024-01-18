@@ -1,45 +1,61 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   useAddFavouriteGameMutation,
   useRemoveFavouriteGameMutation,
-  useGetFavouriteGamesQuery,
 } from "../../services/userFavouriteGamesApi";
+import { addFavoriteGame, removeFavoriteGame } from "../../app/favoriteGamesSlice";
 import "./Favourite.scss";
 
-export const Favourite = ({ game, user, isFavourite , isFavouriteLoading }) => {
+export const Favourite = ({ game, user, isFavourite, isFavouriteLoading }) => {
   const [favourite, setFavourite] = useState(isFavourite);
-  const [addFavouriteGame, { isLoading: addIsLoading, error }] =
-    useAddFavouriteGameMutation();
+  const dispatch = useDispatch();
+  const [
+    addFavouriteGame,
+    { isLoading: addIsLoading, error: addError },
+  ] = useAddFavouriteGameMutation();
   const [
     removeFavouriteGame,
     { isLoading: removeIsLoading, error: removeError },
   ] = useRemoveFavouriteGameMutation();
 
+  useEffect(() => {
+    setFavourite(isFavourite);
+  }, [isFavourite, isFavouriteLoading]);
 
-    useEffect(() => {setFavourite(isFavourite)},[isFavourite,isFavouriteLoading])
   const handleFavouriteGame = async () => {
-    if (!favourite) {
-      try {
+    try {
+      if (!favourite) {
         const result = await addFavouriteGame({
           username: user.username,
-          token:user.token,
+          token: user.token,
           game,
         });
-        setFavourite(true);
-      } catch (err) {
-        console.error("Failed to add favourite game: ", err);
-      }
-    } else {
-      try {
+
+        // Check if the API call was successful before updating the local state and Redux store
+        if (!result.error) {
+          setFavourite(true);
+          dispatch(addFavoriteGame(game));
+        } else {
+          console.error("Failed to add favourite game: ", result.error);
+        }
+      } else {
         const result = await removeFavouriteGame({
           username: user.username,
-          token:user.token,
+          token: user.token,
           game,
         });
-        setFavourite(false);
-      } catch (err) {
-        console.error("Failed to remove favourite game: ", err);
+
+        // Check if the API call was successful before updating the local state and Redux store
+        if (!result.error) {
+          setFavourite(false);
+          dispatch(removeFavoriteGame(game));
+        } else {
+          console.error("Failed to remove favourite game: ", result.error);
+        }
       }
+    } catch (err) {
+      console.error("Error while handling favourite game: ", err);
     }
   };
 
@@ -54,10 +70,9 @@ export const Favourite = ({ game, user, isFavourite , isFavouriteLoading }) => {
         </div>{" "}
       </div>
     );
+
   return (
     <div className="favourite-game">
-      {/* add a button to toggle css class based of state */}
-      {/* <button onClick={() => handleFavouriteGame()} className={favourite? 'isFavourite liked' : 'notFavourite'}>Favourite</button> */}
       <div
         onClick={() => handleFavouriteGame()}
         className={

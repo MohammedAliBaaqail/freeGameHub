@@ -4,20 +4,32 @@ import { Search } from "../search/Search";
 import "./GamesDirectory.scss";
 import { selectUser } from '../../app/userSlice';
 import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
-
-import { useSelector } from "react-redux";
+import { selectFavoriteGames } from "../../app/favoriteGamesSlice";
+import { setFavoriteGames } from "../../app/favoriteGamesSlice";
+import { useSelector , useDispatch } from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Loading } from "../loading/Loading";
 
 export const GamesDirectory = ({ games, handleSortingChange , isFetching  , isFetchingSorted}) => {
   const user = useSelector(selectUser);
-
+  const favorites  = useSelector(selectFavoriteGames);
+  const dispatch = useDispatch();
   const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
 
   const [query, setQuery] = useState("");
   const [items, setItems] = useState(games.slice(0, 20));
   const [hasMore, setHasMore] = useState(true);
 
+  useEffect(() => {
+ 
+    if (!isFavouriteLoading && (favorites.length === 0) ){
+
+      dispatch(setFavoriteGames(userFavouriteGames));
+   
+    }
+    
+   
+  }, [isFavouriteLoading]);
   useEffect(() => {
     setItems(games.slice(0, 20));
     setHasMore(true);
@@ -77,7 +89,7 @@ export const GamesDirectory = ({ games, handleSortingChange , isFetching  , isFe
           loader={hasMore ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : ''}
         >
           {searchedGames.length !== 0 ? searchedGames.map((game) => (
-            <GameCard {...game} key={game.id} user={user} isFavourite={userFavouriteGames?.includes(game.id)} />
+            <GameCard {...game} key={game.id} user={user} isFavourite={favorites?.includes(game.id)} />
           )) : `No games found`}
         </InfiniteScroll>
       </div>

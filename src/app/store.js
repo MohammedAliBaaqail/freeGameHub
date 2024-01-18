@@ -5,6 +5,7 @@ import { giveawaysApi } from "../services/giveawaysApi";
 import { CommentsApi } from "../services/commentsApi";
 import { UserFavouriteGamesApi } from "../services/userFavouriteGamesApi";
 import commentsReducer from "./commentsSlice";
+import favoriteGamesReducer from "./favoriteGamesSlice";
 import gamesReducer from "./gamesSlice";
 import userReducer from "./userSlice";
 
@@ -17,6 +18,7 @@ export default configureStore({
     games: gamesReducer,
     user: userReducer,
     comments: commentsReducer,
+    favoriteGames: favoriteGamesReducer,
 
   },
 

@@ -16,16 +16,17 @@ export const UserFavouriteGames = () => {
   const favorites  = useSelector(selectFavoriteGames);
   const { data: userFavouriteGames, isLoading: isFavouriteLoading } =
     useGetFavouriteGamesQuery(user);
-  const [favouriteGames, setFavouriteGames] = useState(favorites);
+  const [favouriteGames, setFavouriteGames] = useState();
 
-  const { data: gamesList, isFetching } = useGetGamesQuery();
+  const { data: games, isFetching } = useGetGamesQuery()
   
-
+  console.log(isFetching)
   useEffect(() => {
  
-    if (!isFavouriteLoading && (favorites.length === 0) ){
+    if (!isFavouriteLoading && userFavouriteGames.length > 0 && favorites.length === 0) {
 
       dispatch(setFavoriteGames(userFavouriteGames));
+
     }
     
    
@@ -33,18 +34,17 @@ export const UserFavouriteGames = () => {
 
   useEffect(() => {
     const filter = async () => {
-      if (isFetching ) return <Loading />;
      
-   
+     
 
-      const fav = gamesList.filter((game) => favorites?.includes(game.id));
-      
+      const fav = games?.filter((game) => favorites?.includes(game.id));
+      console.log('fav',fav)
       setFavouriteGames(fav);
     };
 
     filter();
-  }, [isFetching, isFavouriteLoading ,userFavouriteGames ,gamesList]);
-  if (isFetching ) return <Loading />;
+  }, [isFetching , favorites]);
+  if (isFetching || isFavouriteLoading) return <Loading />;
 
   return (
     <motion.div {...animations} className="user-favourite-games-page">

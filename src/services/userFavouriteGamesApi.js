@@ -16,10 +16,10 @@ export const UserFavouriteGamesApi = createApi({
 
         getFavouriteGames: builder.query({
             query: (user) => ({
-              url: `/user/getFavouriteGames/${user.username}`,
+              url: `/user/getFavouriteGames/${user?.username}`,
               headers: {
                 
-                'Authorization': `Bearer ${user.token}`,
+                'Authorization': `Bearer ${user?.token}`,
               },
             }),
           }),

@@ -70,7 +70,7 @@ export const HomePage = () => {
 
     useEffect(() => {
  
-      if (!isFavouriteLoading && userFavouriteGames.length > 0 && favorites.length === 0)  {
+      if (!isFavouriteLoading && userFavouriteGames?.length > 0 && favorites?.length === 0)  {
 
         dispatch(setFavoriteGames(userFavouriteGames));
      

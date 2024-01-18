@@ -16,10 +16,11 @@ import { setFavoriteGames } from "../../app/favoriteGamesSlice";
 
 export const CategoryPage = () => {
   const { category } = useParams();
-  const { data, isFetching } = useGetGamesByCategoryQuery(category);
+  const { data : gamesByCategory, isFetching } = useGetGamesByCategoryQuery(category);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const favorites  = useSelector(selectFavoriteGames);
+
   const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
 
   useEffect(() => {
@@ -33,7 +34,8 @@ export const CategoryPage = () => {
    
   }, [isFavouriteLoading]);
 
-  if (isFetching || isFavouriteLoading) return <Loading />;
+
+  if (isFetching || isFavouriteLoading || favorites.length === 0) return <Loading />;
 
 //   var games = data;
 
@@ -50,15 +52,15 @@ export const CategoryPage = () => {
 //     gameCategory = category;
 //   }
 
-  var categoryGames = data.map((game) =>
+  var categoryGames = gamesByCategory.map((game) =>
    
       <GameCard {...game} key={game.id}user={user} noGenre={true}  isFavourite={favorites?.includes(game.id)} />
    
   );
 
-  categoryGames = categoryGames.filter(
-    (value) => Object.keys(value).length !== 0
-  );
+  // categoryGames = categoryGames.filter(
+  //   (value) => Object.keys(value).length !== 0
+  // );
 
   return (
     <motion.div {...animations} className="category-page">

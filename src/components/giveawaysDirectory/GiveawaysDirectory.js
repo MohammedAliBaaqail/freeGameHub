@@ -81,8 +81,8 @@ export const GiveawaysDirectory = ({
       <div className="giveaways-directory-search">
         <Search handleSearch={handleSearch} />
       </div>
-    <h2>Active Giveaways Number ( {giveawaysWorth.active_giveaways_number} )</h2>
-    <h2>Games worth estimation in usd ( {giveawaysWorth.worth_estimation_usd}$ )</h2>
+    <h2>Active Giveaways Number ( {giveawaysWorth?.active_giveaways_number} )</h2>
+    <h2>Games worth estimation in usd ( {giveawaysWorth?.worth_estimation_usd}$ )</h2>
     
       <div className="giveaways-directory">
         <InfiniteScroll

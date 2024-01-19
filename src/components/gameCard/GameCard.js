@@ -5,7 +5,7 @@ import "./GameCard.scss";
 import { motion } from "framer-motion";
 import { Favourite } from "../favourite/Favourite";
 
-import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
+
 import { Loading } from "../loading/Loading";
 
 export const GameCard = ({ title, thumbnail, short_description, game_url, genre, id, noGenre, isFavourite, user , isFavouriteLoading }) => {

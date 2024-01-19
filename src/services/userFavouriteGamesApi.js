@@ -15,14 +15,13 @@ export const UserFavouriteGamesApi = createApi({
     endpoints: (builder) => ({
 
         getFavouriteGames: builder.query({
-            query: (user) => ({
-              url: `/user/getFavouriteGames/${user?.username}`,
-              headers: {
-                
+          query: (user) => (user && {
+            url: `/user/getFavouriteGames/${user?.username}`,
+            headers: {
                 'Authorization': `Bearer ${user?.token}`,
-              },
-            }),
-          }),
+            },
+        }),
+    }),
         addFavouriteGame: builder.mutation({
             query: (favouriteGame) => ({
                 url: '/user/addFavouriteGame',

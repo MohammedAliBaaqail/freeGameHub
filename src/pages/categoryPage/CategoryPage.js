@@ -21,8 +21,8 @@ export const CategoryPage = () => {
   const user = useSelector(selectUser);
   const favorites  = useSelector(selectFavoriteGames);
 
-  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user);
-
+  const { data: userFavouriteGames, isLoading: isFavouriteLoading } = useGetFavouriteGamesQuery(user );
+console.log(user)
   useEffect(() => {
  
     if (!isFavouriteLoading && userFavouriteGames?.length > 0 && favorites.length === 0) {
@@ -34,8 +34,10 @@ export const CategoryPage = () => {
    
   }, [isFavouriteLoading]);
 
-
-  if (isFetching || isFavouriteLoading || favorites.length === 0) return <Loading />;
+if (user){
+  if ( isFavouriteLoading || favorites.length === 0) return <Loading />;
+}
+  if (isFetching)return <Loading />;
 
 //   var games = data;
 

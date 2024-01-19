@@ -20,8 +20,8 @@ export const F2PGamesApi = createApi({
         getGame: builder.query({
             query: (id) => createRequest(`/api/game?id=${id}`)
         }),
-        getGamesByCategory: builder.query({
-            query: (category) => createRequest(`/api/games?category=${category}`)
+        getSortedGamesByCategory: builder.query({
+            query: ({ category, sortKey }) => createRequest(`/api/games?category=${category}&sort-by=${sortKey}`)
         }),
         getGamesBySortKey: builder.query({
             query: (sortKey) => createRequest(`/api/games?sort-by=${sortKey}`)
@@ -32,4 +32,4 @@ export const F2PGamesApi = createApi({
 
 
 
-export const { useGetGamesQuery , useGetGameQuery , useGetGamesByCategoryQuery , useGetGamesBySortKeyQuery } = F2PGamesApi
+export const { useGetGamesQuery , useGetGameQuery , useGetSortedGamesByCategoryQuery , useGetGamesBySortKeyQuery } = F2PGamesApi

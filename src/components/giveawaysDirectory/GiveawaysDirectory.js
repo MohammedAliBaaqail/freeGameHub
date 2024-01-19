@@ -48,6 +48,9 @@ export const GiveawaysDirectory = ({
   return (
     <div className="giveaways-directory-container">
         <h1>Free Giveaway Games</h1>
+        <h4>Active Giveaways Number ( {giveawaysWorth?.active_giveaways_number} )</h4>
+    <h4>Games worth estimation in usd ( {giveawaysWorth?.worth_estimation_usd}$ )</h4>
+      <div className="sort-search-container">
       <nav className="menu" role="navigation">
         <ol>
           <li className="menu-item" aria-haspopup="true">
@@ -81,8 +84,7 @@ export const GiveawaysDirectory = ({
       <div className="giveaways-directory-search">
         <Search handleSearch={handleSearch} />
       </div>
-    <h2>Active Giveaways Number ( {giveawaysWorth?.active_giveaways_number} )</h2>
-    <h2>Games worth estimation in usd ( {giveawaysWorth?.worth_estimation_usd}$ )</h2>
+      </div>
     
       <div className="giveaways-directory">
         <InfiniteScroll

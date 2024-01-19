@@ -21,7 +21,7 @@ export const AllGames = () => {
   if (!gamesList) return <Error/>
 
 
-console.log(sortedGamesList)
+
 
 
   return (

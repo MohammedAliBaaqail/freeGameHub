@@ -1,17 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGetGamesByCategoryQuery } from "../../services/F2PgamesApi";
-import { useGetFavouriteGamesQuery } from "../../services/userFavouriteGamesApi";
-import { useParams } from "react-router-dom";
-import { Loading } from "../../components/loading/Loading";
-import GameCard from "../../components/gameCard/GameCard";
+
 import "./CategoriesPage.scss";
 
 import { motion } from "framer-motion";
 import animations from "../../animations/Animations";
-import { LazyScroll } from "../../components/lazyScroll/LazyScroll";
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../app/userSlice';
+
 
 export const CategoriesPage = () => {
   // const { category } = useParams();

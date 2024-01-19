@@ -1,5 +1,6 @@
 .giveaway-page{
-    margin: 100px 300px;
+    width: clamp(300px, 95%, 1300px);
+    margin: 0 auto !important;
     .giveaway-Page-container{
         display: flex;
         flex-direction: row;

@@ -2,11 +2,12 @@
     margin-top: 30px;
 }
 .games-directory-search{
+  width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+
 }
 .games-directory{
     display: flex;
@@ -24,78 +25,6 @@
     align-items: center;
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    font-family: "Orbitron", sans-serif;
-  }
-  
-  ol {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0.5em 0;
-    list-style: none;
-  }
-  
-  .menu-item {
-    background: rgb(43, 43, 44);
-    padding: 1em 0.5em;
-    position: relative;
-    border: 3px solid var(--color-grey);
-    margin: 0 0.1em;
-    transition: border 0.23s ease-in-out, background 0.23s linear;
-    cursor: pointer;
-    min-width: 8em;
-    text-align: center;
-  }
-  .menu-item[aria-haspopup=true] {
-    border-color: var(--color-orange);
-  }
-  .menu-item:hover, .menu-item:focus-within {
-    border-color: var(--color-orange);
-    background: var( --color-secondry-dark);
-  }
-  .menu-item:hover .sub-menu, .menu-item:hover .sub-menu:hover, .menu-item:focus-within .sub-menu, .menu-item:focus-within .sub-menu:hover {
-    visibility: visible;
-    opacity: 1;
-    display: flex;
-    align-content: center;
-  }
-  
-  .sub-menu {
-
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    left: 0;
-    margin-top: 1em;
-    visibility: hidden;
-    display: none;
-    opacity: 0;
-    z-index: 20;
-  }
-  .sub-menu .menu-item {
-    margin: 0.1em 0;
-    padding: 1em;
-    width: 10em;
-    text-align: center;
-    z-index: 2;
-  }
-  
-  a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  a:focus {
-    outline: none;
-  }
   
   @media (max-width: 690px) {
     .menu {

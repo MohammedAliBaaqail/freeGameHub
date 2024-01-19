@@ -18,9 +18,15 @@ export const giveawaysApi = createApi({
         }),
         getGiveawayById: builder.query({
             query: (id) => createRequest(`/api/giveaway?id=${id}`)
+        }),
+        getGiveawaysBySortKey: builder.query({
+            query: (sortKey) => createRequest(`/api/giveaways?sort-by=${sortKey}`)
+        }),
+        getGiveawaysWorth: builder.query({
+            query: (sortKey) => createRequest('/api/worth')
         })
     })
 })
 
 
-export const { useGetGiveawaysQuery , useGetGiveawayByIdQuery } = giveawaysApi
+export const { useGetGiveawaysQuery , useGetGiveawayByIdQuery , useGetGiveawaysBySortKeyQuery , useGetGiveawaysWorthQuery } = giveawaysApi

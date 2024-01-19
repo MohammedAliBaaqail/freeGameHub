@@ -62,6 +62,7 @@ export const GamesDirectory = ({ games, handleSortingChange , isFetching  , isFe
 
   return (
     <div className="games-directory-container">
+         <h1>Free To Play Games</h1>
       <nav className="menu" role="navigation">
         <ol>
           <li className="menu-item" aria-haspopup="true">
@@ -80,7 +81,7 @@ export const GamesDirectory = ({ games, handleSortingChange , isFetching  , isFe
         <Search handleSearch={handleSearch} />
       </div>
 
-      <h1>Free To Play Games</h1>
+   
       <div className="games-directory">
         <InfiniteScroll
           dataLength={searchedGames.length}

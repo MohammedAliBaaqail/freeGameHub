@@ -12,12 +12,13 @@
     border: 1px solid red;
   }
   .comments-form {
-    background: radial-gradient(
-      circle,
-      rgb(0, 0, 0) 0%,
-      rgb(28, 28, 28) 0%,
-      rgba(109, 66, 17, 0.604) 100%
-    );
+    // background: radial-gradient(
+    //   circle,
+    //   rgb(0, 0, 0) 0%,
+    //   rgb(28, 28, 28) 0%,
+    //   rgba(109, 66, 17, 0.604) 100%
+    // );
+    background: var(--container-background);
     border-radius: 10px;
     padding: 30px;
 

@@ -1,14 +1,29 @@
 .F2P-Game-Page{
   width: clamp(300px, 95%, 1300px);
-  margin: 0 auto !important;
+  margin: 120px auto !important;
 
       // position: absolute;
-
+.game-title{
+  margin: 0px;
+}
+.game-img{
+  width: 375px ;
+  height: 206px;
+  margin-right: 20px;
+  
+}
+.game-dec-container{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 20px;
+}
   .comments-sec{
     margin-top: 50px;
   }
   .fav-button{
     width: 20px;
+    height: 30px;
     margin: auto;
   }
   .bg-container{
@@ -31,14 +46,14 @@
     align-items: flex-start;
     justify-content: center;
     .F2P-game-info{
-        width: 420px;
+        width: 45%;
         margin:  auto;
         // margin-bottom: 40px;
         padding: 0 20px;
 
     }
     .F2P-game-requirements{
-        width:  420px;
+        width:  45%;
         margin: 0 auto;
         padding: 0 20px;
         text-align: left;
@@ -47,8 +62,12 @@
 
 }
 .F2P-game-desc{
-    width: 75%;
-       margin: 0 auto;
+  margin: 0 auto;
+  width: 100%;
+    p{
+      margin: 0;
+    }  
+ 
    }
 .F2P-game-info{
     width : 25%;
@@ -240,11 +259,17 @@
     background-color: var(--color-secondry-dark);
   }
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 700px) {
     .F2P-Game-Page{
       font-size: small;
+      .game-dec-container{
+       flex-wrap: wrap; 
+       justify-content: center;
+      }
       img{
         width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
       }
       button{
         width:90px;
@@ -254,14 +279,13 @@
       .bg-container{
         margin: 20px 15px;
         padding: 20px;
+        flex-direction: column;
       }
      
-       .F2P-game-desc{
-        width: 100%;
-        margin: 0 auto;
-       }
+
        .F2P-game-info , .F2P-game-requirements{
         padding: 0;
+        width: 100%;
        }
        .comments-component .comments-form{
         width: 85%;

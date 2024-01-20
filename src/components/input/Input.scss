@@ -15,14 +15,17 @@ $gray: #9b9b9b;
 .form__field {
   font-family: inherit;
   width: 100%;
-  border: 0;
+  height: 200px;
+  // padding: 0 10px;
+  border:solid 1px var(--color-primary-dark);
   border-bottom: 2px solid $gray;
   outline: 0;
   font-size: 1.3rem;
   color: $white;
-  padding: 7px 0;
+ 
   background: transparent;
   transition: border-color 0.2s;
+  resize: none;
 
   &::placeholder {
     color: transparent;
@@ -32,6 +35,7 @@ $gray: #9b9b9b;
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
+    left: 20px;
   }
 
 }
@@ -50,7 +54,7 @@ $gray: #9b9b9b;
   ~ .form__label {
     position: absolute;
     top: 0;
-    display: block;
+    display: none;
     transition: 0.2s;
     font-size: 1rem;
     color: $primary;

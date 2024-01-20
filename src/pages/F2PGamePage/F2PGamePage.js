@@ -55,18 +55,20 @@ export const F2PGamePage = () => {
     <motion.div
     {...animations}
      className="F2P-Game-Page">
+
       <div className="bg-container">
-     <h1>{title}</h1>
-        <img src={thumbnail ? thumbnail : ""} alt={title} />
+      <h1 className="game-title">{title}</h1>
+      <div className="game-dec-container">
+        <img className="game-img" src={thumbnail ? thumbnail : ""} alt={title} />
         
         <div className="F2P-game-desc">
         <p>{description}</p>
    
-        
+        </div>
             </div>
             {/* {user?
-        <div className="fav-button"><Favourite game={gameId} user={user}/></div> : ""} */}
-            <Button text={"Play"} url={game_url} />
+        <div className="fav-button"><Favourite game={gameId} user={user}/></div> : ""}
+            <Button text={"Play"} url={game_url} /> */}
             </div>
      
     <div className="F2P-Game-Page-container bg-container">

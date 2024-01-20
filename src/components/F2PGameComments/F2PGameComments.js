@@ -75,8 +75,8 @@ export const F2PGameComments = ({ gameId }) => {
   if (isLoading) return<div className="loading-comments"><h3>Loading comments... ( This may take awhile )</h3><div className="lds-ring"><div></div><div></div><div></div><div></div></div>  </div>;
   // calculate average rating
   var allRating = 0;
-  cmnt.map((comment) => (allRating += comment.rating));
-  var averageRating = allRating / cmnt.length;
+  cmnt?.map((comment) => (allRating += comment.rating));
+  var averageRating = allRating / cmnt?.length;
 
   
   return (

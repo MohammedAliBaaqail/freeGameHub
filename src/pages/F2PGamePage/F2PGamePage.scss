@@ -1,5 +1,5 @@
 .F2P-Game-Page{
-  width: clamp(300px, 95%, 1300px);
+  width:clamp(300px, 100%, 1300px);
   margin: 120px auto !important;
 
       // position: absolute;
@@ -8,7 +8,7 @@
 }
 .game-img{
   width: 375px ;
-  height: 206px;
+  // height: 206px;
   margin-right: 20px;
   
 }
@@ -266,7 +266,7 @@
        flex-wrap: wrap; 
        justify-content: center;
       }
-      img{
+      .game-img{
         width: 100%;
         margin-right: 0;
         margin-bottom: 15px;
@@ -277,7 +277,8 @@
       }
       margin: 100px 0;
       .bg-container{
-        margin: 20px 15px;
+        margin: 20px auto;
+        width: 85%;
         padding: 20px;
         flex-direction: column;
       }

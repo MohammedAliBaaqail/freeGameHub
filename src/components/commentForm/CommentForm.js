@@ -72,12 +72,7 @@ export const CommentForm = ({ gameId, authUser }) => {
           onChange={(e) => setText(e.target.value)}
           name={"leave a comment"}
         />
-           <button className="btn" type="submit">
-        Submit
-      </button>
-      {error && <p>{error + emptyFields}</p>}
-      </form>
-      <div
+            <div
         className={
           emptyFields?.includes("rating")
             ? "input-error game-rating-stars"
@@ -87,6 +82,12 @@ export const CommentForm = ({ gameId, authUser }) => {
         Rate: {rating}
         <ReactStars {...reactStarsPrompt} />
       </div>
+           <button className="btn" type="submit">
+        Submit
+      </button>
+      {error && <p>{error + emptyFields}</p>}
+      </form>
+  
    
     </div>
   );

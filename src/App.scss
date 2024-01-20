@@ -6,6 +6,11 @@ p{
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.300), 1px -1px 0 rgba(0, 0, 0, 0.300), -1px 1px 0 rgba(0, 0, 0, 0.300), 1px 1px 0 rgba(0, 0, 0, 0.300);
   font-size: 15px;
 }
+textarea{
+  resize: none;
+  height: 200px;
+  
+}
 .App {
   text-align: center;
   // margin-top: 100px;
@@ -208,7 +213,8 @@ a:focus {
  .sort-search-container{
   flex-direction: column;
   justify-content: center;
-  gap : 10px
+  gap : 10px;
+  border: none
  }
  .form-wrapper{
 width: 152px !important;

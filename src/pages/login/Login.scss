@@ -4,9 +4,7 @@
     align-items: center;
     justify-content: center;
     
-    width: 100vw;
-    height: 100vh;
-   
+
    
     .bg-container{
       
@@ -19,7 +17,7 @@
       border-radius: 10px;
       padding: 30px;
   
-      margin: 0 auto;
+      margin: 100px auto;
       box-shadow: rgba(0, 0, 0, 0.633) 0px 3px 8px;
       width: clamp(200px, 80%, 500px);
         input{

@@ -67,8 +67,8 @@ export const F2PGamePage = () => {
         </div>
             </div>
             {/* {user?
-        <div className="fav-button"><Favourite game={gameId} user={user}/></div> : ""}
-            <Button text={"Play"} url={game_url} /> */}
+        <div className="fav-button"><Favourite game={gameId} user={user}/></div> : ""} */}
+            <Button text={"Play"} url={game_url} />
             </div>
      
     <div className="F2P-Game-Page-container bg-container">

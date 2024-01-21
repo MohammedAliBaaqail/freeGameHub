@@ -17,6 +17,7 @@
   flex-wrap: nowrap;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
   .comments-sec{
     margin-top: 50px;
@@ -45,6 +46,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
+
     .F2P-game-info{
         width: 45%;
         margin:  auto;
@@ -64,6 +66,7 @@
 .F2P-game-desc{
   margin: 0 auto;
   width: 100%;
+ 
     p{
       margin: 0;
     }  

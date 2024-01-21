@@ -28,9 +28,9 @@ export const GameCard = ({ title, thumbnail, short_description, game_url, genre,
         <div className="info">
           <h1 className="title">{title}</h1>
 
-          <p className="description">{short_description}</p>
+          <p className={`description ${noGenre ? 'large-dec' :''}`}>{short_description}</p>
 
-          <p className="game-genre">{noGenre ? "" : genre.toUpperCase()}</p>
+          <p className={` ${noGenre ? 'hide' :''}`}>{noGenre ? '' : genre.toUpperCase()}</p>
 
           <div className="flex-game-buttons">
             <Button text="Play" url={game_url} />

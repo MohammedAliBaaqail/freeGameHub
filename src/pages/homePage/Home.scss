@@ -1,8 +1,8 @@
 .home-page{
 margin-bottom: 50px;
-position: absolute;
+// position: absolute;
 width: 100%;
-height: 100%;
+
 top: 0;
 left: 0;
 .slick-prev {
@@ -58,5 +58,39 @@ left: 0;
           display: block !important;
         }
       }
+}
+
+.infinite-scrolling-text {
+  overflow: hidden;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.text-container {
+  white-space: nowrap;
+  display: inline-block;
+  width: fit-content; /* Adjust as needed */
+  animation: scrollText 5s ease-in-out infinite alternate; /* Use 'alternate' to go back and forth */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(20vw);
+  }
+  100% {
+    transform: translateX(-20vw);
+  }
+}
+
+span {
+  // margin-right: 20px; /* Adjust spacing between words */
+  font-size: 2rem;
+}
+
+/* Optionally, you can add some styling to the active span if desired */
+span.active {
+  font-weight: bold;
+
+  /* Add any other styling as needed */
 }
 

@@ -203,13 +203,12 @@ a:focus {
     background: var(--color-orange-dark);
   }
 
-  @media screen and (max-width: 1100px) {
+
+  @media screen and (max-width: 700px) {
     body{
      
       background: var(--color-primary-dark);
     }
-  }
-  @media screen and (max-width: 700px) {
  .sort-search-container{
   flex-direction: column;
   justify-content: center;
@@ -218,6 +217,10 @@ a:focus {
  }
  .form-wrapper{
 width: 152px !important;
+
  }
+ #search{
+  width: 128px !important;
+}
   }
 

@@ -15,6 +15,17 @@ left: 0;
 .game-card {
   margin: 15px auto;
 }
+span {
+  // margin-right: 20px; /* Adjust spacing between words */
+  font-size: 2rem;
+}
+
+/* Optionally, you can add some styling to the active span if desired */
+span.active {
+  font-weight: bold;
+
+  /* Add any other styling as needed */
+}
 }
 .hero-section{
     display: flex;
@@ -82,15 +93,5 @@ left: 0;
   }
 }
 
-span {
-  // margin-right: 20px; /* Adjust spacing between words */
-  font-size: 2rem;
-}
 
-/* Optionally, you can add some styling to the active span if desired */
-span.active {
-  font-weight: bold;
-
-  /* Add any other styling as needed */
-}
 

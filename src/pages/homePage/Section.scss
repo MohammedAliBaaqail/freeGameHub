@@ -30,6 +30,9 @@
     align-content: center;
     .slick-list {
         width: 662px ;
+        .slick-track{
+
+        }
     }
   }
 
@@ -204,6 +207,10 @@
         rgba(26, 26, 26, 1) 100%
       ) !important;
     }
+ 
+  }
+  .game-cards-container {
+    height: 100% !important;
   }
 }
 
@@ -211,5 +218,6 @@
   .slick-list {
     width: 331px !important;
   }
+
 
 }

@@ -33,6 +33,7 @@ export const messages = [
       title: 'Shooter',
       position:0,
       img: 'landingPage/shooter.jpg',
+      vid: 'landingPage/shooter.mp4',
       bg:'landingPage/shooter-bg.jpg',
       gamesIds:[540, 570, 466, 452]
     },
@@ -40,6 +41,7 @@ export const messages = [
       title: 'MMO',
       position:1,
       img: 'landingPage/mmo.jpg',
+      vid: 'landingPage/mmo.mp4',
       bg:'landingPage/mmo-bg.jpg',
       gamesIds:[521, 517, 475, 529]
     },
@@ -47,6 +49,7 @@ export const messages = [
       title: 'Strategy',
       position:0,
       img: 'landingPage/strategy.jpg',
+      vid: 'landingPage/strategy.mp4',
       bg: 'landingPage/strategy-bg.jpg',
       gamesIds:[9, 340, 345, 402]
     },
@@ -54,6 +57,7 @@ export const messages = [
       title: 'Fighting',
       position:1,
       img: 'landingPage/fighting.jpg',
+      vid: 'landingPage/fighting.mp4',
       bg:'landingPage/mmo-bg.jpg',
       gamesIds:[525, 212, 509, 67]
     },
@@ -61,6 +65,7 @@ export const messages = [
       title: 'Racing',
       position:0,
       img: 'landingPage/racing.jpg',
+      vid: 'landingPage/racing.mp4',
       bg:'landingPage/mmo-bg.jpg',
       gamesIds:[121, 351, 474, 5]
     },
@@ -68,6 +73,7 @@ export const messages = [
       title: 'MOBA',
       position:1,
       img: 'landingPage/moba.jpg',
+      vid: 'landingPage/moba.mp4',
       bg:'landingPage/mmo-bg.jpg',
       gamesIds:[286,229, 168, 217]
     },
@@ -75,6 +81,7 @@ export const messages = [
       title: 'Cards',
       position:0,
       img: 'landingPage/cards.jpg',
+      vid: 'landingPage/cards.mp4',
       bg:'landingPage/cards-bg.jpg',
       gamesIds:[541,441, 220, 66]
     },

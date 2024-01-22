@@ -16,15 +16,15 @@ import animations from "../../animations/Animations";
 import Section from "./Section";
 
 export const HomePage = () => {
-  const [text, setText] = useState([]);
+  // const [text, setText] = useState([]);
  
 
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    setText(messages[randomIndex]);
+  // useEffect(() => {
+  //   const randomIndex = Math.floor(Math.random() * messages.length);
+  //   setText(messages[randomIndex]);
 
 
-  }, []);
+  // }, []);
 
 
   const dispatch = useDispatch();
@@ -120,6 +120,7 @@ export const HomePage = () => {
         key={oneSection.title}
         title={oneSection.title}
         img={oneSection.img}
+        vid={oneSection.vid}
         position={oneSection.position}
         bg={oneSection.bg}
         sectionGames={sectionGames}
@@ -167,7 +168,7 @@ export const HomePage = () => {
         </Slider>
       </div> */}
   
-      <div className="infinite-scrolling-text">
+      {/* <div className="infinite-scrolling-text">
         <div className="text-container">
           {text.map((item, index) => (
             <span key={index} className="active">
@@ -175,7 +176,7 @@ export const HomePage = () => {
             </span>
           ))}
         </div>
-      </div>
+      </div> */}
 {/*   
       <Section shooterGames={shooterGames} /> */}
            {allSections}

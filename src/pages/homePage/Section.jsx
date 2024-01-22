@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Fade } from "react-awesome-reveal"
+import { Fade , Slide , Zoom } from "react-awesome-reveal"
 import Slider from "react-slick";
 import './Section.scss'
 import { Link } from "react-router-dom"
-import { Button } from "../../components/button/Button"
-const Section = ({sectionGames , title , img , position ,bg}) => {
+import HoverPlayer from './HoverPlayer';
+const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1360);
 
   useEffect(() => {
@@ -59,13 +59,15 @@ const Section = ({sectionGames , title , img , position ,bg}) => {
     <section className="section">
     <main className={`main ${position === 1 ? 'reverse' : ''}`}>
       <div className="section-container">
-      <div className="image-container">
-        <img src={img} alt={img} />
-        <div className={`gradient-overlay ${position === 1 ? 'reverse' : ''}`}></div>
-      </div>
+      <Fade    className="image-container">
+       
+        
+        <HoverPlayer vidSrc={vid}  imgSrc={img} />
+      </Fade>
+      <div className={`gradient-overlay ${position === 1 ? 'reverse' : ''}`}></div>
       </div>
       <div className="content-container">
-        <Fade className="fade">
+        <Zoom cascade duration={'500'} className="content-wrapper">
           <div className="info-container">
         
             <h1 className="">{title}</h1>
@@ -77,13 +79,21 @@ const Section = ({sectionGames , title , img , position ,bg}) => {
                     <Slider {...sliderSettings}>{sectionGames}</Slider>
                   </div>
                 ) : (
-                  <div className="game-cards-container">{sectionGames}</div>
+                  <div className="game-cards-container"> 
+                  <Zoom cascade duration={'300'} >
+                    {sectionGames.map((game) => {
+                      return <div >{game}</div>
+                    })}
+                  
+                  </Zoom>
+                  </div>
                 )}
               </div>
+        
           
           <Link key={title} className="category-link" to={`/category/${title}`}>View More</Link>
           
-        </Fade>
+        </Zoom>
       </div>
     </main>
   </section>

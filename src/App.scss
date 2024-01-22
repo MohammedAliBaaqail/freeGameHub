@@ -30,7 +30,7 @@ textarea{
   justify-content: center;
   align-items: center;
   background-color: var(--color-primary-dark);
-  border:solid var(--color-secondry-dark) 2px;
+  border:solid var(--color-secondary-dark) 2px;
 }
 nav{
   width: 100%;
@@ -70,7 +70,7 @@ ol {
 }
 .menu-item:hover, .menu-item:focus-within {
   border-color: var(--color-orange);
-  background: var( --color-secondry-dark);
+  background: var( --color-secondary-dark);
 }
 .menu-item:hover .sub-menu, .menu-item:hover .sub-menu:hover, .menu-item:focus-within .sub-menu, .menu-item:focus-within .sub-menu:hover {
   visibility: visible;

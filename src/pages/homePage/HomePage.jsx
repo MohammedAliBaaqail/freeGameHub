@@ -106,6 +106,7 @@ export const HomePage = () => {
       .map((game) => (
         <div key={game.id} className="home-game-card">
           <GameCard
+            noGenre={true}
             isFavouriteLoading={isFavouriteLoading}
             {...game}
             isFavourite={favorites?.includes(game.id)}

@@ -224,3 +224,9 @@ width: 152px !important;
 }
   }
 
+  @media (max-width: 1360px) {
+    /* Disable all animations on mobile for all elements */
+    * {
+      animation: none !important;
+    }
+  }

@@ -62,7 +62,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
       <Fade    className="image-container">
        
         
-        <HoverPlayer vidSrc={vid}  imgSrc={img} />
+        <HoverPlayer vidSrc={vid}  imgSrc={img} isMobile={isMobile}/>
       </Fade>
       <div className={`gradient-overlay ${position === 1 ? 'reverse' : ''}`}></div>
       </div>

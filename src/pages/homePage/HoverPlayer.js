@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const HoverPlayer = ({ vidSrc, imgSrc }) => {
+const HoverPlayer = ({ vidSrc, imgSrc , isMobile }) => {
   const [isHovered, setIsHovered] = useState(false);
   let videoRef;
   const handleMouseEnter = () => {
@@ -21,8 +21,8 @@ const HoverPlayer = ({ vidSrc, imgSrc }) => {
 
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={!isMobile && handleMouseEnter}
+      onMouseLeave={!isMobile && handleMouseLeave}
       style={{ display: "inline-block", position: "relative" }}
     >
       <img
@@ -30,11 +30,12 @@ const HoverPlayer = ({ vidSrc, imgSrc }) => {
         alt={imgSrc}
         style={{
           width: "100%",
-          height: "100%",
+          height:"100%",
+          maxHeight: "800px",
           display: isHovered ? "none" : "inline-block",
         }}
       />
-      <video
+     {!isMobile &&<video
         ref={(ref) => (videoRef = ref)}
         autoPlay
         playsInline
@@ -43,7 +44,8 @@ const HoverPlayer = ({ vidSrc, imgSrc }) => {
           top: 0,
           left: 0,
           width: "100%",
-          height: "100%",
+          height:"800px",
+          maxHeight: "800px",
           objectFit: "cover",
           display: isHovered ? "inline-block" : "none",
         }}
@@ -51,6 +53,7 @@ const HoverPlayer = ({ vidSrc, imgSrc }) => {
         <source src={vidSrc} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      } 
     </div>
   );
 };

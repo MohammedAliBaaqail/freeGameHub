@@ -233,14 +233,16 @@
 
 @media only screen and (max-width: 750px) {
   .section {
+    margin: 190px 0;
   .slick-list {
     width: 331px !important;
   }
-  .section-divider{
-    height: 54vh;
-    margin: -312px 0 0 0;
-  }
+  
 }
+.section-divider{
+  height: 54vh;
+  margin: -265px 0 0 0 !important;
 
+}
 
 }

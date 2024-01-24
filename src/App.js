@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import { UserFavouriteGames } from "./pages/userFavouriteGames/UserFavouriteGames";
 import NoPage from "./pages/404/404";
 import EmailVerification from "./pages/emailVerificationPage/EmailVerificationPage";
-
+import {ParallaxProvider} from 'react-scroll-parallax'
 
 function App() {
   const {user} = useSelector((state) => state.user);
@@ -25,7 +25,9 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <ParallaxProvider>
       <AnimatePresence>
+        
         <Routes location={location} key={location.pathname}>
           <Route path="/"               element={<HomePage />} />
           <Route path="/games"          element={<AllGames />} />
@@ -43,6 +45,7 @@ function App() {
           <Route path="*" element={<NoPage/>} />
         </Routes>
       </AnimatePresence>
+      </ParallaxProvider>
     </div>
   );
 }

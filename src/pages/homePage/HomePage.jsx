@@ -145,7 +145,7 @@ export const HomePage = () => {
   
 
   return (
-    <motion.div className="home-page" {...animations}>
+    <div className="home-page" {...animations}>
       <div className="hero-section">
         <h1>Free Game Hub </h1>
       </div>
@@ -181,7 +181,7 @@ export const HomePage = () => {
       <Section shooterGames={shooterGames} /> */}
            {allSections}
 
-    </motion.div>
+    </div>
   );
   
 };

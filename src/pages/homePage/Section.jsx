@@ -72,7 +72,14 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
 
   return (
     <ParallaxProvider>
-       <Parallax speed={-20} className="section-divider" style={{ backgroundImage: `url(${bg})`, color:'white' , fontSize:'2rem' }}><Parallax translateY={[-20, 200]} speed={-15}><h1>{title}</h1></Parallax></Parallax>
+      <Parallax speed={-20} className="section-divider">
+        {/* Apply filter to background image */}
+        <div className="background-image" style={{ backgroundImage: `url(${bg})` }}></div>
+
+        <Parallax className='title-container' translateY={[30, 130]} speed={-30}>
+          <h1 className='section-title' >{title}</h1>
+        </Parallax>
+      </Parallax>
     <section className="section">
     <main className={`main ${position === 1 ? 'reverse' : ''}`}>
       <div className="section-container">
@@ -96,7 +103,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
                     <Slider {...sliderSettings}>{sectionGames}</Slider>
                   </div>
                 ) : (
-                  <div className="game-cards-container"> 
+                  <div key={title} className="game-cards-container"> 
                   <Zoom cascade duration={'300'} >
                     {sectionGames.map((game) => {
                       return <div >{game}</div>

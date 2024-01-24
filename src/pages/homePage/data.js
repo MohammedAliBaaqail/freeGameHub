@@ -58,7 +58,7 @@ export const messages = [
       position:1,
       img: 'landingPage/fighting.jpg',
       vid: 'landingPage/fighting.mp4',
-      bg:'landingPage/mmo-bg.jpg',
+      bg:'landingPage/fighting-bg.jpg',
       gamesIds:[525, 212, 509, 67]
     },
     {
@@ -66,7 +66,7 @@ export const messages = [
       position:0,
       img: 'landingPage/racing.jpg',
       vid: 'landingPage/racing.mp4',
-      bg:'landingPage/mmo-bg.jpg',
+      bg:'landingPage/racing-bg.jpg',
       gamesIds:[121, 351, 474, 5]
     },
     {
@@ -74,7 +74,7 @@ export const messages = [
       position:1,
       img: 'landingPage/moba.jpg',
       vid: 'landingPage/moba.mp4',
-      bg:'landingPage/mmo-bg.jpg',
+      bg:'landingPage/moba-bg.jpg',
       gamesIds:[286,229, 168, 217]
     },
     {

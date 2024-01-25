@@ -103,10 +103,10 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
                     <Slider {...sliderSettings}>{sectionGames}</Slider>
                   </div>
                 ) : (
-                  <div key={title} className="game-cards-container"> 
+                  <div className="game-cards-container"> 
                   <Zoom cascade duration={'300'} >
                     {sectionGames.map((game) => {
-                      return <div >{game}</div>
+                      return <div  key={title} >{game}</div>
                     })}
                   
                   </Zoom>

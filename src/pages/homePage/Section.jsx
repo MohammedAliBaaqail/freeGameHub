@@ -76,7 +76,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
         {/* Apply filter to background image */}
         <div className="background-image" style={{ backgroundImage: `url(${bg})` }}></div>
 
-        <Parallax className='title-container' translateY={[30, 130]} speed={-30}>
+        <Parallax className='title-container' translateY={[30, 50]} speed={-30}>
           <h1 className='section-title' >{title}</h1>
         </Parallax>
       </Parallax>

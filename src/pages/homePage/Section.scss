@@ -2,7 +2,7 @@
   position: absolute;
   width: 100%;
   height: 50vh;
-  margin: -339px 0 0 0;
+  margin: -120px 0 0 0;
   z-index: -99;
   
   .title-container{
@@ -17,16 +17,14 @@
     height: 100%;
     background-position: center;
     background-size: cover;
-    filter: brightness(0.5); // Apply the filter to the background image
+    filter: brightness(0.5); 
   }
 
-  h1 {
-    // Styles for the heading
-  }
+
 }
 
 .section {
-  margin: 260px 0   ;
+  margin: 260px 0 0 0  ;
   width: 100%;
   height: auto;
   display: flex;
@@ -46,7 +44,8 @@
     justify-content: center;
     align-content: center;
     .slick-list {
-        width: 662px ;
+        width: 620px ;
+        background: none;
         .slick-track{
 
         }
@@ -55,7 +54,7 @@
 
   .main {
     width: 100%;
-    height: 800px;
+    height: 700px;
     // max-height: 100vh;
     display: flex;
     //   grid-template-columns: 1fr 1fr;
@@ -66,12 +65,12 @@
       flex-direction: row-reverse;
     }
     .section-container {
-      width: 100%;
+      width: 70%;
       height: 100%;
       position: relative;
       .image-container {
         img {
-          height: 800px;
+          height: 700px;
           max-height: 100vh;
         }
 
@@ -107,7 +106,7 @@
       img {
         width: 100%;
 
-        max-height: 800px;
+        max-height: 700px;
         object-fit: cover;
       }
     }
@@ -115,7 +114,7 @@
     .content-container {
       height: 100%;
       width: 100%;
-      padding: 0 10px;
+      // padding: 0 10px;
 
       display: flex;
       flex-direction: column;
@@ -182,28 +181,28 @@
 
 .home-game-card {
   .game-card {
-    width: 320px;
+    width: 300px;
     margin: 0;
     .card-img {
       img {
-        height: 181px;
+        height: 170px;
       }
     }
     .info {
-      height: 226px;
+      height: 215px;
     }
   }
 }
 
 @media only screen and (max-width: 1360px) {
   main {
-    flex-direction: column !important;
+    // flex-direction: column !important;
     overflow: hidden;
     height: auto !important;
     max-height: max-content !important;
     .image-container {
       img {
-        height: 550px !important;
+        // height: 550px !important;
         object-position: top;
       }
     }
@@ -217,13 +216,7 @@
     .slick-slider {
       width: auto;
     }
-    .gradient-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(26, 26, 26, 1) 100%
-      ) !important;
-    }
+   
  
   }
   .game-cards-container {
@@ -231,12 +224,26 @@
   }
 }
 
-@media only screen and (max-width: 750px) {
-  .section {
+@media only screen and (max-width: 850px) {
+    .section {
     margin: 190px 0;
-  .slick-list {
-    width: 331px !important;
-  }
+    main{
+    flex-direction: column !important;
+    overflow: hidden;
+    height: auto !important;
+    max-height: max-content !important;
+    .section-container{
+      width: 100% !important;
+    }
+    .gradient-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(26, 26, 26, 1) 100%
+      ) !important;
+    }
+    }
+ 
   
 }
 .section-divider{
@@ -245,4 +252,12 @@
 
 }
 
+}
+
+@media only screen and (max-width: 700px) {
+main{
+  .slick-list {
+    width: 331px !important;
+  }
+}
 }

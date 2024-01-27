@@ -10,12 +10,12 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const containerRef = useRef(null);
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1360);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1600);
 
   useEffect(() => {
     const handleResize = () => {
       const newWidth = window.innerWidth;
-      setIsMobile(newWidth < 1360);
+      setIsMobile(newWidth < 1600);
       setWindowWidth(newWidth);
 
       // Trigger a manual refresh of the parallax effect
@@ -37,33 +37,32 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
 
 
   const sliderSettings = {
+    // className: "center",
     arrows: true,
-    // dots: true,
+    dots: true,
     infinite: true,
     centerMode: true,
     speed: 500,
-    autoplay: true,
+    // autoplay: true,
     slidesToShow: 2,
     // slidesToScroll: 1,
     adaptiveHeight: true,
     swipeToSlide: true,
-    // centerMode: true,
- 
-    centerPadding: "20px",
+   
+    rows:2,
+    slidesPerRow: 1,
+    
+    centerPadding: "35px",
     mobileFirst: true,
-    // cssEase: "linear",
+    
     easing: "linear",
     responsive: [
       
-      {
-        breakpoint: 1150,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
+
       {
         breakpoint: 700,
         settings: {
+          rows:1,
           slidesToShow: 1,
         },
       },

@@ -1,17 +1,17 @@
 .home-page{
-margin-bottom: 50px;
+// margin-bottom: 50px;
 // position: absolute;
 width: 100%;
 
 top: 0;
 left: 0;
 .slick-prev {
-  left: 18px;
+  left: -52px;
   z-index: 1;
 }
-.slick-next {
-  right: 33px;
-}
+// .slick-next {
+//   right: 33px;
+// }
 .game-card {
   margin: 15px auto;
 }
@@ -39,7 +39,7 @@ span.active {
     background-position: center;
     background-repeat: no-repeat;
     background-position: 80%;
-    margin: 0 0 22vh 0;
+    margin: 0 0 4vh 0;
     box-shadow: 1px 1px 40px 21px rgba(0, 0, 0, 0.75);
     border-bottom: solid 3px var(--color-secondary-dark);
     
@@ -96,5 +96,10 @@ span.active {
   }
 }
 
+@media only screen and (max-width: 850px) {
+  .hero-section{
+    margin: 0 0 23vh 0;
+  }
+}
 
 

@@ -29,9 +29,7 @@ const HoverPlayer = ({ vidSrc, imgSrc , isMobile }) => {
         src={imgSrc}
         alt={imgSrc}
         style={{
-          width: "100%",
-          height:"100%",
-          maxHeight: "800px",
+
           display: isHovered ? "none" : "inline-block",
         }}
       />
@@ -44,8 +42,8 @@ const HoverPlayer = ({ vidSrc, imgSrc , isMobile }) => {
           top: 0,
           left: 0,
           width: "100%",
-          height:"800px",
-          maxHeight: "800px",
+          height:"700px",
+          maxHeight: "700px",
           objectFit: "cover",
           display: isHovered ? "inline-block" : "none",
         }}

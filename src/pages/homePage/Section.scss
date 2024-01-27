@@ -33,7 +33,11 @@
   box-shadow: 1px 1px 40px 21px rgba(0, 0, 0, 0.75);
   border-bottom: solid 3px var(--color-secondary-dark);
   border-top: solid 3px var(--color-secondary-dark);
-
+  .btn{
+    width: 111px;
+    
+    font-size: 0.75rem;
+  }
   .game-cards-container {
     display: flex;
     gap: 11px;
@@ -226,7 +230,7 @@
 
 @media only screen and (max-width: 850px) {
     .section {
-    margin: 190px 0;
+    margin: 190px 0 0 0;
     main{
     flex-direction: column !important;
     overflow: hidden;
@@ -247,8 +251,8 @@
   
 }
 .section-divider{
-  height: 54vh;
-  margin: -265px 0 0 0 !important;
+  height: 67vh;
+  margin: -128px 0 0 0 !important;
 
 }
 

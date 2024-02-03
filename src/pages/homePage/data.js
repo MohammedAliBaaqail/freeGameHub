@@ -31,7 +31,7 @@
       img: 'landingPage/fighting.jpg',
       vid: 'landingPage/fighting.mp4',
       bg:'landingPage/fighting-bg.jpg',
-      gamesIds:[525, 212, 509, 67 , 58 , 94]
+      gamesIds:[450, 212, 509, 67 , 58 , 94 ]
     },
     {
       title: 'Racing',

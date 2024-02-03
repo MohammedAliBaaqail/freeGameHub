@@ -17,11 +17,12 @@ export const F2PGamePage = () => {
   const {user} = useSelector((state) => state.user);
     const sliderSettings = {
         dots: true,
+        arrows:false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        adaptiveHeight: true,
+        // adaptiveHeight: true,
         // autoplay: true,
         
        

@@ -38,8 +38,8 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
 
   const sliderSettings = {
     // className: "center",
-    arrows: true,
-    dots: true,
+    // arrows: true,
+    // dots: true,
     infinite: true,
     centerMode: true,
     speed: 500,

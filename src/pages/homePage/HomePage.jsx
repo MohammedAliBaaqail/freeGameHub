@@ -50,7 +50,7 @@ export const HomePage = () => {
           />
         </div>
       ));
-
+console.log(oneSection)
     return (
       <Section
         key={oneSection.title}
@@ -63,7 +63,7 @@ export const HomePage = () => {
       />
     );
   });
-
+console.log(allSections)
   return (
     <div className="home-page" {...animations}>
       <div className="hero-section">

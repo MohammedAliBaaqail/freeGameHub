@@ -24,7 +24,7 @@ export const NavBar = () => {
     const storedLanguage = localStorage.getItem('language');
     if (storedLanguage && storedLanguage !== i18n.language) {
       i18n.changeLanguage(storedLanguage).then(() => {
-        setLanguageChanged(true); 
+        setLanguageChanged(storedLanguage); 
       });
     }
   }, [i18n.language]); 
@@ -99,12 +99,12 @@ export const NavBar = () => {
             <>
               <li className="auth">
                 <Link to="/signup">
-                  <Button text= {t('navbar.Sign Up')} not_blank={true} />
+                  <Button text="Sign Up" not_blank={true} />
                 </Link>
               </li>
               <li className="auth">
                 <Link to="/login">
-                  <Button text={t('navbar.Login')} not_blank={true} />
+                  <Button text="Login" not_blank={true} />
                 </Link>
               </li>
             </>
@@ -114,7 +114,7 @@ export const NavBar = () => {
               <li>
                 <div className="user-info">{user.username}</div>
                 <Button
-                  text={t('navbar.Log Out')}
+                  text="Log Out"
                   handleClick={handleClick}
                   not_blank={true}
                 />
@@ -186,7 +186,7 @@ export const NavBar = () => {
         </Link>
       </div>
       <Button
-        text={i18n.language === 'ar' ? 'English' : 'العربية'}
+        text={localStorage.getItem('language') === 'ar' ? 'English' : 'العربية'}
         handleClick={toggleLanguage}
         not_blank={true}
       />
@@ -228,10 +228,10 @@ export const NavBar = () => {
         {!user && (
           <>
             <Link className=" auth" to="/signup">
-              <Button text={t('navbar.Sign Up')} not_blank={true} />
+              <Button text="Sign Up" not_blank={true} />
             </Link>
             <Link className=" auth" to="/login">
-              <Button text={t('navbar.Login')} not_blank={true} />
+              <Button text="Login" not_blank={true} />
             </Link>
           </>
         )}
@@ -244,7 +244,7 @@ export const NavBar = () => {
               {t('navbar.Your Fav Games')}
               </Link>
               <Button
-                text={t('navbar.Log Out')}
+                text="Log Out"
                 handleClick={handleClick}
                 not_blank={true}
               />

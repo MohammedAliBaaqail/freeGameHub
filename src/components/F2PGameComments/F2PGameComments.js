@@ -101,11 +101,11 @@ export const F2PGameComments = ({ gameId }) => {
           <div>
            
             <Link className=" auth" to="/login">
-              <Button text="login" not_blank={true} />
+              <Button text="Login" not_blank={true} />
             </Link>
             <span>  OR  </span>
             <Link className=" auth" to="/signup">
-              <Button text="signup" not_blank={true} />
+              <Button text="Sign Up" not_blank={true} />
             </Link>
             <span>   to leave a comment </span>
           </div>

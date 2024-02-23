@@ -1,74 +1,54 @@
 import { useState, useEffect } from "react";
 import "./NavBar.scss";
 import Logo from "../../assets/images/logo.svg";
-
 import { Link } from "react-router-dom";
-
 import { useLogout } from "../../hooks/useLogout";
 import { useSelector } from "react-redux";
 import { Button } from "../button/Button";
 import { useTranslation } from 'react-i18next';
 
-// Import i18n instance
 export const NavBar = () => {
   const { t, i18n } = useTranslation();
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [isHidden, setIsHidden] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const [languageChanged, setLanguageChanged] = useState(false);
-
+  const [lang, setLang] = useState(); 
   const { user } = useSelector((state) => state.user);
   const { logOut } = useLogout();
   
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem('language');
-    if (storedLanguage && storedLanguage !== i18n.language) {
-      i18n.changeLanguage(storedLanguage).then(() => {
-        setLanguageChanged(storedLanguage); 
-      });
-    }
-  }, [i18n.language]); 
-
-
-
-  
+  // Function to toggle language
   const toggleLanguage = () => {
     const newLanguage = i18n.language === 'ar' ? 'en' : 'ar';
     i18n.changeLanguage(newLanguage);
     localStorage.setItem('language', newLanguage); 
   };
+  useEffect(() => {
+    setLang(localStorage.getItem('language'))
+  },[])
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       const isHidden = prevScrollpos > currentScrollPos;
-
       setPrevScrollpos(currentScrollPos);
       setIsHidden(isHidden);
-
-      // Close the menu when scrolling
-      setIsMenuOpen(false);
+      setIsMenuOpen(false); 
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollpos]);
 
-  // Close the menu when clicking outside
+  // Effect to handle click outside menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       const menuToggle = document.getElementById("menu__toggle");
-
       if (menuToggle && !menuToggle.contains(event.target)) {
         setIsMenuOpen(false);
       }
     };
-
     document.addEventListener("click", handleClickOutside);
-
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };

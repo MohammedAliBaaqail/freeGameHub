@@ -7,13 +7,36 @@ import { Link } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useSelector } from "react-redux";
 import { Button } from "../button/Button";
+import { useTranslation } from 'react-i18next';
 
+// Import i18n instance
 export const NavBar = () => {
+  const { t, i18n } = useTranslation();
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [isHidden, setIsHidden] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu visibility
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [languageChanged, setLanguageChanged] = useState(false);
+
   const { user } = useSelector((state) => state.user);
   const { logOut } = useLogout();
+  
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage && storedLanguage !== i18n.language) {
+      i18n.changeLanguage(storedLanguage).then(() => {
+        setLanguageChanged(true); 
+      });
+    }
+  }, [i18n.language]); 
+
+
+
+  
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === 'ar' ? 'en' : 'ar';
+    i18n.changeLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage); 
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,9 +81,8 @@ export const NavBar = () => {
   const handleClick = () => {
     logOut();
   };
-
   return (
-<div className={`nav-bar${isHidden ? "" : " hidden"}`}>
+    <div className={`nav-bar${isHidden ? "" : " hidden"}`}>
       <div className="hamburger-menu">
         <input
           id="menu__toggle"
@@ -77,12 +99,12 @@ export const NavBar = () => {
             <>
               <li className="auth">
                 <Link to="/signup">
-                  <Button text="signup" not_blank={true} />
+                  <Button text= {t('navbar.Sign Up')} not_blank={true} />
                 </Link>
               </li>
               <li className="auth">
                 <Link to="/login">
-                  <Button text="login" not_blank={true} />
+                  <Button text={t('navbar.Login')} not_blank={true} />
                 </Link>
               </li>
             </>
@@ -92,123 +114,125 @@ export const NavBar = () => {
               <li>
                 <div className="user-info">{user.username}</div>
                 <Button
-                  text="Log out"
+                  text={t('navbar.Log Out')}
                   handleClick={handleClick}
                   not_blank={true}
                 />
               </li>
               <li>
                 <Link className="menu__item" to="/userfavgames">
-                  Your Fav Games
+                  {t('navbar.Your Fav Games')}
                 </Link>
               </li>
             </>
           )}
 
-
           <li>
             <Link className="menu__item" to="/games">
-              F2P GAMES
+              {t('navbar.f2pGames')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="/giveaways">
-              GIVEAWAYS
+              {t('navbar.giveaways')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/Shooter">
-              SHOOTER
+              {t('navbar.shooter')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/MMO">
-              MMO
+              {t('navbar.mmo')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/MOBA">
-              MOBA
+              {t('navbar.moba')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/Strategy">
-              STRATEGY
+              {t('navbar.strategy')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/Fighting">
-              FIGHTING
+              {t('navbar.fighting')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/Sports">
-              SPORTS
+              {t('navbar.sports')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="category/card">
-              CARDS
+              {t('navbar.cards')}
             </Link>
           </li>
           <li>
             <Link className="menu__item" to="categories">
-            CATEGORIES
+              {t('navbar.categories')}
             </Link>
           </li>
         </ul>
       </div>
 
-      
       <div className="nav-bar__logo">
         <Link to="/">
           <img src={Logo} alt="logo" />
         </Link>
       </div>
+      <Button
+        text={i18n.language === 'ar' ? 'English' : 'العربية'}
+        handleClick={toggleLanguage}
+        not_blank={true}
+      />
       <div className="nav-bar__links">
-        <div className=" left">
-          <Link className="nav-link " to="/games">
-            F2P GAMES
-          </Link>
-          <Link className="nav-link " to="/giveaways">
-            GIVEAWAYS{" "}
-          </Link>
-        </div>
+      <div className=" left">
+    <Link className="nav-link" to="/games">
+      {t('navbar.f2pGames')}
+    </Link>
+    <Link className="nav-link" to="/giveaways">
+      {t('navbar.giveaways')}
+    </Link>
+  </div>
 
-        <Link className="nav-link" to="category/Shooter">
-          SHOOTER
-        </Link>
-        <Link className="nav-link" to="category/MMO">
-          MMO
-        </Link>
-        <Link className="nav-link" to="category/MOBA">
-          MOBA
-        </Link>
-        <Link className="nav-link" to="category/Strategy">
-          STRATEGY
-        </Link>
-        <Link className="nav-link" to="category/Fighting">
-          FIGHTING
-        </Link>
-        <Link className="nav-link" to="category/Sports">
-          SPORTS
-        </Link>
-        <Link className="nav-link" to="category/card">
-          CARDS
-        </Link>
-        <Link className="nav-link" to="categories">
-           Categories
-        </Link>
+  <Link className="nav-link" to="category/Shooter">
+    {t('navbar.shooter')}
+  </Link>
+  <Link className="nav-link" to="category/MMO">
+    {t('navbar.mmo')}
+  </Link>
+  <Link className="nav-link" to="category/MOBA">
+    {t('navbar.moba')}
+  </Link>
+  <Link className="nav-link" to="category/Strategy">
+    {t('navbar.strategy')}
+  </Link>
+  <Link className="nav-link" to="category/Fighting">
+    {t('navbar.fighting')}
+  </Link>
+  <Link className="nav-link" to="category/Sports">
+    {t('navbar.sports')}
+  </Link>
+  <Link className="nav-link" to="category/card">
+    {t('navbar.cards')}
+  </Link>
+  <Link className="nav-link" to="categories">
+    {t('navbar.categories')}
+  </Link>
 
         {!user && (
           <>
             <Link className=" auth" to="/signup">
-              <Button text="signup" not_blank={true} />
+              <Button text={t('navbar.Sign Up')} not_blank={true} />
             </Link>
             <Link className=" auth" to="/login">
-              <Button text="login" not_blank={true} />
+              <Button text={t('navbar.Login')} not_blank={true} />
             </Link>
-            {/* <Link className=" auth" to="/login">login</Link> */}
           </>
         )}
 
@@ -217,10 +241,10 @@ export const NavBar = () => {
             <button class="dropbtn"> {user.username}</button>
             <div class="dropdown-content">
               <Link className="auth" to="/userfavgames">
-                Your Fav Games
+              {t('navbar.Your Fav Games')}
               </Link>
               <Button
-                text="Log out"
+                text={t('navbar.Log Out')}
                 handleClick={handleClick}
                 not_blank={true}
               />

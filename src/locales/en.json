@@ -1,0 +1,28 @@
+{
+    "navbar": {
+      "f2pGames": "F2P GAMES",
+      "giveaways": "GIVEAWAYS",
+      "shooter": "SHOOTER",
+      "mmo": "MMO",
+      "moba": "MOBA",
+      "strategy": "STRATEGY",
+      "fighting": "FIGHTING",
+      "sports": "SPORTS",
+      "cards": "CARDS",
+      "categories": "CATEGORIES",
+      "Your Fav Games": "Your Fav Games",
+      "Log Out": " Log Out",
+      "Login": " Login",
+      "Sign Up": "Sign Up"
+    },
+    "homePage":{
+      "Shooter": "Shooter ",
+      "MMO": "MMO",
+      "MOBA": "MOBA",
+      "Strategy": "Strategy",
+      "Fighting": "Fighting",
+      "Racing": "Racing",
+      "Card": "Card",
+      "View More": "View More"
+    }
+  }

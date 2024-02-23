@@ -5,13 +5,22 @@ import './Section.scss'
 import { Link } from "react-router-dom"
 import HoverPlayer from './HoverPlayer';
 import { Parallax , ParallaxProvider } from 'react-scroll-parallax';
-
+import { useTranslation } from 'react-i18next';
 const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const containerRef = useRef(null);
-
+  const [languageChanged, setLanguageChanged] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1600);
-
+  const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth < 1000);
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage && storedLanguage !== i18n.language) {
+      i18n.changeLanguage(storedLanguage).then(() => {
+        setLanguageChanged(true); // Trigger re-render after language change
+      });
+    }
+  }, [i18n.language]); 
   useEffect(() => {
     const handleResize = () => {
       const newWidth = window.innerWidth;
@@ -48,7 +57,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
     // slidesToScroll: 1,
     adaptiveHeight: true,
     swipeToSlide: true,
-   
+    touchThreshold: 100 ,
     rows:2,
     slidesPerRow: 1,
     
@@ -76,7 +85,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
         <div className="background-image" style={{ backgroundImage: `url(${bg})` }}></div>
 
         <Parallax className='title-container' translateY={[30, 80]} speed={80}>
-          <h1 className='section-title' >{title}</h1>
+          <h1 className='section-title' >{t(`homePage.${title}`)}</h1>
         </Parallax>
       </Parallax>
     <section className="section">
@@ -85,7 +94,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
       <Fade    className="image-container">
        
         
-        <HoverPlayer vidSrc={vid}  imgSrc={img} isMobile={isMobile}/>
+        <HoverPlayer vidSrc={vid}  imgSrc={img} isMobile={isSmallMobile}/>
       </Fade>
       <div className={`gradient-overlay ${position === 1 ? 'reverse' : ''}`}></div>
       </div>
@@ -99,7 +108,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
           <div>
                 {isMobile ? (
                   <div className="game-cards-container">
-                    <Slider {...sliderSettings}>{sectionGames}</Slider>
+                    <Slider style={{cursor:'grab'}} {...sliderSettings}>{sectionGames}</Slider>
                   </div>
                 ) : (
                   <div className="game-cards-container"> 
@@ -114,7 +123,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
               </div>
         
           
-          <Link key={title} className="category-link" to={`/category/${title}`}>View More</Link>
+          <Link key={title} className="category-link" to={`/category/${title}`}>      {t('homePage.View More')}</Link>
           
         </Zoom>
       </div>

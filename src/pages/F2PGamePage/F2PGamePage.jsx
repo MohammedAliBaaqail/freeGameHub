@@ -22,8 +22,9 @@ export const F2PGamePage = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        touchThreshold: 100 ,
         // adaptiveHeight: true,
-        // autoplay: true,
+        autoplay: true,
         
        
       };

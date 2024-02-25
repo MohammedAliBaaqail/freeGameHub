@@ -24,5 +24,21 @@
       "Racing": "Racing",
       "Card": "Card",
       "View More": "View More"
+    },
+    "btn":{
+      "Log Out": "Log Out",
+      "Login":  "Login",
+      "Sign Up":"Sign Up",
+      "Play":"Play",
+      "More Info": "More Info",
+      "English": "English",
+      "العربية":"العربية",
+      "Open": "Open"
+    },
+    "gamePage":{
+      "OR": "OR",
+      "to leave a comment":   "to leave a comment",
+      "No Game Rating Yet":"No Game Rating Yet",
+      "Game Rating":"Game Rating"
     }
   }

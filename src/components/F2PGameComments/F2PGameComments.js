@@ -20,14 +20,17 @@ import {
 import { Input } from "../input/Input";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { EditComment } from "./EditComment";
+import { useTranslation } from 'react-i18next';
 
 export const F2PGameComments = ({ gameId }) => {
+  const { t, i18n } = useTranslation();
   const { data: commentsList ,isLoading } = useGetCommentsQuery(gameId);
   const [updateComment] = useUpdateCommentMutation();
   const [deleteComment] = useDeleteCommentMutation();
   const [editedComment, setEditedComment] = useState();
   const [editMode, setEditMode] = useState(false);
   const [hiddenClass, setHiddenClass] = useState(true);
+  const [languageChanged, setLanguageChanged] = useState(false);
   const { cmnt } = useSelector((state) => state.comments);
   const { user } = useSelector((state) => state.user);
   const [error, setError] = useState();
@@ -37,6 +40,14 @@ export const F2PGameComments = ({ gameId }) => {
   // const [deleteError, setDeleteError] = useState();
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage && storedLanguage !== i18n.language) {
+      i18n.changeLanguage(storedLanguage).then(() => {
+        setLanguageChanged(true); // Trigger re-render after language change
+      });
+    }
+  }, [i18n.language]); 
   useEffect(() => {
     const fetchComments = async () => {
       // const res = await fetch(`https://free-game-hub-backend.vercel.app/game/comments/${gameId}`);
@@ -83,9 +94,9 @@ export const F2PGameComments = ({ gameId }) => {
     <div className="comments-component">
       <div className="comments-form">
         {averageRating ? (
-          <h1>Game Rating: {Math.round(averageRating * 10) / 10}</h1>
+          <h1>{t(`gamePage.Game Rating`)} : {Math.round(averageRating * 10) / 10}</h1>
         ) : (
-          <h1>No Game Rating Yet</h1>
+          <h1>{t(`gamePage.No Game Rating Yet`)} </h1>
         )}
         {/* <h1>Game Rating: {Math.round(averageRating * 10) / 10}</h1> */}
         <div className="game-rating-stars">
@@ -98,17 +109,37 @@ export const F2PGameComments = ({ gameId }) => {
         {user ? (
           <CommentForm gameId={gameId} authUser={user} />
         ) : (
-          <div>
            
-            <Link className=" auth" to="/login">
+          <div>
+             {localStorage.getItem('language') === "ar" ?
+             (     <div>
+               <span>{t(`gamePage.OR`)}    </span>
+               <Link className=" auth" to="/signup">
+                 <Button text="Sign Up" not_blank={true} />
+               </Link>
+           
+               <span> {t(`gamePage.to leave a comment`)}  </span>
+               <Link className=" auth" to="/login">
+                
+                <Button text="Login" not_blank={true} />
+              </Link>
+               </div>) :(
+            <div>
+           <Link className=" auth" to="/login">
+             
               <Button text="Login" not_blank={true} />
             </Link>
-            <span>  OR  </span>
+            <span>{t(`gamePage.OR`)}    </span>
             <Link className=" auth" to="/signup">
               <Button text="Sign Up" not_blank={true} />
             </Link>
-            <span>   to leave a comment </span>
+            <span> {t(`gamePage.to leave a comment`)}  </span>
+            </div>
+             )}
+
+
           </div>
+          
         )}
       </div>
     

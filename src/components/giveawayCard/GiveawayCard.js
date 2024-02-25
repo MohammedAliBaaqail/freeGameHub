@@ -25,7 +25,7 @@ export const GiveawayCard = ({id,title,worth,thumbnail,open_giveaway_url,platfor
             <p>Original Price: {worth}</p>
           </div>
           <div className="flex-giveaway-buttons">
-            <Button text="Open " url={open_giveaway_url} />
+            <Button text="Open" url={open_giveaway_url} />
 
             <Link to={`/giveaway/${id}`}>
               <Button text="More Info" />

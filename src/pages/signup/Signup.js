@@ -62,7 +62,7 @@ const Signup = () => {
           </div>
         ) : (
           <>
-            <Button text={"Sign up"} disabled={isLoading} />
+            <Button text="Sign Up" disabled={isLoading} />
             {signupSuccess && !error && <div className="success-message">Signup successful! Check your email inbox and spam box for verification instructions.</div>}
             { error && <div className="error">{error}</div>}
             {passwordMismatch && <div className="error">Password and confirmed password do not match.</div>}

@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+// /* Global styles for Arabic text */
+.arabic-styles {
+
+  font-family: "Cairo", sans-serif !important;
+ 
+
+}
+
+
+// .arabic-styles .title-container {
+//   font-size: 240px; 
+// }
+
+// .arabic-styles h1 {
+//   line-height: 1.5; 
+//   margin-bottom: 10px;
+//   font-size: 6rem !important; 
+// }
+
+
+// .arabic-styles .rtl {
+//   direction: rtl;
+// }
+
+
 h1,h2,h3,h4,h5,h6 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }

@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../../app/userSlice";
 import { selectFavoriteGames } from "../../app/favoriteGamesSlice";
 import { setFavoriteGames } from "../../app/favoriteGamesSlice";
+import { Link } from "react-router-dom";
 import "./Home.scss";
 
 import { sections } from "./data";
@@ -67,7 +68,14 @@ export const HomePage = () => {
   return (
     <div className="home-page" {...animations}>
       <div className="hero-section">
-        <h1>Free Game Hub </h1>
+      <div class="hero-text">
+    <h1>Discover the Best Free PC Games!</h1>
+    <p>Explore a curated collection of top free games, ready to download and play instantly. No cost, no hassle—just pure gaming fun!</p>
+   
+      <Link className="cta-button" to="games/">
+      Start Playing Now
+      </Link>
+  </div>
       </div>
 
       {allSections}

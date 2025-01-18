@@ -26,6 +26,7 @@
     "react-scripts": "5.0.1",
     "react-scroll-parallax": "^3.4.5",
     "react-slick": "^0.29.0",
+    "regexpp": "^3.2.0",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.4"
   },
@@ -34,8 +35,7 @@
     "build": "react-scripts build && npm run sentry:sourcemaps",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org meself-vu --project javascript-react ./ && sentry-cli sourcemaps upload --org meself-vu --project javascript-react ./ --ignore-file .sentryignore"
-
+    "sentry:sourcemaps": "sentry-cli sourcemaps upload --org meself-vu --project javascript-react ./ --ignore-file .sentryignore"
   },
   "eslintConfig": {
     "extends": [

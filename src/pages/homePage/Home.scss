@@ -1,35 +1,37 @@
-.home-page{
-// margin-bottom: 50px;
-// position: absolute;
-width: 100%;
-
-top: 0;
-left: 0;
-.slick-prev {
-  left: -52px;
-  z-index: 1;
-}
-// .slick-next {
-//   right: 33px;
-// }
-.game-card {
-  margin: 15px auto;
-}
-span {
-  // margin-right: 20px; /* Adjust spacing between words */
-  font-size: 2rem;
-}
-
-/* Optionally, you can add some styling to the active span if desired */
-span.active {
-  font-weight: bold;
-
-  /* Add any other styling as needed */
-}
-}
-.hero-section{
+.home-page {
+  // margin-bottom: 50px;
+  // position: absolute;
+  width: 100%;
+  
+  top: 0;
+  left: 0;
+  
+  .slick-prev {
+    left: -52px;
+    z-index: 1;
+  }
+  
+  // .slick-next {
+  //   right: 33px;
+  // }
+  
+  .game-card {
+    margin: 15px auto;
+  }
+  
+  span {
+    // margin-right: 20px; /* Adjust spacing between words */
+    font-size: 2rem;
+  }
+  
+  /* Optionally, you can add some styling to the active span if desired */
+  span.active {
+    font-weight: bold;
+    /* Add any other styling as needed */
+  }
+  
+  .hero-section {
     display: flex;
-    
     justify-content: flex-start; 
     align-items: center; 
     height: 100vh;
@@ -59,7 +61,7 @@ span.active {
     }
     
     .cta-button {
-      background-color:var(--color-orange-dark); 
+      background-color: var(--color-orange-dark); 
       color: #fff;
       padding: 10px 20px;
       text-transform: uppercase;
@@ -75,62 +77,70 @@ span.active {
     .cta-button:hover {
       background-color: var(--color-orange); 
     }
-}
- 
-.popular-games{
+  }
+  
+  .popular-games {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 50px;
-}
-
-.home-game-card{
- 
-}
-.home-slider{
+  }
+  
+  .home-game-card {
+  }
+  
+  .home-slider {
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
-     width: 100%; 
-     cursor: -webkit-grab;
+    width: 100%; 
+    cursor: -webkit-grab;
     // border: 5px solid var(--color-primary-dark);
-    &:hover{
-        .slick-prev{
-          display: block !important;
-        }
-        .slick-next{
-          display: block !important;
-        }
+    &:hover {
+      .slick-prev {
+        display: block !important;
       }
-}
-
-.infinite-scrolling-text {
-  overflow: hidden;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.text-container {
-  white-space: nowrap;
-  display: inline-block;
-  width: fit-content; /* Adjust as needed */
-  animation: scrollText 5s ease-in-out infinite alternate; /* Use 'alternate' to go back and forth */
-}
-
-@keyframes scrollText {
-  0% {
-    transform: translateX(20vw);
+      .slick-next {
+        display: block !important;
+      }
+    }
   }
-  100% {
-    transform: translateX(-20vw);
+  
+  .infinite-scrolling-text {
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .text-container {
+    white-space: nowrap;
+    display: inline-block;
+    width: fit-content; /* Adjust as needed */
+    animation: scrollText 5s ease-in-out infinite alternate; /* Use 'alternate' to go back and forth */
+  }
+  
+  @keyframes scrollText {
+    0% {
+      transform: translateX(20vw);
+    }
+    100% {
+      transform: translateX(-20vw);
+    }
+  }
+  
+  @media only screen and (max-width: 850px) {
+    .hero-section {
+      margin: 0 0 6vh 0;
+    }
+    .hero-section .hero-text h1 {
+      font-size: 2.0rem;
+    }
+    .hero-section .cta-button {
+      font-size: 1.6rem;
+    }
+    .hero-text {
+      margin: auto;
+    }
   }
 }
-
-@media only screen and (max-width: 850px) {
-  .hero-section{
-    margin: 0 0 6vh 0;
-  }
-}
-
-

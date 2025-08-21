@@ -15,7 +15,7 @@
       img: 'landingPage/mmo.jpg',
       vid: 'landingPage/mmo.mp4',
       bg:'landingPage/mmo-bg.jpg',
-      gamesIds:[521, 517, 475, 529 , 1 , 13]
+      gamesIds:[521, 517, 475, 529 , 582 , 13]
     },
     {
       title: 'Strategy',
@@ -23,7 +23,7 @@
       img: 'landingPage/strategy.jpg',
       vid: 'landingPage/strategy.mp4',
       bg: 'landingPage/strategy-bg.jpg',
-      gamesIds:[9, 340, 345, 402 , 479 , 347]
+      gamesIds:[9, 340, 345,  613  , 479 , 347]
     },
     {
       title: 'Fighting',
@@ -39,7 +39,7 @@
       img: 'landingPage/racing.jpg',
       vid: 'landingPage/racing.mp4',
       bg:'landingPage/racing-bg.jpg',
-      gamesIds:[121, 351, 474, 5 , 552 , 546]
+      gamesIds:[121, 351, 474, 5 , 552 ,258 ]
     },
     {
       title: 'MOBA',

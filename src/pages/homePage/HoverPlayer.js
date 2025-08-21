@@ -42,8 +42,8 @@ const HoverPlayer = ({ vidSrc, imgSrc , isMobile }) => {
           top: 0,
           left: 0,
           width: "100%",
-          height:"700px",
-          maxHeight: "700px",
+          height:"800px",
+          maxHeight: "800px",
           objectFit: "cover",
           display: isHovered ? "inline-block" : "none",
         }}

@@ -13,6 +13,7 @@ const Section = ({sectionGames , title , img ,vid ,  position ,bg}) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1600);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth < 1000);
   const { t, i18n } = useTranslation();
+  
   useEffect(() => {
     const storedLanguage = localStorage.getItem('language');
     if (storedLanguage && storedLanguage !== i18n.language) {

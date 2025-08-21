@@ -1,20 +1,24 @@
-.home-page{
+.home-page {
   // margin-bottom: 50px;
   // position: absolute;
   width: 100%;
   
   top: 0;
   left: 0;
+  
   .slick-prev {
     left: -52px;
     z-index: 1;
   }
+  
   // .slick-next {
   //   right: 33px;
   // }
+  
   .game-card {
     margin: 15px auto;
   }
+  
   span {
     // margin-right: 20px; /* Adjust spacing between words */
     font-size: 2rem;
@@ -23,86 +27,84 @@
   /* Optionally, you can add some styling to the active span if desired */
   span.active {
     font-weight: bold;
-  
     /* Add any other styling as needed */
   }
-  }
-  .hero-section{
-      display: flex;
-      
-      justify-content: flex-start; 
-      align-items: center; 
-      height: 100vh;
-      // background-image: url('../../assets/images/hero.jpg');
-      background-image: url('../../assets/images/aa.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-position: 80%;
-      margin: 0 0 -10vh 0;
-      box-shadow: 1px 1px 40px 21px rgba(0, 0, 0, 0.75);
-      border-bottom: solid 3px var(--color-secondary-dark);
-      
-      .hero-text {
-        max-width: 900px; 
-        font-size: 2rem; 
-        margin-left: 5%;
-      }
-      
-      .hero-text h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-      }
-      
-      .hero-text p {
-        font-size: 1.2rem; 
-      }
-      
-      .cta-button {
-        background-color:var(--color-orange-dark); 
-        color: #fff;
-        padding: 10px 20px;
-        text-transform: uppercase;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 20px;
-        border-radius: 5px;
-      }
-      
-      .cta-button:hover {
-        background-color: var(--color-orange); 
-      }
-  }
-   
-  .popular-games{
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-      margin-bottom: 50px;
+  
+  .hero-section {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 100vh;
+    // background-image: url('../../assets/images/hero.jpg');
+    background-image: url('../../assets/images/aa.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: 80%;
+    margin: 0 0 -10vh 0;
+    box-shadow: 1px 1px 40px 21px rgba(0, 0, 0, 0.75);
+    border-bottom: solid 3px var(--color-secondary-dark);
+    
+    .hero-text {
+      max-width: 900px; 
+      font-size: 2rem; 
+      margin-left: 5%;
+    }
+    
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+      font-size: 1.2rem; 
+    }
+    
+    .cta-button {
+      background-color: var(--color-orange-dark); 
+      color: #fff;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    
+    .cta-button:hover {
+      background-color: var(--color-orange); 
+    }
   }
   
-  .home-game-card{
-   
+  .popular-games {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
   }
-  .home-slider{
-      margin: 0 auto;
-      margin-left: auto;
-      margin-right: auto;
-       width: 100%; 
-       cursor: -webkit-grab;
-      // border: 5px solid var(--color-primary-dark);
-      &:hover{
-          .slick-prev{
-            display: block !important;
-          }
-          .slick-next{
-            display: block !important;
-          }
-        }
+  
+  .home-game-card {
+  }
+  
+  .home-slider {
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; 
+    cursor: -webkit-grab;
+    // border: 5px solid var(--color-primary-dark);
+    &:hover {
+      .slick-prev {
+        display: block !important;
+      }
+      .slick-next {
+        display: block !important;
+      }
+    }
   }
   
   .infinite-scrolling-text {
@@ -128,16 +130,17 @@
   }
   
   @media only screen and (max-width: 850px) {
-    .hero-section{
+    .hero-section {
       margin: 0 0 6vh 0;
     }
-    .hero-section .hero-text h1{
+    .hero-section .hero-text h1 {
       font-size: 2.0rem;
     }
-    .hero-section .cta-button{
+    .hero-section .cta-button {
       font-size: 1.6rem;
     }
-    .hero-text{
+    .hero-text {
       margin: auto;
     }
   }
+}
